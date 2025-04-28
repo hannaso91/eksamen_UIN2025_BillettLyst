@@ -13,12 +13,12 @@ function App() {
     const [eventsByFindings, setEventsByFindings] = useState([])
     const [eventsByTonsOfRock, setEventsByTonsOfRock] = useState([])
 
-    const filterByNeon = "NEON Festival"
+    const filterByNeon = "Neon"
     const filterByFindings = "Findings"
     const filterByTonsOfRock = "Tons of Rock"
 
     const getEventsByNeon = async() => {
-        fetch(`https://app.ticketmaster.com/discovery/v2/events.json?keyword=${filterByNeon}&NO&apikey=AFEfcxa4XlCTGJA56Jk356h0NkfziiWD`) //Etter en del prøving og feiling her tenkte vi å prøve og gjøre keywords dynamisk
+        fetch(`https://app.ticketmaster.com/discovery/v2/events.json?keyword=${filterByNeon}&apikey=AFEfcxa4XlCTGJA56Jk356h0NkfziiWD&size=100`) //Etter en del prøving og feiling her tenkte vi å prøve og gjøre keywords dynamisk
         .then(response => response.json())
         .then(data => {
             console.log(data)
@@ -70,7 +70,7 @@ function App() {
     <>
       <Layout>
         <Routes>
-          <Route path="/" element={<Home eventsByNeon={eventsByNeon} filterByNeon={filterByNeon} setEventsByNeon={setEventsByNeon}/>} />
+          <Route path="/" element={<Home eventsByNeon={eventsByNeon} filterByNeon={filterByNeon} setEventsByNeon={setEventsByNeon} eventsByFindings={eventsByFindings}/>} />
           <Route path="/event/:id" element={<EventPage eventsByNeon={eventsByNeon}/>} />
           <Route path="/category/:slug" element={<CategoryPage />} />
           <Route path="/dashboard" element={<Dashboard />} />
