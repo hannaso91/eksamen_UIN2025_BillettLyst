@@ -19,7 +19,10 @@ export default function Home({eventsByNeon, filterByNeon, setEventsByNeon, event
        <section>
         <ul>
             {eventsByFindings?.map(event =>
-                <Link key={event.id} to={`/event/${event.id}`}><li >{event?.name}</li></Link>
+                <Link key={event.id} to={`/event/${event.id}`}>
+                    <img src={event.images?.[0]?.url} alt={event.name} />
+                    <li >{event?.name}</li>
+                </Link>
             )}
         </ul>
        </section>
