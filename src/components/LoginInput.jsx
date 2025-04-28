@@ -1,5 +1,15 @@
 export default function LoginInput() {
     return (
-        <h1>Test</h1> //Denne kan fjernes Jimmy, får feil om det ikke ligger noe der bare
+        <>
+        <section>
+            <form>
+                <label>
+                    Brukernavn
+                    <input type="text" placeholder="Hannaso" name="username" />
+                </label>
+                <button>Logg inn</button>
+            </form>
+        </section>
+        </>
     )
 }
