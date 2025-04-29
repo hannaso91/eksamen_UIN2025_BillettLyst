@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 export default function Home({festivals}) {
     return(
         <>
-       <h1>Utvalgte festivaler</h1> 
-       <section className="festivals"> 
+        <h1>Utvalgte festivaler</h1> 
+        <section className="festivals"> 
         <ul>
             {festivals?.map(event => 
                 <Link key={event.id} to={`/event/${event.id}`}>
@@ -13,7 +13,10 @@ export default function Home({festivals}) {
                 </Link>
             )}
         </ul>
-       </section>
+        </section>
+        <section>
+            <EventCard />
+        </section>
         </>
     )
 }
