@@ -7,7 +7,7 @@ export default function EventPage() {
     const [event, setEvent] = useState()
 
     const getEvent = async () => {
-        fetch(`https://app.ticketmaster.com/discovery/v2/events/${id}.json?apikey=AFEfcxa4XlCTGJA56Jk356h0NkfziiWD`)
+        fetch(`https://app.ticketmaster.com/discovery/v2/attractions/${id}.json?apikey=AFEfcxa4XlCTGJA56Jk356h0NkfziiWD`)
         .then(response => response.json())
         .then((data) => setEvent(data))
         .catch((error) => console.error("Steike da! Det skjedde noe galt, er du sjokkert? NEI! Ikke jeg heller", error))
