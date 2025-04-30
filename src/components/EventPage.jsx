@@ -37,8 +37,6 @@ export default function EventPage() {
             <h3>Følg oss på sosiale medier:</h3>
             <h3>Festivalpass:</h3>
                 <FestivalPass id={id}/>
-            
-          
         </section>
       );
     }
