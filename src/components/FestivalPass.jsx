@@ -1,25 +1,6 @@
-import { useEffect, useState } from "react"
-
-export default function FestivalPass ({id}){
-
-    
-    const [festivalpass, setFestivalPass] = useState([])
-    
-
-    const getFestivalPass = async () => {
-        fetch(`https://app.ticketmaster.com/discovery/v2/events.json?attractionId=${id}&locale=NO&apikey=AFEfcxa4XlCTGJA56Jk356h0NkfziiWD`)
-        .then(response => response.json())
-        .then((data) => setFestivalPass(data._embedded.events))
-        .catch((error) => console.error("Steike da! Det skjedde noe galt, er du sjokkert? NEI! Ikke jeg heller", error))
-    }
-
-    console.log(festivalpass)
-
-    useEffect(() => {
-        getFestivalPass()
-    }, [id])
 
 
+export default function FestivalPass ({festivalpass}){
 
     return(
         <>
