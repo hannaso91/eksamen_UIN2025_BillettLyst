@@ -1,21 +1,11 @@
-export default function ArtistCard({ festivalpass }) {
-    return (
-      <section>
-        {festivalpass.map((event) => (
-          <article key={event.id}>
-            <h3>{event.name}</h3>
-  
-            {event._embedded?.attractions?.length > 0 ? (
-              <ul>
-                {event._embedded.attractions.map((artist) => (
-                  <li key={artist.id}>{artist.name}</li>
-                ))}
-              </ul>
-            ) : (
-              <p>Ingen artister funnet</p>
-            )}
-          </article>
-        ))}
-      </section>
-    );
-  }
+export default function ArtistCard({festivalpass}) {
+    return(
+        <>
+        {festivalpass.map(artist => 
+        <div key={artist.id}>
+            <h3>{artist._embedded?.attractions?.[0]?.name}</h3> {/*Får ut bare i array 0 her, usikker på hvordan jeg skal få ut alle artister*/}
+        </div>
+        )}
+        </>
+    )
+}

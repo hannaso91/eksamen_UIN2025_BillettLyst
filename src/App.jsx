@@ -37,7 +37,7 @@ function App() {
       <Layout>
         <Routes>
           <Route path="/" element={<Home festivals={festivals}/>} />
-          <Route path="/event/:id" element={<EventPage />} />
+          <Route path="/event/:id" element={<EventPage festivals={festivals}/>} />
           <Route path="/category/:slug" element={<CategoryPage />} />
           <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
