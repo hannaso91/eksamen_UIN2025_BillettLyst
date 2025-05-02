@@ -12,11 +12,7 @@ export default function Home({festivals}) {
             <EventCard festivals={festivals}/>
         </section>
         <section>
-            <Link to={`event/oslo`}>Oslo</Link>
-            <Link to={`event/stockholm`}>Stockholm</Link>
-            <Link to={`event/berlin`}>Berlin</Link>
-            <Link to={`event/paris`}>Paris</Link>
-            <Link to={`event/london`}>London</Link>
+           
             <CityEvents />
         </section>
         </>

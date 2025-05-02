@@ -1,17 +1,39 @@
-import { useState } from "react"
+import { useState } from "react";
 
 export default function CityEvents() {
+  const [selectedCity, setSelectedCity] = useState("");
+  const [cityevents, setCityEvents] = useState([]);
 
-    const [selectedCity, setSelectedCity] = useState()
-    const handleClick = async(city) => {
-        setSelectedCity(city)
-        fetch(`https://app.ticketmaster.com/discovery/v2/events.json?city=${City}size=10&apikey=AFEfcxa4XlCTGJA56Jk356h0NkfziiWD`)
-        .then(response => response.json())
-        .then((data) => console.log("city",data))
-        .catch(error => console.error("neinei, det går ikke", error))
-    }
+  const handleClick = (city) => {
+    setSelectedCity(city);
 
-    return(
-        <h2></h2>
-    )
+    fetch(`https://app.ticketmaster.com/discovery/v2/events.json?city=${city}&size=10&apikey=AFEfcxa4XlCTGJA56Jk356h0NkfziiWD`)
+      .then(response => response.json())
+      .then(data => {
+        setCityEvents(data._embedded?.events || []);
+      })
+      .catch(error => {
+        console.error("Steike da! Det skjedde noe galt, er du sjokkert? NEI! Ikke jeg heller", error);
+      });
+  };
+
+  return (
+    <div className="cityEvents">
+      {["Oslo", "Stockholm", "Berlin", "Paris", "London"].map((city) => (
+        <button key={city} onClick={() => handleClick(city)}>
+          {city}
+        </button>
+      ))}
+
+      <h3>Arrangementer i {selectedCity}</h3>
+      <ul>
+        {cityevents.map((event) => (
+          <li key={event.id}>
+            <p>{event.name}</p>
+            <p>{event.dates.start.localDate}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
