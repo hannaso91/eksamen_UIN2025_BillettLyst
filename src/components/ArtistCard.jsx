@@ -23,6 +23,7 @@ export default function ArtistCard({ festivalpass }) {
         <>
             {filterWithPush.map(artist => (
                 <div key={artist.id}>
+                    <img src={artist.images?.[0]?.url}/>
                     <h3>{artist?.name}</h3>
                 </div>
             ))}
