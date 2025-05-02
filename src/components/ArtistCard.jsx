@@ -1,11 +1,27 @@
 export default function ArtistCard({ festivalpass }) {
-    const attractions = festivalpass[2]?._embedded?.attractions;
+    
+    const filterWithPush = [];
 
-    if (!attractions) return <p>Ingen artister funnet i festivalpass</p>;
+    festivalpass.map(pass => {
+        const attractions = pass._embedded?.attractions;
+
+        attractions?.map(artist => {
+            // Sjekk om artisten allerede finnes i listen basert på id, pusher inn dersom den ikke finnes
+            const alreadyAdded = filterWithPush.find(a => a.id === artist.id);
+
+            if (!alreadyAdded) {
+                filterWithPush.push(artist);
+            }
+        });
+    });
+
+    console.log("push filter", filterWithPush)
+
+    if (filterWithPush.length === 0) return <p>Ingen artister funnet i festivalpass</p>;
 
     return (
         <>
-            {attractions.map(artist => (
+            {filterWithPush.map(artist => (
                 <div key={artist.id}>
                     <h3>{artist?.name}</h3>
                 </div>
