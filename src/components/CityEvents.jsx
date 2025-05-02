@@ -29,6 +29,7 @@ export default function CityEvents() {
       <ul>
         {cityevents.map((event) => (
           <li key={event.id}>
+            <img src={event.images?.[0]?.url}/>
             <p>{event.name}</p>
             <p>{event.dates.start.localDate}</p>
           </li>
