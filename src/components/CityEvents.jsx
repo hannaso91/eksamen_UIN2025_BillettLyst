@@ -32,6 +32,7 @@ export default function CityEvents() {
             <img src={event.images?.[0]?.url}/>
             <p>{event.name}</p>
             <p>{event.dates.start.localDate}</p>
+            <p>{event.venues?.city.name}</p>
           </li>
         ))}
       </ul>
