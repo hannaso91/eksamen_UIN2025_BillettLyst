@@ -2,9 +2,7 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import FestivalPass from "./FestivalPass"
 import ArtistCard from "./ArtistCard"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFacebook } from '@fortawesome/free-brands-svg-icons'
-import { faInstagram } from '@fortawesome/free-brands-svg-icons'
+
 
 
 export default function EventPage() {
@@ -29,7 +27,7 @@ export default function EventPage() {
         .catch((error) => console.error("Steike da! Det skjedde noe galt, er du sjokkert? NEI! Ikke jeg heller", error))
     }
 
-    console.log("kommer fra:", festivalpass)
+    console.log("kommer fra festivalpass:", festivalpass)
 
     useEffect(() => {
         getFestivalPass()
@@ -54,12 +52,7 @@ export default function EventPage() {
             </ul>
             <h3>Følg oss på sosiale medier:</h3>
             <article> {/*Legges inn i Some.jsx når det fungerer med riktig href osv*/}
-                <a href="https://www.facebook.com" target="_blank"> {/*Bruker A istedet for link siden det ikke er interne linker men eksterne*/}
-                    <FontAwesomeIcon icon={faFacebook} />
-                </a>
-                <a href="https://www.instagram.com" target="_blank" >
-                    <FontAwesomeIcon icon={faInstagram} />
-                </a>
+                
             </article>
 
             <h3>Festivalpass:</h3>
