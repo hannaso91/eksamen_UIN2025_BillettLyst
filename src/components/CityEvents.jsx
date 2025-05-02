@@ -3,7 +3,8 @@ import { useState } from "react";
 export default function CityEvents() {
   const [selectedCity, setSelectedCity] = useState("");
   const [cityevents, setCityEvents] = useState([]);
-
+  const cities =  ["Oslo", "Stockholm", "Berlin", "Paris", "London"] 
+  
   const handleClick = (city) => {
     setSelectedCity(city);
 
@@ -21,7 +22,9 @@ export default function CityEvents() {
 
   return (
     <div className="cityEvents">
-      {["Oslo", "Stockholm", "Berlin", "Paris", "London"].map((city) => (
+      
+
+      {cities.map((city) => (
         <button key={city} onClick={() => handleClick(city)}>
           {city}
         </button>
