@@ -10,12 +10,14 @@ export default function CityEvents() {
     fetch(`https://app.ticketmaster.com/discovery/v2/events.json?city=${city}&size=10&apikey=AFEfcxa4XlCTGJA56Jk356h0NkfziiWD`)
       .then(response => response.json())
       .then(data => {
-        setCityEvents(data._embedded?.events || []);
+        setCityEvents(data._embedded?.events)
       })
       .catch(error => {
         console.error("Steike da! Det skjedde noe galt, er du sjokkert? NEI! Ikke jeg heller", error);
       });
   };
+
+  console.log()
 
   return (
     <div className="cityEvents">
@@ -31,8 +33,9 @@ export default function CityEvents() {
           <li key={event.id}>
             <img src={event.images?.[0]?.url}/>
             <p>{event.name}</p>
-            <p>{event.dates.start.localDate}</p>
-            <p>{event.venues?.city.name}</p>
+            <p>{event.dates?.start?.localDate}</p>
+            <p>{event._embedded?.venues?.[0]?.city?.name}</p>
+            <p>{event._embedded?.venues?.[0]?.country?.name}</p>
           </li>
         ))}
       </ul>
