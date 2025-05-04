@@ -1,6 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import Nav from "./Nav";
-import {Logo} from "../pictures/BillettLyst.png"
+import Logo from "../pictures/BillettLyst.png"
 
 export default function Layout({children}) {
     return(
