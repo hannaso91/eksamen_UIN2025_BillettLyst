@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import FestivalPass from "./FestivalPass"
 import ArtistCard from "./ArtistCard"
+import EventCard from "./EventCard"
 
 
 
@@ -56,9 +56,13 @@ export default function EventPage() {
             </article>
 
             <h3>Festivalpass:</h3>
-                <FestivalPass festivalpass={festivalpass}/>
+            {festivalpass.map(pass =>
+                <EventCard key={pass.id}pass={pass}/>
+            )}
+                
         </section>
         <section>
+            <h2>Artister</h2>
             <ArtistCard festivalpass={festivalpass}/>
         </section>
         </>

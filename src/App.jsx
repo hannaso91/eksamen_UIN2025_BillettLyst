@@ -6,7 +6,7 @@ import EventPage from './components/EventPage'
 import CategoryPage from './components/CategoryPage'
 import Dashboard from './components/Dashboard'
 import { useEffect, useState } from 'react'
-import CityEvents from './components/CityEvents'
+
 
 function App() {
 
