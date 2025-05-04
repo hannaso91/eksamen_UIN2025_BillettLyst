@@ -1,4 +1,4 @@
-
+import "../styles/eventCard.scss"
 
 export default function EventCard ({pass}){
     return(

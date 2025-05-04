@@ -1,3 +1,5 @@
+import "../styles/artistcard.scss"
+
 export default function ArtistCard({ festivalpass }) {
     
     const filterWithPush = [];
