@@ -57,7 +57,7 @@ export default function EventPage() {
 
             <h3>Festivalpass:</h3>
             {festivalpass.map(pass =>
-                <EventCard key={pass.id}pass={pass}/>
+                <EventCard key={pass.id} pass={pass}/>
             )}
                 
         </section>
