@@ -7,8 +7,8 @@ export default function CategoryPage () {
 
     const {slug} = useParams()
     const [date, setDate] = useState("")
-    const [country, setCountry] = useState("")
-    const [categoryCity, setCity] = useState("")
+    const [country, setCountry] = useState("Norge")
+    const [categoryCity, setCity] = useState("Oslo")
     const [eventsCategory, setEventsCategory] = useState([])
 
     //Vi skjønte tidlig at APIet ikke vil forstå norsk siden URL er på norsk ville ikke det gitt resultater i fetchen. Vi valgte derfor å lage en egen variabel som gjør det om til engelsk og bruke slug for å hente ut riktig
