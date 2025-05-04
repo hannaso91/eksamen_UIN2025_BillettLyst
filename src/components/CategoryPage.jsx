@@ -7,7 +7,7 @@ export default function CategoryPage () {
 
     const {slug} = useParams()
     const [date, setDate] = useState("")
-    const [country, setCountry] = useState("Norge")
+    const [country, setCountry] = useState("Norge") // Setter inn default slik at noe alltid er der når siden lastes
     const [categoryCity, setCity] = useState("Oslo")
     const [eventsCategory, setEventsCategory] = useState([])
 
@@ -22,7 +22,7 @@ export default function CategoryPage () {
     //Lager så en variabel som henter inn basert på riktig slug
     const apiCategory = categoryEnglish[slug]
 
-    //Det samme må gjøres med land, inputen er på norsk og den må gjøres om til countrycode siden det er det som blir brukt i APIet
+    //Det samme må gjøres med land, inputen er på norsk og den må gjøres om til countrycode siden det er det som blir brukt i APIet1
 
     const countryCode = {
         Norge: "NO",
