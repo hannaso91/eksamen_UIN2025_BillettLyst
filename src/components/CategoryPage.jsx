@@ -26,8 +26,8 @@ export default function CategoryPage () {
 
     const countryCode = {
         Norge: "NO",
-        Sverige: "SWE",
-        Danmark: "DEN"
+        Sverige: "SE",
+        Danmark: "DK"
     }
 
     const code = countryCode[country]
