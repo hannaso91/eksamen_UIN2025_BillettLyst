@@ -108,11 +108,11 @@ export default function CategoryPage ({storageLiked}) {
         </section>
         <section>
             <h3>Arrangementer</h3>
-            {eventsAPI.map(event =>
+            {eventsAPI.map(pass =>
             <>
-                <p key={event.id}>{event.name}</p>
+                <EventCard />
                 <span>
-                    <HeartIcon storageLiked={storageLiked} id={event.id}/>
+                    <HeartIcon storageLiked={storageLiked} id={pass.id}/>
                 </span>
             </>   
             )}
