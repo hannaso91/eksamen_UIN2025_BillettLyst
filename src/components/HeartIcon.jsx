@@ -11,7 +11,7 @@ export default function HeartIcon({id}) {
     }
     return(
         <button onClick={handleClick }>
-            <FontAwesomeIcon icon={faHeartSolid} fill={liked ? "red" : "gray"} />
+            <FontAwesomeIcon icon={faHeartSolid} color={liked ? "red" : "gray"} />
         </button>
     )
 }
