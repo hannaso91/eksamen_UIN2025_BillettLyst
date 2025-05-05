@@ -44,7 +44,7 @@ export default function CategoryPage () {
     }
 
     useEffect(() => {
-        getEventsInEventsAPI()
+        getEventsInEventsAPI() //Her kjører vi fetchen slik at eventer kommer inn etter filtrering
     }, [slug, date, country, categoryCity])
 
     console.log("categorypage eventer", eventsAPI)
