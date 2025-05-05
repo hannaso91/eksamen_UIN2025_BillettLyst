@@ -111,9 +111,6 @@ export default function CategoryPage ({storageLiked}) {
                 </span>
             </>    
             )}
-            
-             
-            
         </section>
         <section>
             <h3>Arrangementer</h3>
@@ -125,12 +122,21 @@ export default function CategoryPage ({storageLiked}) {
                 </span>
             </>   
             )}
-            
-
         </section>
         <section>
+            
             <h3>Spillesteder/eventsteder</h3>
-            <HeartIcon storageLiked={storageLiked}/>
+            {venuesAPI.map(venue => 
+            <>
+                <h2>{venue.name}</h2>
+                <span>
+                   <HeartIcon storageLiked={storageLiked}/> 
+                </span>
+                <p>{venue.country.name}</p>
+                <p>{venue.city.name}</p>
+            </>
+            )}
+            
         </section>
         </>
     )

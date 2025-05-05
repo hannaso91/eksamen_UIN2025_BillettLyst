@@ -31,7 +31,6 @@ export default function EventPage() {
 
     useEffect(() => {
         getFestivalPass()
-        //setEvent(null)
         getEvent()
     }, [id])
  
