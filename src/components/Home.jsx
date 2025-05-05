@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import EventCard from "./EventCard";
 import { Link } from "react-router-dom";
+import "../styles/home.scss"
 
 export default function Home({festivals}) {
 
