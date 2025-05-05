@@ -1,14 +1,11 @@
-export default function Welcome({setSignedIn}) {
+export default function Welcome() {
 
-    const handleLogout = () => {
-        sessionStorage.setItem("login", false)
-        setSignedIn(false);
-    }
+    
 
     return(
         <>
         <h1>Min side</h1>
-        <button onClick={handleLogout}>Logg ut</button>
+        
         </>
     )
 } 

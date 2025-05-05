@@ -26,12 +26,12 @@ function App() {
 
 useEffect(() => {
   if (!localStorage.getItem("user")) {
-    const testUser = { username: "Signesoj", password: "1234" };
+    const testUser = { username: "Signesoj"};
     localStorage.setItem("user", JSON.stringify(testUser));
     setStorageUser(JSON.stringify(testUser));
     console.log("Testbruker lagt til i localStorage");
   }
-}, []);
+}, []); // Ettersom vi skal hente inn fra sanity, lagde vi en testuser for å se om logg inn og logg ut fungerte
 
  
   
@@ -58,7 +58,7 @@ useEffect(() => {
 
   return (
     <>
-      <Layout>
+      <Layout signedIn={signedIn} setSignedIn={setSignedIn}>
         <Routes>
           <Route path="/" element={<Home festivals={festivals}/>} />
           <Route path="/event/:id" element={<EventPage festivals={festivals}/>} />

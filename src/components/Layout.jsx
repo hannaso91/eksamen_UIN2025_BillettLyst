@@ -1,7 +1,13 @@
 import { Link, NavLink } from "react-router-dom";
 import Nav from "./Nav";
 
-export default function Layout({children}) {
+export default function Layout({children, signedIn, setSignedIn}) {
+
+    const handleLogout = () => {
+        sessionStorage.setItem("login", false)
+        setSignedIn(false);
+    }
+
     return(
         <>
         <header>
@@ -9,7 +15,12 @@ export default function Layout({children}) {
                 <Link to="/"><img src="#" alt="Vår logo"/></Link>
             </div>
            <Nav /> 
-           <NavLink to="/dashboard">Logg inn</NavLink>
+           {signedIn ? (
+                <button onClick={handleLogout}>Logg ut</button>
+           ) : (
+            <Link to="/dashboard">Logg inn</Link>
+           )}
+           
         </header>
         <main>
             {children}
