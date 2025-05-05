@@ -56,7 +56,7 @@ export default function EventPage() {
                 
             </article>
 
-            <h4>Festivalpass:</h4>
+            <h3>Festivalpass:</h3>
             {festivalpass.map(pass =>
                 <EventCard key={pass.id}pass={pass}/>
             )}

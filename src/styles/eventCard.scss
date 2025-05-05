@@ -1,2 +1,73 @@
 //Denne her vil bli likt styla på både festivalpassene og på de ulike arrangementene på home. Bare så dere er klar over det. Var krav i oppgava og gjenbruke eventcard.
 
+.articleClassPass{
+    background-color: #D9D9D9;
+    width: 300px;
+    height: 400px;
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+
+            img{
+                width: 280px;
+                height: 150px;
+                margin: 0.6rem;
+                object-fit: cover; /* Har brukt kode fra W3Schools for å få bildene i like stor str i hvert av artikkelkortene. 
+                Hentet fra: https://www.w3schools.com/css/css3_object-fit.asp Dato:05.05.2025.*/
+            }
+        
+
+                h3{
+                    text-align: left;
+                    font-size: 20px;
+                    margin: 0;
+                    margin-left: 10px;
+                    color: #1D4274;
+                }
+
+                    p{
+                        text-align: left;
+                        font-size: 12px;
+                        margin: 0;
+                        margin-left: 10px;
+                        color: #1D4274;
+                    }
+
+                    a{
+                        text-decoration: none;
+                        color: #1D4274;
+                        font-size: 12px;
+                        margin-left: 10px;
+                    }
+                        button{
+                            cursor: pointer;
+                        }
+}
+
+
+.favorittbtn{
+    background-color: #D9D9D9;
+    color: #1D4274;
+    max-width: 70%;
+    max-height: 100%;
+    border: solid;
+    border-color: #1D4274;
+    text-align: center;
+    cursor: pointer; /*Har brukt kode fra W3Schools for å få en peker når man hovrer over knapp. Hentet
+    fra: https://www.w3schools.com/cssref/pr_class_cursor.php . Dato: 05.05.25 */
+}
+
+.kjopbtn{
+    display: flex;
+    margin-left: 0;
+    margin-top: 5px;
+    background-color: #1D4274;
+    color: white;
+    font-size: 15px;
+    max-width: 50%;
+    max-height: 100%;
+    border: none;
+    text-align: center;
+    cursor: pointer; /*Har brukt kode fra W3Schools for å få en peker når man hovrer over knapp. Hentet
+    fra: https://www.w3schools.com/cssref/pr_class_cursor.php . Dato: 05.05.25 */
+}
