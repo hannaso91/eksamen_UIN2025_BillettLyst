@@ -24,6 +24,7 @@ function App() {
     console.log("sessionStorage", login)
 }, [])
 
+//Hele biten under fjerner vi når sanity fungerer som det skal
 useEffect(() => {
   if (!localStorage.getItem("user")) {
     const testUser = { username: "Signesoj"};
