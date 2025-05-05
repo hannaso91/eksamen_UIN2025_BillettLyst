@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import ArtistCard from "./ArtistCard"
 import EventCard from "./EventCard"
+import "../styles/eventPage.scss"
 
 
 
@@ -50,12 +51,12 @@ export default function EventPage() {
             <ul>
                 <li>{event.classifications?.[0]?.genre?.name}</li>
             </ul>
-            <h3>Følg oss på sosiale medier:</h3>
+            <h3 className="soMe">Følg oss på sosiale medier!</h3>
             <article> {/*Legges inn i Some.jsx når det fungerer med riktig href osv*/}
                 
             </article>
 
-            <h3>Festivalpass:</h3>
+            <h4>Festivalpass:</h4>
             {festivalpass.map(pass =>
                 <EventCard key={pass.id}pass={pass}/>
             )}
