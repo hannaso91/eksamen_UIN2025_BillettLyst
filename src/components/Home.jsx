@@ -47,11 +47,10 @@ export default function Home({festivals}) {
         </section>
         <section className="cityevents">
            {cities.map((city) => (
-                <button key={city} onClick={() => handleClick(city)}>
+                <button className="citybtn"key={city} onClick={() => handleClick(city)}>
                     {city}
                 </button>
             ))}
-
             <h3>Dette kan du oppleve i: {selectedCity}</h3>
             <ul>
                 {cityevents.map((pass) => (
