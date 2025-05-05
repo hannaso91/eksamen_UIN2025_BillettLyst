@@ -1,7 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import "../styles/nav.scss"
 
-export default function Nav() {
+export default function Nav({signedIn, handleLogout}) {
     return (
         <nav>
             <ul>
@@ -10,6 +10,11 @@ export default function Nav() {
                 <li><NavLink to="/category/teater/">Teater</NavLink></li>
                 <li><NavLink to="/category/sport/">Sport</NavLink></li>
             </ul>
+            {signedIn ? (
+                <button onClick={handleLogout}>Logg ut</button>
+           ) : (
+            <Link to="/dashboard">Logg inn</Link>
+           )}
         </nav>
     );
 }
