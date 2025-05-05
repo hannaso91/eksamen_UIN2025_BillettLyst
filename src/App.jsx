@@ -13,7 +13,8 @@ function App() {
   const [festivals, setFestivals] = useState([]);
   const filterFestival = "K8vZ917oWOV,K8vZ917bJC7,K8vZ917_YJf,K8vZ917K7fV"; 
 
-  const {signedIn, setSignedIn} = useState(false) //For at brukeren ikke skal være logget inn fra start
+  const [signedIn, setSignedIn] = useState(false) //For at brukeren ikke skal være logget inn fra start
+  
   
   const getEventsById = async () => {
     fetch(`https://app.ticketmaster.com/discovery/v2/attractions.json?id=${filterFestival}&countryCode=NO&apikey=AFEfcxa4XlCTGJA56Jk356h0NkfziiWD`)
