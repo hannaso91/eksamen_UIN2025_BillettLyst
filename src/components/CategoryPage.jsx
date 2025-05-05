@@ -47,7 +47,7 @@ export default function CategoryPage ({storageLiked}) {
 
     
     const getEventsInAttractionAPI = async() => {
-        fetch(`https://app.ticketmaster.com/discovery/v2/attraction.json?classificationName=${apiCategory}&city=${categoryCity}&countryCode=${code}&apikey=AFEfcxa4XlCTGJA56Jk356h0NkfziiWD`)
+        fetch(`https://app.ticketmaster.com/discovery/v2/attractions.json?classificationName=${apiCategory}&city=${categoryCity}&countryCode=${code}&apikey=AFEfcxa4XlCTGJA56Jk356h0NkfziiWD`)
         .then(response => response.json())
         .then(data => {
             console.log("Full respons fra API:", data);
@@ -103,7 +103,16 @@ export default function CategoryPage ({storageLiked}) {
         </section>
         <section>
             <h3>Attraksjoner</h3>
-            <HeartIcon storageLiked={storageLiked} id="#"/> 
+            {attractionAPI.map(attraction =>
+            <>
+                <h2>{attraction.name}</h2>
+                <span>
+                    <HeartIcon storageLiked={storageLiked} id="#"/>
+                </span>
+            </>    
+            )}
+            
+             
             
         </section>
         <section>
