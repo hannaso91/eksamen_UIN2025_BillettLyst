@@ -10,8 +10,10 @@
 
             img{
                 width: 280px;
-                height: auto;
+                height: 150px;
                 margin: 0.6rem;
+                object-fit: cover; /* Har brukt kode fra W3Schools for å få bildene i like stor str i hvert av artikkelkortene. 
+                Hentet fra: https://www.w3schools.com/css/css3_object-fit.asp Dato:05.05.2025. */
             }
 
             h3{
@@ -23,10 +25,11 @@
 }
 
 /* Brukt kode hentet fra W3schools for å få media queries til å fungere. Hentet fra : https://www.w3schools.com/css/css3_mediaqueries.asp Dato: 05.05.25. */
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 430px) {
     .flexartistcard{
         display: flex;
         flex-wrap: wrap;
+        padding-left: 100px;
     }
 
 }
