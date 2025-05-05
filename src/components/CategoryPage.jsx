@@ -106,6 +106,7 @@ export default function CategoryPage ({storageLiked}) {
             {attractionAPI.map(attraction =>
             <>
                 <h2>{attraction.name}</h2>
+                <img src={attraction.images?.[0]?.url} alt={attraction.name}/>
                 <span>
                     <HeartIcon storageLiked={storageLiked} id="#"/>
                 </span>
@@ -129,6 +130,7 @@ export default function CategoryPage ({storageLiked}) {
             {venuesAPI.map(venue => 
             <>
                 <h2>{venue.name}</h2>
+                <img src={venue.images?.[0]?.url} alt={venue.name}/>
                 <span>
                    <HeartIcon storageLiked={storageLiked}/> 
                 </span>
