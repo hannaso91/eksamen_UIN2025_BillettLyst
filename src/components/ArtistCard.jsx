@@ -21,9 +21,11 @@ export default function ArtistCard({ festivalpass }) {
 
     if (filterWithPush.length === 0) return <p>Ingen artister funnet i festivalpass</p>;
 
+    //På linje 27 har det blitt brukt kode fra W3Schools for å få en heltrukken linje. Hentet fra: https://www.w3schools.com/tags/tag_hr.asp Dato: 05.05.25
     return (
         <>
-            <h2>Artister</h2>
+        <hr></hr>
+            <h2 className="artistHeading">Artister</h2>
             <div className="flexartistcard">
             {filterWithPush.map(artist => (
                 
