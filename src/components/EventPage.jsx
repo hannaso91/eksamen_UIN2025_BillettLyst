@@ -53,15 +53,16 @@ export default function EventPage() {
             </ul>
             <h3 className="soMe">Følg oss på sosiale medier!</h3>
             <article> {/*Legges inn i Some.jsx når det fungerer med riktig href osv*/}
-                
             </article>
-
+            <hr className="separator"></hr>
             <h3>Festivalpass:</h3>
+            <div className="flexEventCard">
             {festivalpass.map(pass =>
                 <EventCard key={pass.id}pass={pass}/>
             )}
-                
+            </div>        
         </section>
+
         <section>
             <ArtistCard festivalpass={festivalpass}/>
         </section>
