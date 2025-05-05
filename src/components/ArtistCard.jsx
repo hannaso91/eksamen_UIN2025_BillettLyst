@@ -24,7 +24,7 @@ export default function ArtistCard({ festivalpass }) {
     //På linje 27 har det blitt brukt kode fra W3Schools for å få en heltrukken linje. Hentet fra: https://www.w3schools.com/tags/tag_hr.asp Dato: 05.05.25
     return (
         <>
-        <hr></hr>
+        <hr className="sepLine"></hr>
             <h2 className="artistHeading">Artister</h2>
             <div className="flexartistcard">
             {filterWithPush.map(artist => (
