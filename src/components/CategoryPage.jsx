@@ -104,10 +104,15 @@ export default function CategoryPage () {
         <section>
             <h3>Attraksjoner</h3>
             <HeartIcon id="#"/> 
+            
         </section>
         <section>
             <h3>Arrangementer</h3>
+            {attractionAPI.map(attraction => 
+                <p key={attraction.id}>{attraction.name}</p>
+            )}
             <HeartIcon />
+
         </section>
         <section>
             <h3>Spillesteder/eventsteder</h3>
