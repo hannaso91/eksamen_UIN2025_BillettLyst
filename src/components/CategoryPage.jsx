@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import ArtistCard from "./ArtistCard"
 import EventCard from "./EventCard"
+import HeartIcon from "./HeartIcon"
 
 export default function CategoryPage () {
 
@@ -75,14 +76,15 @@ export default function CategoryPage () {
         </section>
         <section>
             <h3>Attraksjoner</h3>
-                
+            <HeartIcon />
         </section>
         <section>
             <h3>Arrangementer</h3>
-                
+            <HeartIcon />
         </section>
         <section>
             <h3>Spillesteder/eventsteder</h3>
+            <HeartIcon />
         </section>
         </>
     )
