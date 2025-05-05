@@ -24,5 +24,9 @@
 
 /* Brukt kode hentet fra W3schools for å få media queries til å fungere. Hentet fra : https://www.w3schools.com/css/css3_mediaqueries.asp Dato: 05.05.25. */
 @media screen and (min-width: 480px) {
-    
+    .flexartistcard{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
 }

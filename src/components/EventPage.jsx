@@ -62,7 +62,6 @@ export default function EventPage() {
                 
         </section>
         <section>
-            <h2>Artister</h2>
             <ArtistCard festivalpass={festivalpass}/>
         </section>
         </>
