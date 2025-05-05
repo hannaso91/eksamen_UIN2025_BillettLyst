@@ -6,6 +6,7 @@ import EventPage from './components/EventPage'
 import CategoryPage from './components/CategoryPage'
 import Dashboard from './components/Dashboard'
 import { useEffect, useState } from 'react'
+import Welcome from './components/Welcome'
 
 
 function App() {
@@ -15,6 +16,25 @@ function App() {
 
   const [signedIn, setSignedIn] = useState(false) //For at brukeren ikke skal være logget inn fra start
   const [storageLiked, setStorageLiked] = useState(localStorage.getItem("liked"))
+  const [storageUser, setStorageUser] = useState(localStorage.getItem("user"))
+
+  useEffect(() => {
+    const login = sessionStorage.getItem("login") === "true"
+    setSignedIn(login)
+    console.log("sessionStorage", login)
+}, [])
+
+//Hele biten under fjerner vi når sanity fungerer som det skal
+useEffect(() => {
+  if (!localStorage.getItem("user")) {
+    const testUser = { username: "Signesoj"};
+    localStorage.setItem("user", JSON.stringify(testUser));
+    setStorageUser(JSON.stringify(testUser));
+    console.log("Testbruker lagt til i localStorage");
+  }
+}, []); // Ettersom vi skal hente inn fra sanity, lagde vi en testuser for å se om logg inn og logg ut fungerte
+
+ 
   
   
   const getEventsById = async () => {
@@ -39,12 +59,12 @@ function App() {
 
   return (
     <>
-      <Layout>
+      <Layout signedIn={signedIn} setSignedIn={setSignedIn}>
         <Routes>
           <Route path="/" element={<Home festivals={festivals}/>} />
           <Route path="/event/:id" element={<EventPage festivals={festivals}/>} />
           <Route path="/category/:slug" element={<CategoryPage storageLiked={storageLiked}/>} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard" element={signedIn ? <Welcome setSignedIn={setSignedIn}/> : <Dashboard storageUser={storageUser} setSignedIn={setSignedIn} signedIn={signedIn}/>} />
         </Routes>
       </Layout>
     </>

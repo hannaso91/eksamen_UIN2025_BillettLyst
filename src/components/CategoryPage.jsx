@@ -7,7 +7,8 @@ import HeartIcon from "./HeartIcon"
 export default function CategoryPage ({storageLiked}) {
 
     const {slug} = useParams()
-    const [date, setDate] = useState("")
+    const [date, setDate] = useState(() => new Date().toISOString().split("T")[0]); //fant om dette her https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString og https://stackoverflow.com/questions/43734167/split-time-from-date-value-in-jquery for å få vekk tiden
+    //Datoen vil da default alltid være fra dagens dato og fremover i tid, dette sikrer at bruker ikke får ut arrangementer som har gått ut på dato
     const [country, setCountry] = useState("Norge") // Setter inn default slik at noe alltid er der når siden lastes
     const [categoryCity, setCity] = useState("Oslo")
     const [eventsAPI, setEventsAPI] = useState([])
@@ -36,7 +37,7 @@ export default function CategoryPage ({storageLiked}) {
     const code = countryCode[country]
 
     const getEventsInEventsAPI = async() => {
-        fetch(`https://app.ticketmaster.com/discovery/v2/events.json?classificationName=${apiCategory}&city=${categoryCity}&countryCode=${code}&apikey=AFEfcxa4XlCTGJA56Jk356h0NkfziiWD`)
+        fetch(`https://app.ticketmaster.com/discovery/v2/events.json?classificationName=${apiCategory}&startDateTime=${date}&city=${categoryCity}&countryCode=${code}&apikey=AFEfcxa4XlCTGJA56Jk356h0NkfziiWD`)
         .then(response => response.json())
         .then(data => {
             console.log("Full respons fra API:", data);
@@ -94,8 +95,8 @@ export default function CategoryPage ({storageLiked}) {
                 </label>
                 <label htmlFor="city">
                     <select id="city" name="city" value={categoryCity} onChange={(e) => setCity(e.target.value)}>
-                        <option value="oslo">Oslo</option>
-                        <option value="stockholm">Stockholm</option>
+                        <option value="Oslo">Oslo</option>
+                        <option value="Stockholm">Stockholm</option>
                         <option value="København">København</option> 
                     </select>
                 </label>
@@ -103,25 +104,42 @@ export default function CategoryPage ({storageLiked}) {
         </section>
         <section>
             <h3>Attraksjoner</h3>
-            <HeartIcon storageLiked={storageLiked} id="#"/> 
-            
+            {attractionAPI.map(attraction =>
+            <>
+                <h2>{attraction.name}</h2>
+                <img src={attraction.images?.[0]?.url} alt={attraction.name}/>
+                <span>
+                    <HeartIcon storageLiked={storageLiked} id="#"/>
+                </span>
+            </>    
+            )}
         </section>
         <section>
             <h3>Arrangementer</h3>
-            {eventsAPI.map(event =>
+            {eventsAPI.map(pass =>
             <>
-                <p key={event.id}>{event.name}</p>
+                <EventCard pass={pass}/>
                 <span>
-                    <HeartIcon storageLiked={storageLiked} id={event.id}/>
+                    <HeartIcon storageLiked={storageLiked} id={pass.id}/>
                 </span>
             </>   
             )}
-            
-
         </section>
         <section>
+            
             <h3>Spillesteder/eventsteder</h3>
-            <HeartIcon storageLiked={storageLiked}/>
+            {venuesAPI.map(venue => 
+            <>
+                <h2>{venue.name}</h2>
+                <img src={venue.images?.[0]?.url} alt={venue.name}/>
+                <span>
+                   <HeartIcon storageLiked={storageLiked}/> 
+                </span>
+                <p>{venue.country.name}</p>
+                <p>{venue.city.name}</p>
+            </>
+            )}
+            
         </section>
         </>
     )
