@@ -10,7 +10,7 @@ export default function CategoryPage () {
     const [date, setDate] = useState("")
     const [country, setCountry] = useState("Norge") // Setter inn default slik at noe alltid er der når siden lastes
     const [categoryCity, setCity] = useState("Oslo")
-    const [eventsCategory, setEventsCategory] = useState([])
+    const [eventsAPI, setEventsAPI] = useState([])
 
     //Vi skjønte tidlig at APIet ikke vil forstå norsk siden URL er på norsk ville ikke det gitt resultater i fetchen. Vi valgte derfor å lage en egen variabel som gjør det om til engelsk og bruke slug for å hente ut riktig
     // Dette må matche det som er i APIet for å få hentet ut noe
@@ -33,21 +33,21 @@ export default function CategoryPage () {
 
     const code = countryCode[country]
 
-    const getEventsInCategoryPage = async() => {
+    const getEventsInEventsAPI = async() => {
         fetch(`https://app.ticketmaster.com/discovery/v2/events.json?classificationName=${apiCategory}&city=${categoryCity}&countryCode=${code}&apikey=AFEfcxa4XlCTGJA56Jk356h0NkfziiWD`)
         .then(response => response.json())
         .then(data => {
             console.log("Full respons fra API:", data);
-            setEventsCategory(data._embedded?.events)})
+            setEventsAPI(data._embedded?.events)})
         .catch(error => {
             console.error("Steike da! Det skjedde noe galt, er du sjokkert? NEI! Ikke jeg heller", error);});
     }
 
     useEffect(() => {
-        getEventsInCategoryPage()
+        getEventsInEventsAPI()
     }, [slug, date, country, categoryCity])
 
-    console.log("categorypage eventer", eventsCategory)
+    console.log("categorypage eventer", eventsAPI)
 
     return(
         <>
