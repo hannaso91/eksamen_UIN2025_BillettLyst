@@ -11,6 +11,11 @@ export const user = {
             type: 'string'
         },
         {
+            name: 'image',
+            title: 'Bilde av person',
+            type: 'image'
+        },
+        {
             name: 'gender',
             title: 'Kjønn',
             type: 'string'
@@ -23,14 +28,14 @@ export const user = {
         {
             name: 'previousPurchases',
             title: 'Tidligere kjøp',
-            type: 'reference',
-            to: [{type: 'events'}]
+            type: 'array',
+            of: [{type: 'reference', to: [{type: 'event'}] }]
         },
         {
             name: 'wishlist',
             title: 'Ønskeliste',
-            type: 'reference',
-            to: [{type: 'events'}]
+            type: 'array',
+            of: [{type: 'reference', to: [{type: 'event'}] }]
         }
     ]
     
