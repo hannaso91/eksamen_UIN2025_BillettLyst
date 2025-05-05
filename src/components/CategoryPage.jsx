@@ -76,7 +76,7 @@ export default function CategoryPage () {
         </section>
         <section>
             <h3>Attraksjoner</h3>
-            <HeartIcon />
+            <HeartIcon id="#"/> 
         </section>
         <section>
             <h3>Arrangementer</h3>

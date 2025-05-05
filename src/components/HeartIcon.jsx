@@ -1,8 +1,8 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart as faHeart } from '@fortawesome/free-regular-svg-icons';
+import { faHeart as faHeartSolid } from '@fortawesome/free-regular-svg-icons';
 import { useState } from 'react';
 
-export default function HeartIcon() {
+export default function HeartIcon({id}) {
     const [liked, setLiked] = useState (false) //Setter til default false så hjertet ikke er klikket 
     const handleClick = (e) => {
         e.preventDefault()
@@ -11,7 +11,7 @@ export default function HeartIcon() {
     }
     return(
         <button onClick={handleClick }>
-            <FontAwesomeIcon icon={faHeart} color={liked ? "red" : "gray"} />
+            <FontAwesomeIcon icon={faHeartSolid} fill={liked ? "red" : "gray"} />
         </button>
     )
 }
