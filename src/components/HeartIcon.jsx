@@ -4,11 +4,13 @@ import { useState } from 'react';
 
 export default function HeartIcon() {
     const [liked, setLiked] = useState (false) //Setter til default false så hjertet ikke er klikket 
-    const handleClick = () => {
+    const handleClick = (e) => {
+        e.preventDefault()
+        const wishList = localStorage.getItem(`liked-${id}`)
         setLiked(!liked) //Denne bytter mellom true og false, utropstegnet bytter fra den staten den allerede er i, setter det motsatte
     }
     return(
-        <button onClick={handleClick}>
+        <button onClick={handleClick }>
             <FontAwesomeIcon icon={faHeart} color={liked ? "red" : "gray"} />
         </button>
     )
