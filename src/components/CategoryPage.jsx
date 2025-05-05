@@ -11,6 +11,8 @@ export default function CategoryPage () {
     const [country, setCountry] = useState("Norge") // Setter inn default slik at noe alltid er der når siden lastes
     const [categoryCity, setCity] = useState("Oslo")
     const [eventsAPI, setEventsAPI] = useState([])
+    const [attractionAPI, setAttractionAPI] = useState([])
+    const [venuesAPI, setVenuesAPI] = useState([])
 
     //Vi skjønte tidlig at APIet ikke vil forstå norsk siden URL er på norsk ville ikke det gitt resultater i fetchen. Vi valgte derfor å lage en egen variabel som gjør det om til engelsk og bruke slug for å hente ut riktig
     // Dette må matche det som er i APIet for å få hentet ut noe
@@ -43,11 +45,36 @@ export default function CategoryPage () {
             console.error("Steike da! Det skjedde noe galt, er du sjokkert? NEI! Ikke jeg heller", error);});
     }
 
+    
+    const getEventsInAttractionAPI = async() => {
+        fetch(`https://app.ticketmaster.com/discovery/v2/attraction.json?classificationName=${apiCategory}&city=${categoryCity}&countryCode=${code}&apikey=AFEfcxa4XlCTGJA56Jk356h0NkfziiWD`)
+        .then(response => response.json())
+        .then(data => {
+            console.log("Full respons fra API:", data);
+            setAttractionAPI(data._embedded?.attractions)})
+        .catch(error => {
+            console.error("Steike da! Det skjedde noe galt, er du sjokkert? NEI! Ikke jeg heller", error);});
+    }
+
+    const getEventsInVenuesAPI = async() => {
+        fetch(`https://app.ticketmaster.com/discovery/v2/venues.json?classificationName=${apiCategory}&city=${categoryCity}&countryCode=${code}&apikey=AFEfcxa4XlCTGJA56Jk356h0NkfziiWD`)
+        .then(response => response.json())
+        .then(data => {
+            console.log("Full respons fra API:", data);
+            setVenuesAPI(data._embedded?.venues)})
+        .catch(error => {
+            console.error("Steike da! Det skjedde noe galt, er du sjokkert? NEI! Ikke jeg heller", error);});
+    }
+
     useEffect(() => {
         getEventsInEventsAPI() //Her kjører vi fetchen slik at eventer kommer inn etter filtrering
+        getEventsInAttractionAPI()
+        getEventsInVenuesAPI()
     }, [slug, date, country, categoryCity])
 
     console.log("categorypage eventer", eventsAPI)
+    console.log("categorypage attractions", attractionAPI)
+    console.log("categorypage venues", venuesAPI)
 
     return(
         <>
