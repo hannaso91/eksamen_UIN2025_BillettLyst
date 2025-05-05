@@ -14,6 +14,7 @@ function App() {
   const filterFestival = "K8vZ917oWOV,K8vZ917bJC7,K8vZ917_YJf,K8vZ917K7fV"; 
 
   const [signedIn, setSignedIn] = useState(false) //For at brukeren ikke skal være logget inn fra start
+  const [storageLiked, setStorageLiked] = useState(localStorage.getItem("liked"))
   
   
   const getEventsById = async () => {
@@ -42,7 +43,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home festivals={festivals}/>} />
           <Route path="/event/:id" element={<EventPage festivals={festivals}/>} />
-          <Route path="/category/:slug" element={<CategoryPage />} />
+          <Route path="/category/:slug" element={<CategoryPage storageLiked={storageLiked}/>} />
           <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </Layout>

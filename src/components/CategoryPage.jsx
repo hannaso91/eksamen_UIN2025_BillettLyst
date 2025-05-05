@@ -4,7 +4,7 @@ import ArtistCard from "./ArtistCard"
 import EventCard from "./EventCard"
 import HeartIcon from "./HeartIcon"
 
-export default function CategoryPage () {
+export default function CategoryPage ({storageLiked}) {
 
     const {slug} = useParams()
     const [date, setDate] = useState("")
@@ -103,7 +103,7 @@ export default function CategoryPage () {
         </section>
         <section>
             <h3>Attraksjoner</h3>
-            <HeartIcon id="#"/> 
+            <HeartIcon storageLiked={storageLiked} id="#"/> 
             
         </section>
         <section>
@@ -112,7 +112,7 @@ export default function CategoryPage () {
             <>
                 <p key={event.id}>{event.name}</p>
                 <span>
-                    <HeartIcon id={event.id}/>
+                    <HeartIcon storageLiked={storageLiked} id={event.id}/>
                 </span>
             </>   
             )}
@@ -121,7 +121,7 @@ export default function CategoryPage () {
         </section>
         <section>
             <h3>Spillesteder/eventsteder</h3>
-            <HeartIcon />
+            <HeartIcon storageLiked={storageLiked}/>
         </section>
         </>
     )
