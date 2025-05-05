@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons';
+import { faHeart as faHeart } from '@fortawesome/free-regular-svg-icons';
 import { useState } from 'react';
 
 export default function HeartIcon() {
@@ -9,7 +9,7 @@ export default function HeartIcon() {
     }
     return(
         <button onClick={handleClick}>
-            <FontAwesomeIcon icon={farHeart} />
+            <FontAwesomeIcon icon={faHeart} color={liked ? "red" : "gray"} />
         </button>
     )
 }
