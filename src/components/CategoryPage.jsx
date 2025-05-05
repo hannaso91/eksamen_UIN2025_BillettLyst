@@ -108,10 +108,15 @@ export default function CategoryPage () {
         </section>
         <section>
             <h3>Arrangementer</h3>
-            {attractionAPI.map(attraction => 
-                <p key={attraction.id}>{attraction.name}</p>
+            {eventsAPI.map(event =>
+            <>
+                <p key={event.id}>{event.name}</p>
+                <span>
+                    <HeartIcon id={event.id}/>
+                </span>
+            </>   
             )}
-            <HeartIcon />
+            
 
         </section>
         <section>
