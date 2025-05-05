@@ -42,7 +42,7 @@ export default function EventPage() {
     if (!event) return <p>Laster inn festival...</p>;
 
 
-
+    /*Brukt kode fra W3Schools på linje 57 for å få en heltrukken linje. Hentet fra: https://www.w3schools.com/tags/tag_hr.asp Dato: 05.05.25*/
     return (
         <>
         <section>
@@ -54,7 +54,7 @@ export default function EventPage() {
             <h3 className="soMe">Følg oss på sosiale medier!</h3>
             <article> {/*Legges inn i Some.jsx når det fungerer med riktig href osv*/}
             </article>
-            <hr className="separator"></hr>
+            <hr></hr>
             <h3>Festivalpass:</h3>
             <div className="flexEventCard">
             {festivalpass.map(pass =>
