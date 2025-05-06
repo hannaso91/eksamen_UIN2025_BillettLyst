@@ -1,5 +1,13 @@
 export default function SearchForm() {
     return(
-        <h1></h1> //Fjern denne, det må bare ligge noe i return for å ikke få feil
+        <>
+        <h3>Søk med nøkkelord</h3>
+        <form>
+            <label htmlFor="inputKeywords">
+                <input type="text" id="inputKeyword" placeholder="findings..."></input>
+            </label>
+            <button type="submit">Søk</button>
+        </form> 
+        </>
     )
 }
