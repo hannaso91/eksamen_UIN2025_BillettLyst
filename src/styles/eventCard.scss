@@ -1,5 +1,6 @@
 //Denne her vil bli likt styla på både festivalpassene og på de ulike arrangementene på home. Bare så dere er klar over det. Var krav i oppgava og gjenbruke eventcard.
 
+//Artikkelkortene til festivalpassene og arrangementene på både Home og EventPage.
 .articleClassPass{
     background-color: #D9D9D9;
     width: 300px;
@@ -52,7 +53,7 @@
                         }
 }
 
-
+//Knapper i artikkelkortene.
 .favorittbtn{
     background-color: #D9D9D9;
     color: #1D4274;
@@ -94,5 +95,5 @@ ul{
 
 /* Brukt kode hentet fra W3schools for å få media queries til å fungere. Hentet fra : https://www.w3schools.com/css/css3_mediaqueries.asp Dato: 05.05.25. */
 @media screen and (min-width: 430px) {
-   
+    
 }
