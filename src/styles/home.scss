@@ -1,5 +1,19 @@
 //Her skal du kun style første section og knappene til section 2. Innholdet blir fikset i eventcard
 
 .citybtn{
-    
+    background-color: #1D4274;
+    color: #ffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.citybtn:hover {
+    background-color: #25C0D5;
+    color: #1D4274;
 }

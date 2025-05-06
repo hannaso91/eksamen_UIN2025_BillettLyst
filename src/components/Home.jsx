@@ -45,6 +45,7 @@ export default function Home({festivals}) {
             </Link>
             )}
         </section>
+        <hr></hr>
         <section className="cityevents">
            {cities.map((city) => (
                 <button className="citybtn"key={city} onClick={() => handleClick(city)}>
