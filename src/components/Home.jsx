@@ -37,10 +37,10 @@ export default function Home({festivals}) {
         <section className="festivals"> 
             {festivals?.map(event => 
                 <Link key={event.id} to={`/event/${event.id}`} className="event-card">
-                <article>
+                <article className="festivalCard">
                 <img src={event.images?.[0]?.url} alt={event.name} />
                 <h3>{event.name}</h3>
-                <p>Les mer om {event.name}</p>
+                <p><button className="lesmerbtn">Les mer om {event.name}</button></p>
                 </article>
             </Link>
             )}
