@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import ArtistCard from "./ArtistCard"
 import EventCard from "./EventCard"
+import "../styles/eventPage.scss"
 
 
 
@@ -40,7 +41,7 @@ export default function EventPage() {
     if (!event) return <p>Laster inn festival...</p>;
 
 
-
+    /*Brukt kode fra W3Schools på linje 57 for å få en heltrukken linje. Hentet fra: https://www.w3schools.com/tags/tag_hr.asp Dato: 05.05.25*/
     return (
         <>
         <section>
@@ -49,19 +50,19 @@ export default function EventPage() {
             <ul>
                 <li>{event.classifications?.[0]?.genre?.name}</li>
             </ul>
-            <h3>Følg oss på sosiale medier:</h3>
+            <h3 className="soMe">Følg oss på sosiale medier!</h3>
             <article> {/*Legges inn i Some.jsx når det fungerer med riktig href osv*/}
-                
             </article>
-
+            <hr></hr>
             <h3>Festivalpass:</h3>
+            <div className="flexEventCard">
             {festivalpass.map(pass =>
                 <EventCard key={pass.id} pass={pass}/>
             )}
-                
+            </div>        
         </section>
+
         <section>
-            <h2>Artister</h2>
             <ArtistCard festivalpass={festivalpass}/>
         </section>
         </>

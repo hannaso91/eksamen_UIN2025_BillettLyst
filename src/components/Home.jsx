@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import EventCard from "./EventCard";
 import { Link } from "react-router-dom";
+import "../styles/home.scss"
 
 export default function Home({festivals}) {
 
@@ -36,22 +37,22 @@ export default function Home({festivals}) {
         <section className="festivals"> 
             {festivals?.map(event => 
                 <Link key={event.id} to={`/event/${event.id}`} className="event-card">
-                <article>
+                <article className="festivalCard">
                 <img src={event.images?.[0]?.url} alt={event.name} />
                 <h3>{event.name}</h3>
-                <p>Les mer om {event.name}</p>
+                <p><button className="lesmerbtn">Les mer om {event.name}</button></p>
                 </article>
             </Link>
             )}
         </section>
+        <hr></hr>
         <section className="cityevents">
            {cities.map((city) => (
-                <button key={city} onClick={() => handleClick(city)}>
+                <button className="citybtn"key={city} onClick={() => handleClick(city)}>
                     {city}
                 </button>
             ))}
-
-            <h3>Dette kan du oppleve i: {selectedCity}</h3>
+            <h3 className="selectedcity">Dette kan du oppleve i: {selectedCity}</h3>
             <ul>
                 {cityevents.map((pass) => (
                     <EventCard key={pass.id} pass={pass}/>

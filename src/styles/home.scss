@@ -1,1 +1,96 @@
 //Her skal du kun style første section og knappene til section 2. Innholdet blir fikset i eventcard
+
+//Øvre seksjon på HomePage
+
+h1{
+    text-align: left;
+    color: #1D4274;
+    margin-left: 10px;
+    width: 100%;
+    font-size: 30px;
+}
+.festivalCard{
+    background-color: #D9D9D9;
+    width: 340px;
+    height: 340px;
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+        
+        img{
+                width: 300px;
+                height: 190px;
+                margin: 0.6rem;
+                margin-top: 1rem;
+                object-fit: cover; /* Har brukt kode fra W3Schools for å få bildene i like stor str i hvert av artikkelkortene. 
+                Hentet fra: https://www.w3schools.com/css/css3_object-fit.asp Dato:05.05.2025. */
+        }
+            h3{
+                text-align: center;
+                font-size: 25px;
+                padding: 0;
+                margin: 0;
+            }
+
+                p{
+                    text-align: center;
+                    margin: 0;
+                    padding:0;
+                }
+        
+}
+.selectedcity{
+    text-align: center;
+    font-size: 25px;
+    color: #1D4274;
+    margin-left: 10px;
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.lesmerbtn{
+    background-color: #1D4274;
+    color: #ffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.lesmerbtn:hover {
+    background-color: #25C0D5;
+    color: #1D4274;
+}
+
+
+//Knapper til seksjon 2.
+.citybtn{
+    background-color: #1D4274;
+    color: #ffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.citybtn:hover {
+    background-color: #25C0D5;
+    color: #1D4274;
+}
+/* Brukt kode hentet fra W3schools for å få media queries til å fungere. Hentet fra : https://www.w3schools.com/css/css3_mediaqueries.asp Dato: 05.05.25. */
+@media screen and (min-width: 430px) {
+    .festivals{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4rem;
+    }
+}
