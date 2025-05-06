@@ -1,3 +1,102 @@
 header{
-    background-color: pink;
+    background-color: #ffffff;
+    width: 400px;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    font-family: 'Roboto', sans-serif;
+
+    nav{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        border-bottom: 1px solid #000;
+        padding-bottom: 20px;
+
+        ul{
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+
+            li{
+                background-color: #25C0D5;
+                border-radius: 3px;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+                a{
+                color: #1d4274;
+                font-weight: bold;
+                font-size: 14px;
+
+                    a:hover{
+                        color: #ffffff;
+                    }
+                }
+        } 
+    }
+
+    .logo{
+        display: flex;
+        justify-content: left;
+        padding: 0;
+        img{
+            align-items: center;
+            height: auto;
+            width: 86px;
+            height: 60px;
+        }
+
+    }
+
+    .headerTop{
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        padding-left: 30px;
+        padding-right: 30px;
+
+        a{
+            color: #1d4274;
+            font-weight: bold;
+            font-size: 14px;
+        }
+    }
+}
+/* Brukt kode for media query på linje 70 fra: https://www.w3schools.com/css/css3_mediaqueries.asp */
+@media screen and (min-width: 480px){
+    header{
+        min-width: 100%;
+
+        .logo{
+
+            img{
+                width: 160px;
+                height: auto;
+            }
+        }
+
+        .headerTop{
+
+            margin-bottom: 20px;
+            padding-right: 0;
+
+            a{
+                font-size: 24px;
+            }
+        }
+
+        nav {
+            ul{
+                li{
+                    a{
+                        font-size: 24px;
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+    }
 }

@@ -1,9 +1,20 @@
 import { Link, NavLink } from "react-router-dom";
+import Logo from "../pictures/BillettLyst.png"
 import "../styles/nav.scss"
 
-export default function Nav() {
+export default function Nav({signedIn, handleLogout}) {
     return (
         <nav>
+            <span className="headerTop">
+            <div className="logo">
+                <Link to="/"><img src={Logo} alt="Vår logo"/></Link>
+            </div>
+            {signedIn ? (
+                <button onClick={handleLogout}>Logg ut</button>
+           ) : (
+            <Link to="/dashboard">Logg inn</Link>
+           )}
+           </span>
             <ul>
                 <li><Link to="/">Hjem</Link></li>
                 <li><NavLink to="/category/musikk/">Musikk</NavLink></li>
