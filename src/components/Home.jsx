@@ -52,7 +52,7 @@ export default function Home({festivals}) {
                     {city}
                 </button>
             ))}
-            <h3>Dette kan du oppleve i: {selectedCity}</h3>
+            <h3 className="selectedcity">Dette kan du oppleve i: {selectedCity}</h3>
             <ul>
                 {cityevents.map((pass) => (
                     <EventCard key={pass.id} pass={pass}/>
