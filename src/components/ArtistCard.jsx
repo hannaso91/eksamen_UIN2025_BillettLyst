@@ -5,7 +5,7 @@ export default function ArtistCard({ festivalpass }) {
     const filterWithPush = [];
 
     festivalpass.map(pass => {
-        const attractions = pass._embedded?.attractions;
+        const attractions = pass?._embedded?.attractions;
 
         attractions?.map(artist => {
             // Sjekk om artisten allerede finnes i listen basert på id, pusher inn dersom den ikke finnes
