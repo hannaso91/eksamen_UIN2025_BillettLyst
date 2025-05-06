@@ -10,8 +10,7 @@ export default function VenuesCategoryPage ({venue, storageLiked}) {
                         <span>
                            <HeartIcon storageLiked={storageLiked}/> 
                         </span>
-                        <p>{venue.country.name}</p>
-                        <p>{venue.city.name}</p>
+                        
                     </>
     )
 }

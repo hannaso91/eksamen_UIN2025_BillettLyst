@@ -9,15 +9,13 @@ import AttractionsCategoryPage from "./AttractionsCategoryPage"
 export default function CategoryPage ({storageLiked}) {
 
     const {slug} = useParams()
-    const [date, setDate] = useState(() => {
-        const today = new Date().toISOString().split("T")[0] //her gjør vi om hvordan datoen blir lagret, slik at det stemmer overens med API sin måte å skrive det på. 
-        return `${today}T00:00:00Z`
-      })
+    const [date, setDate] = useState()
     const [country, setCountry] = useState("Norge") // Setter inn default slik at noe alltid er der når siden lastes
     const [categoryCity, setCity] = useState("Oslo")
     const [eventsAPI, setEventsAPI] = useState(() => [])
-    const [attractionAPI, setAttractionAPI] = useState([])
-    const [venuesAPI, setVenuesAPI] = useState([])
+    const [attractions, setAttractions] = useState([])
+    const [venues, setVenues] = useState([])
+   
 
     console.log("slug", slug)
     console.log(date)
@@ -39,63 +37,31 @@ export default function CategoryPage ({storageLiked}) {
     const countryCode = {
         Norge: "NO",
         Sverige: "SE",
-        Danmark: "DK"
+        Danmark: "DK",
+        Frankrike: "FR",
+        Tyskland: "DE"
     }
 
     const code = countryCode[country]
 
     const getEventsInEventsAPI = async () => {
-        fetch(`https://app.ticketmaster.com/discovery/v2/events.json?apikey=AFEfcxa4XlCTGJA56Jk356h0NkfziiWD&startDateTime=${date}&city=${categoryCity}&countryCode=${code}&classificationName=${apiCategory}&size=10`)
+        fetch(`https://app.ticketmaster.com/discovery/v2/suggest?apikey=8jut1LP6C3Z6ZSSJU3PCMoler5qA4oZW&keyword=${categoryCity}&locale=*&countryCode=${code}&dateTime=${date}`)
             .then(response => response.json())
             .then(data => {
                 console.log("Full respons fra API:", data);
                 setEventsAPI(data._embedded?.events || []);
+                setAttractions(data._embedded?.attractions || []);
+                setVenues(data._embedded?.venues || []);
             })
             .catch(error => {
                 console.error("Steike da! Det skjedde noe galt, er du sjokkert? NEI! Ikke jeg heller", error);
-                setEventsAPI([]);
             });
     }
-    
-    const getEventsInAttractionAPI = async () => {
-        fetch(`https://app.ticketmaster.com/discovery/v2/attractions.json?apikey=AFEfcxa4XlCTGJA56Jk356h0NkfziiWD&classificationName=${apiCategory}&countryCode=${code}&size=4`)
-            .then(response => response.json())
-            .then(data => {
-                console.log("Attractions API-respons:", data);
-                setAttractionAPI(data._embedded?.attractions || []);
-            })
-            .catch(error => {
-                console.error("Feil i attractions-fetch:", error);
-                setAttractionAPI([]);
-            });
-    }
-    
-
-    const getEventsInVenuesAPI = async () => {
-        fetch(`https://app.ticketmaster.com/discovery/v2/venues.json?apikey=AFEfcxa4XlCTGJA56Jk356h0NkfziiWD&city=${categoryCity}&countryCode=${code}&size=5`)
-            .then(response => response.json())
-            .then(data => {
-                console.log("Venues API-respons:", data);
-                setVenuesAPI(data._embedded?.venues || []);
-            })
-            .catch(error => {
-                console.error("Feil i venues-fetch:", error);
-                setVenuesAPI([]);
-            });
-    }
-    
-
-    
 
     useEffect(() => {
-        getEventsInEventsAPI() //Her kjører vi fetchen slik at eventer kommer inn etter filtrering
-        getEventsInAttractionAPI()
-        getEventsInVenuesAPI()
-    }, [slug, date, country, categoryCity])
+        getEventsInEventsAPI()
+    }, [slug, categoryCity, code])
 
-    console.log("categorypage eventer", eventsAPI)
-    console.log("categorypage attractions", attractionAPI)
-    console.log("categorypage venues", venuesAPI)
 
     return(
         <>
@@ -112,6 +78,8 @@ export default function CategoryPage ({storageLiked}) {
                         <option value="Norge">Norge</option>
                         <option value="Sverige">Sverige</option>
                         <option value="Danmark">Danmark</option>
+                        <option value="Frankrike">Frankrike</option>
+                        <option value="Tyskland">Tyskland</option>
                     </select>
                 </label>
                 <label htmlFor="city">
@@ -119,14 +87,16 @@ export default function CategoryPage ({storageLiked}) {
                         <option value="Oslo">Velg by</option> {/*Det blir satt til value Oslo som default slik at det blir samme som usestate, da er det innhold når siden lastes*/}
                         <option value="Oslo">Oslo</option>
                         <option value="Stockholm">Stockholm</option>
-                        <option value="København">København</option> 
+                        <option value="København">København</option>
+                        <option value="Paris">Paris</option> 
+                        <option value="Berlin">Berlin</option>
                     </select>
                 </label>
             </form>
         </section>
         <section>
             <h3>Attraksjoner</h3>
-            {attractionAPI.map(attraction =>
+            {attractions.map(attraction =>
                 <AttractionsCategoryPage attraction={attraction} storageLiked={storageLiked} key={attraction.id}/>
 
             )}
@@ -144,7 +114,7 @@ export default function CategoryPage ({storageLiked}) {
         </section>
         <section>
             <h3>Spillesteder/eventsteder</h3>
-            {venuesAPI.map(venue => 
+            {venues.map(venue => 
                 <VenuesCategoryPage key={venue.id} venue={venue} storageLiked={storageLiked} />
             )}
             
