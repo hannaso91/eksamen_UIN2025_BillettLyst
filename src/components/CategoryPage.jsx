@@ -16,6 +16,7 @@ export default function CategoryPage ({storageLiked}) {
     const [eventsAPI, setEventsAPI] = useState(() => [])
     const [attractions, setAttractions] = useState([])
     const [venues, setVenues] = useState([])
+    const [keyword, setKeyword] = useState("")
    
 
     console.log("slug", slug)
@@ -46,7 +47,7 @@ export default function CategoryPage ({storageLiked}) {
     const code = countryCode[country]
 
     const getEventsInEventsAPI = async () => {
-        fetch(`https://app.ticketmaster.com/discovery/v2/suggest?apikey=8jut1LP6C3Z6ZSSJU3PCMoler5qA4oZW&keyword=${categoryCity}&locale=*&countryCode=${code}&dateTime=${date}`)
+        fetch(`https://app.ticketmaster.com/discovery/v2/suggest?apikey=8jut1LP6C3Z6ZSSJU3PCMoler5qA4oZW&keyword=${categoryCity} ${apiCategory} ${keyword}&locale=*&countryCode=${code}&dateTime=${date}`)
             .then(response => response.json())
             .then(data => {
                 console.log("Full respons fra API:", data);
@@ -61,7 +62,7 @@ export default function CategoryPage ({storageLiked}) {
 
     useEffect(() => {
         getEventsInEventsAPI()
-    }, [slug, categoryCity, code])
+    }, [slug, categoryCity, code, keyword])
 
 
     return(
@@ -93,7 +94,7 @@ export default function CategoryPage ({storageLiked}) {
                     <option value="Berlin">Berlin</option>
                 </select>
             </form>
-            <SearchForm />
+            <SearchForm setKeyword={setKeyword}/>
         </section>
         <section>
             <h3>Attraksjoner</h3>
