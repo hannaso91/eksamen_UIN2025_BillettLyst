@@ -8,6 +8,7 @@ import Dashboard from './components/Dashboard'
 import SanityEventDetails from './components/SanityEventDetails'
 import { useEffect, useState } from 'react'
 import Welcome from './components/Welcome'
+import { fetchMember } from './sanity/member'
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
   const [signedIn, setSignedIn] = useState(false) //For at brukeren ikke skal være logget inn fra start
   const [storageLiked, setStorageLiked] = useState(localStorage.getItem("liked"))
   const [storageUser, setStorageUser] = useState(localStorage.getItem("user"))
+  const [user, setUser] = useState([])
 
   useEffect(() => {
     const login = sessionStorage.getItem("login") === "true"
@@ -51,12 +53,22 @@ useEffect(() => {
       })
       .catch(error => console.error("Feil ved henting:", error));
   };
+
+  const userCard = async () => {
+    const data = await fetchMember()
+    setUser(data)
+  }
   
   useEffect(() => {
     getEventsById();
   }, []);
+
+
+  useEffect(() => {
+    userCard();
+  }, []);
   
- 
+ console.log("funker user nå",user)
 
   return (
     <>
