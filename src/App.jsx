@@ -31,7 +31,7 @@ function App() {
 
   // Sjekk om bruker allerede er logget inn (fra sessionStorage)
   useEffect(() => {
-    const login = sessionStorage.getItem("login") === "true";
+    const login = localStorage.getItem("login") === "true";
     setSignedIn(login);
   }, []);
 
@@ -56,7 +56,7 @@ function App() {
   // Når bruker er logget inn og vi har fått brukerlisten → sett me og friend
   useEffect(() => {
     if (signedIn && user.length > 0) {
-      const loggedInName = sessionStorage.getItem("loggedInName")?.toLowerCase();
+      const loggedInName = localStorage.getItem("loggedInName")?.toLowerCase();
       const meUser = user.find(u => u.name.toLowerCase() === loggedInName);
       const friendUser = user.find(u => u._id !== meUser?._id);
       setMe(meUser);

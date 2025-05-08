@@ -16,8 +16,8 @@ export default function Dashboard({ user, setSignedIn }) {
     );
 
     if (exists) {
-      sessionStorage.setItem("login", "true");
-      sessionStorage.setItem("loggedInName", exists.name); 
+      localStorage.setItem("login", "true");
+      localStorage.setItem("loggedInName", exists.name); 
       setSignedIn(true);
     } else {
       setError("Brukernavnet finnes ikke i databasen.");
