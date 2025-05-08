@@ -10,7 +10,10 @@ import SearchForm from "./SearchForm"
 export default function CategoryPage ({storageLiked}) {
 
     const {slug} = useParams()
-    const [date, setDate] = useState()
+    const [date, setDate] = useState(() => {
+        const today = new Date();
+        return today.toISOString()
+    })
     const [country, setCountry] = useState("Norge") // Setter inn default slik at noe alltid er der når siden lastes
     const [categoryCity, setCity] = useState("Oslo")
     const [eventsAPI, setEventsAPI] = useState(() => [])
@@ -47,7 +50,8 @@ export default function CategoryPage ({storageLiked}) {
     const code = countryCode[country]
 
     const getEventsInEventsAPI = async () => {
-        fetch(`https://app.ticketmaster.com/discovery/v2/suggest?apikey=8jut1LP6C3Z6ZSSJU3PCMoler5qA4oZW&keyword=${categoryCity} ${apiCategory} ${keyword}&locale=*&countryCode=${code}&dateTime=${date}`)
+        
+        fetch(`https://app.ticketmaster.com/discovery/v2/suggest?apikey=8jut1LP6C3Z6ZSSJU3PCMoler5qA4oZW&keyword=${categoryCity} ${apiCategory}&locale=*&countryCode=${code}`)
             .then(response => response.json())
             .then(data => {
                 console.log("Full respons fra API:", data);
@@ -62,7 +66,7 @@ export default function CategoryPage ({storageLiked}) {
 
     useEffect(() => {
         getEventsInEventsAPI()
-    }, [slug, categoryCity, code, keyword])
+    }, [slug, categoryCity, code, keyword, date])
 
 
     return(

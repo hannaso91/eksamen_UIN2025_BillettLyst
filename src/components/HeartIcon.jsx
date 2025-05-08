@@ -3,7 +3,7 @@ import { faHeart as faHeartSolid } from "@fortawesome/free-solid-svg-icons";
 
 import { useEffect, useState } from 'react';
 
-export default function HeartIcon({id, storageLiked}) {
+export default function HeartIcon({id}) {
     const [liked, setLiked] = useState (false) //Setter til default false så hjertet ikke er klikket 
 
     useEffect(() => {
