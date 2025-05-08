@@ -20,6 +20,8 @@ function App() {
   const [storageLiked, setStorageLiked] = useState(localStorage.getItem("liked"))
   const [storageUser, setStorageUser] = useState(localStorage.getItem("user"))
   const [user, setUser] = useState([])
+  const [me, setMe] = useState(null)
+  const [friend, setFriend] = useState(null)
 
   useEffect(() => {
     const login = sessionStorage.getItem("login") === "true"
@@ -38,8 +40,6 @@ useEffect(() => {
 }, []); // Ettersom vi skal hente inn fra sanity, lagde vi en testuser for å se om logg inn og logg ut fungerte
 
  
-  
-  
   const getEventsById = async () => {
     fetch(`https://app.ticketmaster.com/discovery/v2/attractions.json?id=${filterFestival}&countryCode=NO&apikey=AFEfcxa4XlCTGJA56Jk356h0NkfziiWD`)
       .then(response => response.json())
@@ -55,9 +55,18 @@ useEffect(() => {
   };
 
   const userCard = async () => {
-    const data = await fetchMember()
-    setUser(data)
-  }
+    const data = await fetchMember();
+    setUser(data);
+  
+    const loggedInName = sessionStorage.getItem("loggedInName")?.toLowerCase();
+  
+    const meUser = data.find(u => u.name.toLowerCase() === loggedInName);
+    const friendUser = data.find(u => u._id !== meUser?._id);
+  
+    setMe(meUser);
+    setFriend(friendUser);
+  };
+  
   
   useEffect(() => {
     getEventsById();
@@ -77,7 +86,7 @@ useEffect(() => {
           <Route path="/" element={<Home festivals={festivals}/>} />
           <Route path="/event/:id" element={<EventPage festivals={festivals}/>} />
           <Route path="/category/:slug" element={<CategoryPage storageLiked={storageLiked}/>} />
-          <Route path="/dashboard" element={signedIn ? <Welcome setSignedIn={setSignedIn}/> : <Dashboard storageUser={storageUser} setSignedIn={setSignedIn} signedIn={signedIn}/>} />
+          <Route path="/dashboard" element={signedIn ? <Welcome setSignedIn={setSignedIn} me={me} friend={friend}/> : <Dashboard storageUser={storageUser} setSignedIn={setSignedIn} signedIn={signedIn} user={user}/>} />
           <Route path="/sanity-event/:id" element={<SanityEventDetails/>}/>
         </Routes>
       </Layout>

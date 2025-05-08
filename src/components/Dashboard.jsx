@@ -1,37 +1,45 @@
 import { useState } from "react";
-import LoginInput from "./LoginInput";
 
-export default function Dashboard({storageUser, setSignedIn}) {
+export default function Dashboard({ user, setSignedIn }) {
+  const [userLogin, setUserLogin] = useState({});
+  const [error, setError] = useState();
 
-    const [userLogin, setUserLogin] = useState([])
-    const [error, setError] = useState()
+  const handleChange = (e) => {
+    const inputName = e.target.name;
+    setUserLogin((prev) => ({ ...prev, [inputName]: e.target.value }));
+  };
 
-    const handleChange = (e) => {
-        const inputName = e.target.name
-        setUserLogin((prev) => ({...prev, [inputName] : e.target.value}))
+  const handleClick = (e) => {
+    e.preventDefault();
+    const exists = user.find(
+      (u) => u.name.toLowerCase() === userLogin.username?.toLowerCase()
+    );
+
+    if (exists) {
+      sessionStorage.setItem("login", "true");
+      sessionStorage.setItem("loggedInName", exists.name); 
+      setSignedIn(true);
+    } else {
+      setError("Brukernavnet finnes ikke i databasen.");
     }
+  };
 
-    const handleClick = (e) => {
-        e.preventDefault();
-        const existingUser = JSON.parse(storageUser)
-        const exists = userLogin.username === existingUser.username
-        exists ? setSignedIn(true) && sessionStorage.setItem("login", true) : setError("Brukernavn eller passord stemmer ikke")
-
-        
-    }
-
-    
-
-    return(
-        <>
-        <h2>Logg inn</h2>
-        <form>
-            <label>
-                Brukernavn
-                <input type="text" placeholder="Signesoj...." name="username" onChange={handleChange}/>
-            </label>
-            <button onClick={handleClick}>Logg inn</button>
-        </form>
-        </>
-    )
+  return (
+    <>
+      <h2>Logg inn</h2>
+      <form>
+        <label>
+          Brukernavn
+          <input
+            type="text"
+            placeholder="F.eks. Channing Tatum"
+            name="username"
+            onChange={handleChange}
+          />
+        </label>
+        <button onClick={handleClick}>Logg inn</button>
+      </form>
+      {error && <p style={{ color: "red" }}>{error}</p>}
+    </>
+  );
 }
