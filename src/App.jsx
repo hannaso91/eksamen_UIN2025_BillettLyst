@@ -26,7 +26,7 @@ function App() {
   useEffect(() => {
     const login = sessionStorage.getItem("login") === "true"
     setSignedIn(login)
-    console.log("sessionStorage", login)
+    
 }, [])
 
 //Hele biten under fjerner vi når sanity fungerer som det skal
@@ -74,8 +74,10 @@ useEffect(() => {
 
 
   useEffect(() => {
-    userCard();
-  }, []);
+    if(signedIn) {
+      userCard()
+    } 
+  }, [signedIn]);//vi fant ut at vi fikk samme person på hver innlogging uten å legge inn en betingelse 
   
  console.log("funker user nå",user)
 

@@ -1,10 +1,10 @@
-export default function Welcome({}) {
+export default function Welcome({me, friend}) {
 
-    
+    console.log(me)
 
     return(
         <>
-        <h1>Min side</h1>
+            <h2>Velkommen {me.name}</h2>
         
         </>
     )
