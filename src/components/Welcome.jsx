@@ -1,4 +1,4 @@
-export default function Welcome({user}) {
+export default function Welcome({}) {
 
     
 
