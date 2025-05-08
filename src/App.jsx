@@ -89,7 +89,7 @@ function App() {
               ? <Welcome setSignedIn={setSignedIn} me={me} friend={friend} arrangement={arrangement}/>
               : <Dashboard setSignedIn={setSignedIn} user={user} />
           } />
-          <Route path="/sanity-event/:id" element={<SanityEventDetails />} />
+          <Route path="/sanity-event/:apiId" element={<SanityEventDetails />} />
         </Routes>
       </Layout>
     </>
