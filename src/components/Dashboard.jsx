@@ -32,7 +32,7 @@ export default function Dashboard({ user, setSignedIn }) {
           Brukernavn
           <input
             type="text"
-            placeholder="F.eks. Channing Tatum"
+            placeholder="Channing Tatum"
             name="username"
             onChange={handleChange}
           />

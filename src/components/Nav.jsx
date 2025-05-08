@@ -10,7 +10,10 @@ export default function Nav({signedIn, handleLogout}) {
                 <Link to="/"><img src={Logo} alt="Vår logo"/></Link>
             </div>
             {signedIn ? (
-                <button onClick={handleLogout}>Logg ut</button>
+                <>
+                    <button onClick={handleLogout}>Logg ut</button>
+                    <Link to="/dashboard">Min side</Link>
+                </>
            ) : (
             <Link to="/dashboard">Logg inn</Link>
            )}
