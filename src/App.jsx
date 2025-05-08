@@ -5,6 +5,7 @@ import Home from './components/Home'
 import EventPage from './components/EventPage'
 import CategoryPage from './components/CategoryPage'
 import Dashboard from './components/Dashboard'
+import SanityEventDetails from './components/SanityEventDetails'
 import { useEffect, useState } from 'react'
 import Welcome from './components/Welcome'
 
@@ -65,6 +66,7 @@ useEffect(() => {
           <Route path="/event/:id" element={<EventPage festivals={festivals}/>} />
           <Route path="/category/:slug" element={<CategoryPage storageLiked={storageLiked}/>} />
           <Route path="/dashboard" element={signedIn ? <Welcome setSignedIn={setSignedIn}/> : <Dashboard storageUser={storageUser} setSignedIn={setSignedIn} signedIn={signedIn}/>} />
+          <Route path="/sanity-event/:id" element={<SanityEventDetails/>}/>
         </Routes>
       </Layout>
     </>
