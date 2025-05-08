@@ -9,6 +9,7 @@ import SanityEventDetails from './components/SanityEventDetails';
 import { useEffect, useState } from 'react';
 import Welcome from './components/Welcome';
 import { fetchMember } from './sanity/member';
+import { fetchArrangement } from './sanity/arrangement';
 
 function App() {
   const [festivals, setFestivals] = useState([]);
@@ -17,6 +18,7 @@ function App() {
   const [me, setMe] = useState(null);
   const [friend, setFriend] = useState(null);
   const [storageLiked, setStorageLiked] = useState(localStorage.getItem("liked"));
+  const [arrangement, setArrangement] = useState([]);
 
   const filterFestival = "K8vZ917oWOV,K8vZ917bJC7,K8vZ917_YJf,K8vZ917K7fV";
 
@@ -36,24 +38,26 @@ function App() {
   }, []);
 
   // Hent festivals fra Ticketmaster
-  useEffect(() => {
-    const getEventsById = async () => {
-      try {
-        const response = await fetch(`https://app.ticketmaster.com/discovery/v2/attractions.json?id=${filterFestival}&countryCode=NO&apikey=AFEfcxa4XlCTGJA56Jk356h0NkfziiWD`);
-        const data = await response.json();
-        if (data._embedded?.attractions) {
+  const getEventsById = async () => {
+    fetch(`https://app.ticketmaster.com/discovery/v2/attractions.json?id=${filterFestival}&countryCode=NO&apikey=AFEfcxa4XlCTGJA56Jk356h0NkfziiWD`)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        if (data._embedded && data._embedded.attractions) {
           setFestivals(data._embedded.attractions);
         } else {
           console.log("Ingen treff på IDene");
         }
-      } catch (error) {
-        console.error("Feil ved henting:", error);
-      }
-    };
-    getEventsById();
-  }, []);
+      })
+      .catch(error => console.error("Feil ved henting:", error));
+  };
 
-  // Når bruker er logget inn og vi har fått brukerlisten → sett me og friend
+  useEffect(() => {
+    getEventsById()
+  }, [])
+
+
+  // Når bruker er logget inn og vi har fått brukerlisten, kjører sett me og friend. Denne biten er hentet fra chatgpt, se dokumentasjon. Det med å få logg inn til å fungere er det eneste vi har brukt chatgpt til
   useEffect(() => {
     if (signedIn && user.length > 0) {
       const loggedInName = localStorage.getItem("loggedInName")?.toLowerCase();
@@ -64,6 +68,15 @@ function App() {
     }
   }, [signedIn, user]);
 
+  const getArrangementInSanity = async() => {
+    const data = await fetchArrangement()
+    setArrangement(data)
+  }
+
+  useEffect(() => {
+    getArrangementInSanity()
+  }, [])
+
   return (
     <>
       <Layout signedIn={signedIn} setSignedIn={setSignedIn}>
@@ -73,7 +86,7 @@ function App() {
           <Route path="/category/:slug" element={<CategoryPage storageLiked={storageLiked} />} />
           <Route path="/dashboard" element={
             signedIn
-              ? <Welcome setSignedIn={setSignedIn} me={me} friend={friend} />
+              ? <Welcome setSignedIn={setSignedIn} me={me} friend={friend} arrangement={arrangement}/>
               : <Dashboard setSignedIn={setSignedIn} user={user} />
           } />
           <Route path="/sanity-event/:id" element={<SanityEventDetails />} />

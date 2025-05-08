@@ -1,4 +1,4 @@
-import { events } from "./event";
+
 
 export const user = {
     name: 'user',
