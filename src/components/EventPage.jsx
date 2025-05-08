@@ -45,7 +45,7 @@ export default function EventPage() {
     return (
         <>
         <section>
-            <h2>{event.name}</h2>
+            <h2>{event?.name}</h2>
             <h3>Sjanger:</h3>
             <ul>
                 <li>{event.classifications?.[0]?.genre?.name}</li>
