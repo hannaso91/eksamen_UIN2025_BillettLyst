@@ -15,7 +15,10 @@ function App() {
   const filterFestival = "K8vZ917oWOV,K8vZ917bJC7,K8vZ917_YJf,K8vZ917K7fV"; 
 
   const [signedIn, setSignedIn] = useState(false) //For at brukeren ikke skal være logget inn fra start
-  const [storageLiked, setStorageLiked] = useState(localStorage.getItem("liked"))
+  const [storageLiked, setStorageLiked] = useState(() => {
+    return JSON.parse(localStorage.getItem("likedItems") || "[]");
+  });
+  
   const [storageUser, setStorageUser] = useState(localStorage.getItem("user"))
 
   useEffect(() => {

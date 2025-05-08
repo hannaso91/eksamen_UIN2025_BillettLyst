@@ -99,25 +99,35 @@ export default function CategoryPage ({storageLiked}) {
         <section>
             <h3>Attraksjoner</h3>
             {attractions.map(attraction =>
-                <AttractionsCategoryPage attraction={attraction} storageLiked={storageLiked} key={attraction.id}/>
-
+            <div key={attraction.id}>
+                <AttractionsCategoryPage attraction={attraction} storageLiked={storageLiked}/>
+                <span>
+                        <HeartIcon id={attraction.id} />
+                    </span>
+            </div>
             )}
         </section>
         <section className="">
             <h3>Arrangementer</h3>
             {eventsAPI.map(pass =>
-            <>
-                <EventCard pass={pass} key={pass.id}/>
-                <span>
-                    <HeartIcon storageLiked={storageLiked} id={pass.id}/>
-                </span>
-            </>   
+                <div key={pass.id}>
+                    <EventCard pass={pass} />
+                    <span>
+                        <HeartIcon id={pass.id} />
+                    </span>
+                </div>
             )}
+
         </section>
         <section>
             <h3>Spillesteder/eventsteder</h3>
             {venues.map(venue => 
-                <VenuesCategoryPage key={venue.id} venue={venue} storageLiked={storageLiked} />
+            <div key={venue.id}>
+                <VenuesCategoryPage venue={venue} storageLiked={storageLiked} />
+                <span>
+                    <HeartIcon id={venue.id} />
+                </span>
+            </div>
             )}
             
         </section>
