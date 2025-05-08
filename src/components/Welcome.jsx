@@ -10,6 +10,14 @@ export default function Welcome({me, friend}) {
         <p>{me.age}</p>
         <p>{me.gender}</p>
         
+        <h2>Venner</h2>
+        <img src={friend?.image?.asset?.url} alt={friend.name}/>
+        <p>{friend.name}</p>
+
+
+
+        <h2>Mine kjøp</h2>
+        <h2>Ønskeliste</h2>
         </>
     )
 } 
