@@ -88,7 +88,7 @@ useEffect(() => {
           <Route path="/" element={<Home festivals={festivals}/>} />
           <Route path="/event/:id" element={<EventPage festivals={festivals}/>} />
           <Route path="/category/:slug" element={<CategoryPage storageLiked={storageLiked}/>} />
-          <Route path="/dashboard" element={signedIn ? <Welcome setSignedIn={setSignedIn} me={me} friend={friend}/> : <Dashboard storageUser={storageUser} setSignedIn={setSignedIn} signedIn={signedIn} user={user}/>} />
+          <Route path="/dashboard" element={signedIn ? <Welcome setSignedIn={setSignedIn} me={me} friend={friend}/> : <Dashboard storageUser={storageUser} setSignedIn={setSignedIn} signedIn={signedIn} allUsers={user}/>} />
           <Route path="/sanity-event/:id" element={<SanityEventDetails/>}/>
         </Routes>
       </Layout>
