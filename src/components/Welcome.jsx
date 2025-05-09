@@ -11,8 +11,8 @@ export default function Welcome({ me, friend }) {
   const allEventIds = [...new Set([...purchaseId, ...wishlistId])];
   const idString = allEventIds.join(",");
 
-  console.log("🧾 purchaseId:", purchaseId);
-  console.log("💌 wishlistId:", wishlistId);
+  console.log("purchaseId:", purchaseId);
+  console.log("wishlistId:", wishlistId);
   console.log("idString:", idString);
 
 

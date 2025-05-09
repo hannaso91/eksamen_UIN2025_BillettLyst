@@ -44,7 +44,7 @@ export default function SanityEventDetails() {
     <>
       <h2>{eventSanity?.title}</h2>
         <>
-            <p>{ticketmasterData?.name}</p>
+            
             <img src={ticketmasterData?.images?.[0].url} alt={`bilde fra eventet ${ticketmasterData?.name}`}/>
             <section>
                 <h3>Sted og dato</h3>
