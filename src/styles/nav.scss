@@ -1,4 +1,6 @@
 nav{
+    max-width: 400px;
+
     img{
         width: 130px;
         height: auto;
@@ -40,4 +42,35 @@ nav{
 
 /* Brukt kode for media query på linje 34 fra: https://www.w3schools.com/css/css3_mediaqueries.asp */
 @media screen and (min-width: 480px){
+    nav{
+        min-width: 1200px;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #1d4274;
+
+        ul{
+            align-content: center;
+
+            li{
+                margin: 25px;
+
+                a{
+                    font-size: 20px;
+                    font-weight: 500;
+                }
+            }
+        }
+
+        .button{
+            background-color: #1d4274;
+            color: #ffffff;
+            font-weight: 400;
+            font-size: 16px;
+            margin-top: 40px;
+            height: 30px;
+            border-radius: 3px;
+            align-content: center;
+        }
+    }
+
 }
