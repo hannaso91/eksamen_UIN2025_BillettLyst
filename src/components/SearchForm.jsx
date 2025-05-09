@@ -1,3 +1,4 @@
+import "../styles/categoryPage.scss"
 export default function SearchForm({setKeyword}) {
 
     const handleSubmit = (e) => {
@@ -9,8 +10,8 @@ export default function SearchForm({setKeyword}) {
 
     return(
         <>
-        <h3>Søk med nøkkelord</h3>
-        <form onSubmit={handleSubmit}>
+        <h3 className="searchHeading">Søk med nøkkelord</h3>
+        <form className="searchFormstyling" onSubmit={handleSubmit}>
             <label htmlFor="inputKeyword">
                 <input type="text" id="inputKeyword" placeholder="findings..."></input>
             </label>

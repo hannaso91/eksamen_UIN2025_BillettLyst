@@ -1,0 +1,54 @@
+.categoryheading{
+    text-transform: capitalize;
+    font-size: 30px;
+}
+
+h3{
+    padding: 0;
+    margin:0px;
+}
+
+.filterSearchForm{
+    display: flex;
+    flex-wrap:wrap;
+    flex-direction: column;
+    text-align: left;
+    margin-left: 10px;
+    padding: 5px;
+    width: 50px;
+    gap: 15px;
+}
+
+.searchFormstyling{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-left: 10px;
+    padding: 0;
+    justify-content: left;
+            button{
+                margin-top: 20px;
+                padding:5px;
+                color: #ffffff;
+                background-color: #1D4274;
+                cursor: pointer;
+            }
+            button:hover{
+                background-color: #25C0D5;
+                color: #1D4274;
+                cursor: pointer;
+                transition: background-color 0.3s ease; // Forslag fra githubCopilot.
+                text-decoration: none;
+            }
+}
+
+.searchHeading{
+          font-size: 15px;
+          margin: 10px;     
+}
+
+.atractionheading{
+    font-size: 30px;
+    margin: 0;
+    padding: 40px 0px 0px 0px;;
+}

@@ -6,6 +6,7 @@ import HeartIcon from "./HeartIcon"
 import VenuesCategoryPage from "./VenuesCategoryPage"
 import AttractionsCategoryPage from "./AttractionsCategoryPage"
 import SearchForm from "./SearchForm"
+import "../styles/categoryPage.scss"
 
 export default function CategoryPage ({storageLiked}) {
 
@@ -72,9 +73,9 @@ export default function CategoryPage ({storageLiked}) {
     return(
         <>
         <section className="filterSearch"> {/*Siden det er en stund siden webutvikling måtte vi søke litt for å finne ut av dette, fant raskt denne siden https://stackoverflow.com/questions/17227982/html-add-input-field-inside-a-dropdown-box*/}
-            <h2>{slug}</h2>
+            <h2 className="categoryheading">{slug}</h2>
             <h3>Filtrert søk</h3>
-            <form>
+            <form className="filterSearchForm">
                 <label htmlFor="date">
                     <input type="date" id="date" value={date ? date.slice(0, 10) : ""} onChange={(e) => setDate(`${e.target.value}T00:00:00Z`)}></input> {/*Laget en onChange som håndterer endringer i de ulike inputene og lagrer de endringene i en state som vi kan bruke for å hente ut det vi ønsker*/}
                 </label>
@@ -87,7 +88,6 @@ export default function CategoryPage ({storageLiked}) {
                     <option value="Frankrike">Frankrike</option>
                     <option value="Tyskland">Tyskland</option>
                 </select>
-                
                 <label htmlFor="city"></label>
                 <select id="city" name="city" value={categoryCity} onChange={(e) => setCity(e.target.value)}>
                     <option value="Oslo">Velg by</option> {/*Det blir satt til value Oslo som default slik at det blir samme som usestate, da er det innhold når siden lastes*/}
@@ -101,7 +101,7 @@ export default function CategoryPage ({storageLiked}) {
             <SearchForm setKeyword={setKeyword}/>
         </section>
         <section>
-            <h3>Attraksjoner</h3>
+            <h3 className="atractionheading">Attraksjoner</h3>
             {attractions.map(attraction =>
             <div key={attraction.id}>
                 <AttractionsCategoryPage attraction={attraction} storageLiked={storageLiked}/>
@@ -111,7 +111,7 @@ export default function CategoryPage ({storageLiked}) {
             </div>
             )}
         </section>
-        <section className="">
+        <section>
             <h3>Arrangementer</h3>
             {eventsAPI.map(pass =>
                 <div key={pass.id}>
