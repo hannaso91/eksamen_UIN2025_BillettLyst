@@ -49,7 +49,11 @@ export default function EventPage() {
             <h2>{event?.name}</h2>
             <h3>Sjanger:</h3>
             <ul>
-                <li>{event.classifications?.[0]?.genre?.name}</li>
+            <ul>
+                <li>{festivalpass?.[0]?.classifications?.[0]?.genre?.name}</li>
+                <li>{festivalpass?.[0]?.classifications?.[0]?.subGenre?.name}</li>
+            </ul>
+
             </ul>
             <h3 className="soMe">Følg oss på sosiale medier!</h3>
             <Some event={event}/>
