@@ -52,7 +52,7 @@ export default function EventPage() {
                 <li>{event.classifications?.[0]?.genre?.name}</li>
             </ul>
             <h3 className="soMe">Følg oss på sosiale medier!</h3>
-            <Some />
+            <Some event={event}/>
             <article> {/*Legges inn i Some.jsx når det fungerer med riktig href osv*/}
             </article>
             <hr></hr>

@@ -1,3 +1,5 @@
-export default function Some() {
+export default function Some({event}) {
+
     
+
 }
