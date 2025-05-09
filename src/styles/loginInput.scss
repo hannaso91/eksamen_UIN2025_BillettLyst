@@ -10,18 +10,44 @@ form{
         display: flex;
         flex-direction: column;
         margin-bottom: 40px;
+        font-size: 20px;
+        font-weight: 400;
 
         input{
             border-radius: 3px;
             border: 1px solid #25C0D5;
-            
+            font-size: 15px;
+            color: #1D4274;
+            margin-top: 20px;
         }
+    }
+
+    button{
+        background-color: #25C0D5;
+        color: #1D4274;
     }
 }
 
 
 @media screen and (min-width: 480px){
-    header{
-        min-width: 100%;
+    form{
+        display: flex;
+
+        label{
+            display: flex;
+            font-size: 20px;
+            font-weight: 400;
+
+            input{
+                border-radius: 3px;
+                border: 1px solid #25C0D5;
+                font-size: 15px;
+                margin-top: 20px;
+                width: 300px;
+                height: 40px;
+                text-align: center;
+            }
+        }
+
     }
 }
