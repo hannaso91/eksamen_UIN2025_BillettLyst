@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import ArtistCard from "./ArtistCard"
 import EventCard from "./EventCard"
 import HeartIcon from "./HeartIcon"
 import VenuesCategoryPage from "./VenuesCategoryPage"
@@ -49,9 +48,12 @@ export default function CategoryPage ({storageLiked}) {
 
     const code = countryCode[country]
 
+    const keywordcheck = keyword ? keyword : `${categoryCity} ${apiCategory}`; //hvis keyword eksisterer så skal det søkes på den uavhengig av noe annet
+
+
     const getEventsInEventsAPI = async () => {
         
-        fetch(`https://app.ticketmaster.com/discovery/v2/suggest?apikey=8jut1LP6C3Z6ZSSJU3PCMoler5qA4oZW&keyword=${categoryCity} ${apiCategory}&locale=*&countryCode=${code}`)
+        fetch(`https://app.ticketmaster.com/discovery/v2/suggest?apikey=8jut1LP6C3Z6ZSSJU3PCMoler5qA4oZW&keyword=${keywordcheck}&locale=*&countryCode=${code}`)
             .then(response => response.json())
             .then(data => {
                 console.log("Full respons fra API:", data);

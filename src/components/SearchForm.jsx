@@ -2,7 +2,7 @@ export default function SearchForm({setKeyword}) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        const keyword = e.target.elements.inputKeyword.value
+        const keyword = e.target.elements.inputKeyword.value.trim().toLowerCase()
         console.log("Brukeren søkte på:", keyword)
         setKeyword(keyword)
     }
