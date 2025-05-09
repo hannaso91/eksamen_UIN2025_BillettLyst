@@ -43,17 +43,27 @@ export default function SanityEventDetails() {
   return (
     <>
       <h2>{eventSanity?.title}</h2>
-      {ticketmasterData ? (
         <>
-          <p>{ticketmasterData.name}</p>
-          <p>{ticketmasterData.dates?.start?.localDate}</p>
-          <a href={ticketmasterData.url} target="_blank">
-            Se på Ticketmaster
-          </a>
+            <p>{ticketmasterData?.name}</p>
+            <img src={ticketmasterData?.images?.[0].url} alt={`bilde fra eventet ${ticketmasterData?.name}`}/>
+            <section>
+                <h3>Sted og dato</h3>
+                <p>Dato: {ticketmasterData?.dates?.start?.localDate}</p>
+                <p>Sted: {ticketmasterData?.dates?.timezone}</p>
+            </section> 
+            <section>
+                <h3>Sjanger</h3>
+                <p>{ticketmasterData?.classifications?.[0]?.genre?.name}</p>
+                <p>{ticketmasterData?.classifications?.[0]?.segment?.name}</p>
+                <p>{ticketmasterData?.classifications?.[0]?.subGenre?.name}</p>
+            </section>
+            <a href={ticketmasterData?.url} target="_blank">
+                Kjøp billetter her
+            </a>
+            <section>
+                <h3>Hvem har dette i ønskelista</h3>
+            </section>
         </>
-      ) : (
-        <p>Laster inn data fra Ticketmaster...</p>
-      )}
     </>
   );
 }
