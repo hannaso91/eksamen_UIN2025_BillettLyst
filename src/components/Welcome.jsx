@@ -73,7 +73,7 @@ export default function Welcome({ me, friend }) {
       <h2>Mine kjøp</h2>
       {purchases.map(pass => (
         <div key={pass.id}>
-          <Link to={`/event/${pass.id}`}>
+          <Link to={`/sanity-event/${pass.id}`}>
             <EventCard pass={pass} />
           </Link>
         </div>
@@ -82,8 +82,9 @@ export default function Welcome({ me, friend }) {
       <h2>Ønskeliste</h2>
       {wishlist.map(pass => (
         <div key={pass.id}>
-          <p>{pass.name}</p>
-          <Link to={`/event/${pass.id}`}><EventCard pass={pass} /></Link>
+          <Link to={`/sanity-event/${pass.id}`}>
+            <EventCard pass={pass} />
+          </Link>
         </div>
       ))}
     </>

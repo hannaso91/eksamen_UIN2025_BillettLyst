@@ -14,12 +14,6 @@ export const events = {
         type: "string",
         description: "Kopier inn event.id fra Ticketmaster, f.eks. 'Z698xZb_Z16v0f8V-g'"
       }
-    ],
-    preview: {
-      select: {
-        title: "title",
-        subtitle: "apiid"
-      }
-    }
+    ]
   };
   

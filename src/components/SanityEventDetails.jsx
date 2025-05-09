@@ -19,16 +19,9 @@ export default function SanityEventDetails() {
       .then((response) => response.json())
       .then((data) => {
         if (data) {
-          console.log("Ticketmaster event:", data);
           setTicketmasterData(data);
-        } else {
-          console.warn("Ingen data fra Ticketmaster:", data);
-          setTicketmasterData(null);
         }
       })
-      .catch((error) => {
-        console.error("Feil ved henting fra Ticketmaster:", error);
-      });
   };
 
   useEffect(() => {
@@ -41,7 +34,7 @@ export default function SanityEventDetails() {
     }
   }, [eventSanity]);
 
-  console.log("fetch fra Sanity:", eventSanity);
+  console.log("fetch fra ticketmaster:", ticketmasterData);
 
   return (
     <>
@@ -50,7 +43,7 @@ export default function SanityEventDetails() {
         <>
           <p>{ticketmasterData.name}</p>
           <p>{ticketmasterData.dates?.start?.localDate}</p>
-          <a href={ticketmasterData.url} target="_blank" rel="noreferrer">
+          <a href={ticketmasterData.url} target="_blank">
             Se på Ticketmaster
           </a>
         </>
