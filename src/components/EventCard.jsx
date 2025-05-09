@@ -11,8 +11,7 @@ export default function EventCard ({pass}){
               <p>{pass._embedded?.venues?.[0]?.city.name}</p>
               <p>{pass._embedded?.venues?.[0]?.country.name}</p>
               <p>{pass.dates?.start?.localDate}</p>
-              <button className="favorittbtn">Legg til i ønskeliste</button>
-              <a href={pass.url} target="blank"><button className="kjopbtn">Kjøp</button></a>
+              
           </article>
         </div>
         </>

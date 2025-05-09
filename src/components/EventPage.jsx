@@ -63,7 +63,11 @@ export default function EventPage() {
             <h3>Festivalpass:</h3>
             <div className="flexEventCard">
             {festivalpass.map(pass =>
+            <>
                 <EventCard key={pass.id} pass={pass}/>
+                <button className="favorittbtn">Legg til i ønskeliste</button>
+              <a href={pass.url} target="blank"><button className="kjopbtn">Kjøp</button></a>
+            </>
             )}
             </div>        
         </section>

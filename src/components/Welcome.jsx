@@ -1,28 +1,57 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import EventCard from "./EventCard";
+import { useEffect, useState } from "react";
 
-export default function Welcome({ me, friend, arrangement }) {
+export default function Welcome({ me, friend }) {
+  const [ticketmasterAPI, setTicketmasterAPI] = useState();
 
-  // Lag en liste med _id-er fra previousPurchases og wishlist. Bruker _ref her fordi det er det som ligger inne i previousPurchases
-  const purchaseId = me?.previousPurchases?.map(p => p._ref) || [];
-  const wishlistId = me?.wishlist?.map(w => w._ref) || [];
+  const purchaseId = me?.previousPurchases?.map(p => p.apiid) || [];
+  const wishlistId = me?.wishlist?.map(w => w.apiid) || [];  
 
-  // Filtrer arrangementene ut fra referansene over. Henter da ut fra det som ligger i arrangementet og viser det arrangementet basert på id
-  const purchases = arrangement.filter(event => purchaseId.includes(event._id));
-  const wishlist = arrangement.filter(event => wishlistId.includes(event._id));
+  const allEventIds = [...new Set([...purchaseId, ...wishlistId])];
+  const idString = allEventIds.join(",");
 
-  //for å kunne se om disse harn noen felles ønsker må vi først ha ut _ref på hver bruker, både logget inn og venn
-  // ettersom arrangementene ligger lagret i santiy med _ref og ikke _id må vi hente ut alle _ref på hvert ønske i ønskelisten
-  //hver ref blir lagret i variabelen wish slik at vi kan brukke dette videre
-  const myWishList = me?.wishlist?.map(wish => wish._ref) || []
-  const friendWishList = friend?.wishlist.map(wish => wish._ref) || []
+  console.log("🧾 purchaseId:", purchaseId);
+  console.log("💌 wishlistId:", wishlistId);
+  console.log("idString:", idString);
 
-  const commonWishes = myWishList.filter(ref => friendWishList.includes(ref))
-  // Over lagrer vi de felles idene til de ulike arrangementene de har til felles i en varaibel
 
-  const commonWishesEvents = arrangement.filter(event => commonWishes.includes(event._id))
+  const fetchFromTicketmasterAPI = () => {
+    if (idString.length === 0) return;
+  
+    fetch(`https://app.ticketmaster.com/discovery/v2/events.json?country=NO&apikey=AFEfcxa4XlCTGJA56Jk356h0NkfziiWD&id=${idString}&locale=*`)
+      .then(response => response.json())
+      .then(data => {
+        console.log("Ticketmaster respons:", data);
+        setTicketmasterAPI(data._embedded?.events || []);
+      })
+      .catch(error => {
+        console.error("Feil ved henting av eventer:", error);
+      });
+  };
+  
 
-  //Ettersom _ref og _id har samme verdien, så kan vi filtrere på bakgrunn av dette Derfor henter vi ut _ref fra de første const
-  // Før vi deretter filtrer ut de eventene i fetchen som henter arrangementer. Da kan vi definere hva vi ønsker at skal skrives ut
+  useEffect(() => {
+    if (me) {
+      fetchFromTicketmasterAPI();
+    }
+  }, [me]);
+  
+
+  if (!ticketmasterAPI) {
+    return <p>Laster inn arrangementer fra Ticketmaster...</p>;
+  }
+
+ 
+
+  const purchases = ticketmasterAPI.filter(event => purchaseId.includes(event.id));
+  const wishlist = ticketmasterAPI.filter(event => wishlistId.includes(event.id));
+
+  const myWishList = wishlistId;
+  const friendWishList = friend?.wishlist.map(wish => wish._ref) || [];
+
+  const commonWishes = myWishList.filter(ref => friendWishList.includes(ref));
+  const commonWishesEvents = ticketmasterAPI.filter(event => commonWishes.includes(event.id));
 
   return (
     <>
@@ -36,26 +65,25 @@ export default function Welcome({ me, friend, arrangement }) {
       <img src={friend?.image?.asset?.url} alt={friend?.name} />
       <p>{friend?.name}</p>
       {commonWishesEvents.map(event => (
-        <p key={event._id}>
-            Du og {friend?.name} ønsker begge å dra på {event.title}. Hva med å dra sammen?
+        <p key={event.id}>
+          Du og {friend?.name} ønsker begge å dra på {event.name}. Hva med å dra sammen?
         </p>
-))}
-
-      
+      ))}
 
       <h2>Mine kjøp</h2>
-      {purchases.map(event => (
-        <div key={event._id}>
-          <p>{event.title}</p>
-          <Link to={`/sanity-event/${event.apiid}`}>Se mer om dette kjøpet</Link>
+      {purchases.map(pass => (
+        <div key={pass.id}>
+          <Link to={`/event/${pass.id}`}>
+            <EventCard pass={pass} />
+          </Link>
         </div>
       ))}
 
       <h2>Ønskeliste</h2>
-      {wishlist.map(event => (
-        <div key={event._id}>
-          <p>{event.title}</p>
-          <Link to={`/sanity-event/${event.apiid}`}>Se mer om dette arrangementet</Link>
+      {wishlist.map(pass => (
+        <div key={pass.id}>
+          <p>{pass.name}</p>
+          <Link to={`/event/${pass.id}`}><EventCard pass={pass} /></Link>
         </div>
       ))}
     </>

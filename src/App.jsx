@@ -86,7 +86,7 @@ function App() {
           <Route path="/category/:slug" element={<CategoryPage storageLiked={storageLiked} />} />
           <Route path="/dashboard" element={
             signedIn
-              ? <Welcome setSignedIn={setSignedIn} me={me} friend={friend} arrangement={arrangement}/>
+              ? <Welcome setSignedIn={setSignedIn} me={me} friend={friend} arrangement={festivals}/>
               : <Dashboard setSignedIn={setSignedIn} user={user} />
           } />
           <Route path="/sanity-event/:apiId" element={<SanityEventDetails />} />
