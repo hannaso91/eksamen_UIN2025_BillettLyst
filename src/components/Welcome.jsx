@@ -73,7 +73,7 @@ export default function Welcome({ me, friend }) {
       <h2>Mine kjøp</h2>
       {purchases.map(pass => (
         <div key={pass.id}>
-          <Link to={`/sanity-event/${pass.id}`}>
+          <Link to={`/sanity-event/${pass.id}`} state={{me, friend}}> {/*https://dev.to/thatfemicode/passing-data-states-through-react-router-8dh*/}
             <EventCard pass={pass} />
           </Link>
         </div>
@@ -82,7 +82,7 @@ export default function Welcome({ me, friend }) {
       <h2>Ønskeliste</h2>
       {wishlist.map(pass => (
         <div key={pass.id}>
-          <Link to={`/sanity-event/${pass.id}`}>
+          <Link to={`/sanity-event/${pass.id}`} state={{me, friend}}>
             <EventCard pass={pass} />
           </Link>
         </div>

@@ -1,44 +1,59 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { fetchByAPIinSanity } from "../sanity/arrangement";
 
 export default function SanityEventDetails() {
-  const { apiId } = useParams();
-  const [eventSanity, setEventSanity] = useState();
-  const [ticketmasterData, setTicketmasterData] = useState();
+    const { apiId } = useParams();
+    const [eventSanity, setEventSanity] = useState();
+    const [ticketmasterData, setTicketmasterData] = useState();
 
-  console.log("api id fra url", apiId);
+    const location = useLocation()
+    const {me, friend} = location.state || {}
 
-  const fetchFromAPI = async (apiId) => {
-    const data = await fetchByAPIinSanity(apiId);
-    setEventSanity(data);
-  };
 
-  const getDataFromTicketmaster = async () => {
-    fetch(`https://app.ticketmaster.com/discovery/v2/events/${eventSanity.apiid}.json?apikey=AFEfcxa4XlCTGJA56Jk356h0NkfziiWD`)
-      .then((response) => response.json())
-      .then((data) => {
-        if (data) {
-          setTicketmasterData(data);
+    console.log("api id fra url", apiId);
+
+    const fetchFromAPI = async (apiId) => {
+        const data = await fetchByAPIinSanity(apiId);
+        setEventSanity(data);
+    };
+
+    const getDataFromTicketmaster = async () => {
+        fetch(`https://app.ticketmaster.com/discovery/v2/events/${eventSanity.apiid}.json?apikey=AFEfcxa4XlCTGJA56Jk356h0NkfziiWD`)
+        .then((response) => response.json())
+        .then((data) => {
+            if (data) {
+            setTicketmasterData(data);
+            }
+        })
+    };
+
+    useEffect(() => {
+        fetchFromAPI(apiId);
+    }, [apiId]);
+
+    console.log("Sanity-data:", eventSanity);
+        console.log("Ticketmaster ID vi prøver å hente:", eventSanity?.apiId);
+
+
+    useEffect(() => {
+        if (eventSanity?.apiid) {
+        getDataFromTicketmaster();
         }
-      })
-  };
+    }, [eventSanity]);
 
-  useEffect(() => {
-    fetchFromAPI(apiId);
-  }, [apiId]);
+    console.log("fetch fra ticketmaster:", ticketmasterData);
 
-  console.log("Sanity-data:", eventSanity);
-    console.log("Ticketmaster ID vi prøver å hente:", eventSanity?.apiId);
+    const wishlistOwners = [];
 
-
-  useEffect(() => {
-    if (eventSanity?.apiid) {
-      getDataFromTicketmaster();
+    if (me?.wishlist?.some(w => w.apiid === apiId)) {
+    wishlistOwners.push(me.name);
     }
-  }, [eventSanity]);
 
-  console.log("fetch fra ticketmaster:", ticketmasterData);
+    if (friend?.wishlist?.some(w => w.apiid === apiId)) {
+    wishlistOwners.push(friend.name);
+    }
+
 
   return (
     <>
@@ -62,6 +77,11 @@ export default function SanityEventDetails() {
             </a>
             <section>
                 <h3>Hvem har dette i ønskelista</h3>
+                <ul>
+                    {wishlistOwners.map(name =>
+                        <li key={name}>{name}</li>
+                    )}
+                </ul>
             </section>
         </>
     </>
