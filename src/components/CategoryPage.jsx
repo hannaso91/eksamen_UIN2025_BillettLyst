@@ -10,12 +10,16 @@ import SearchForm from "./SearchForm"
 export default function CategoryPage ({storageLiked}) {
 
     const {slug} = useParams()
-    const [date, setDate] = useState()
+    const [date, setDate] = useState(() => {
+        const today = new Date();
+        return today.toISOString()
+    })
     const [country, setCountry] = useState("Norge") // Setter inn default slik at noe alltid er der når siden lastes
     const [categoryCity, setCity] = useState("Oslo")
     const [eventsAPI, setEventsAPI] = useState(() => [])
     const [attractions, setAttractions] = useState([])
     const [venues, setVenues] = useState([])
+    const [keyword, setKeyword] = useState("")
    
 
     console.log("slug", slug)
@@ -46,7 +50,8 @@ export default function CategoryPage ({storageLiked}) {
     const code = countryCode[country]
 
     const getEventsInEventsAPI = async () => {
-        fetch(`https://app.ticketmaster.com/discovery/v2/suggest?apikey=8jut1LP6C3Z6ZSSJU3PCMoler5qA4oZW&keyword=${categoryCity}&locale=*&countryCode=${code}&dateTime=${date}`)
+        
+        fetch(`https://app.ticketmaster.com/discovery/v2/suggest?apikey=8jut1LP6C3Z6ZSSJU3PCMoler5qA4oZW&keyword=${categoryCity} ${apiCategory}&locale=*&countryCode=${code}`)
             .then(response => response.json())
             .then(data => {
                 console.log("Full respons fra API:", data);
@@ -61,7 +66,7 @@ export default function CategoryPage ({storageLiked}) {
 
     useEffect(() => {
         getEventsInEventsAPI()
-    }, [slug, categoryCity, code])
+    }, [slug, categoryCity, code, keyword, date])
 
 
     return(
@@ -93,30 +98,40 @@ export default function CategoryPage ({storageLiked}) {
                     <option value="Berlin">Berlin</option>
                 </select>
             </form>
-            <SearchForm />
+            <SearchForm setKeyword={setKeyword}/>
         </section>
         <section>
             <h3>Attraksjoner</h3>
             {attractions.map(attraction =>
-                <AttractionsCategoryPage attraction={attraction} storageLiked={storageLiked} key={attraction.id}/>
-
+            <div key={attraction.id}>
+                <AttractionsCategoryPage attraction={attraction} storageLiked={storageLiked}/>
+                <span>
+                        <HeartIcon id={attraction.id} />
+                    </span>
+            </div>
             )}
         </section>
         <section className="">
             <h3>Arrangementer</h3>
             {eventsAPI.map(pass =>
-            <>
-                <EventCard pass={pass} key={pass.id}/>
-                <span>
-                    <HeartIcon storageLiked={storageLiked} id={pass.id}/>
-                </span>
-            </>   
+                <div key={pass.id}>
+                    <EventCard pass={pass} />
+                    <span>
+                        <HeartIcon id={pass.id} />
+                    </span>
+                </div>
             )}
+
         </section>
         <section>
             <h3>Spillesteder/eventsteder</h3>
             {venues.map(venue => 
-                <VenuesCategoryPage key={venue.id} venue={venue} storageLiked={storageLiked} />
+            <div key={venue.id}>
+                <VenuesCategoryPage venue={venue} storageLiked={storageLiked} />
+                <span>
+                    <HeartIcon id={venue.id} />
+                </span>
+            </div>
             )}
             
         </section>

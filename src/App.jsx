@@ -22,7 +22,13 @@ function App() {
 
   const filterFestival = "K8vZ917oWOV,K8vZ917bJC7,K8vZ917_YJf,K8vZ917K7fV";
 
-  // Hent brukere fra Sanity uansett om logget inn eller ikke
+  const [signedIn, setSignedIn] = useState(false) //For at brukeren ikke skal være logget inn fra start
+  const [storageLiked, setStorageLiked] = useState(() => {
+    return JSON.parse(localStorage.getItem("likedItems") || "[]");
+  });
+  
+  const [storageUser, setStorageUser] = useState(localStorage.getItem("user"))
+
   useEffect(() => {
     const fetchUsers = async () => {
       const data = await fetchMember();
