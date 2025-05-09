@@ -13,6 +13,5 @@ export default function Some({event}) {
         <ul>
             <li>{facebookExists}</li>
         </ul>
-        
     )
 }
