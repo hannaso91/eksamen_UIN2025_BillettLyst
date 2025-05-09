@@ -15,7 +15,7 @@ export default function SanityEventDetails() {
   };
 
   const getDataFromTicketmaster = async () => {
-    fetch(`https://app.ticketmaster.com/discovery/v2/events/${eventSanity.apiId}.json?apikey=AFEfcxa4XlCTGJA56Jk356h0NkfziiWD`)
+    fetch(`https://app.ticketmaster.com/discovery/v2/events/${eventSanity.apiid}.json?apikey=AFEfcxa4XlCTGJA56Jk356h0NkfziiWD`)
       .then((response) => response.json())
       .then((data) => {
         if (data) {
@@ -28,8 +28,12 @@ export default function SanityEventDetails() {
     fetchFromAPI(apiId);
   }, [apiId]);
 
+  console.log("Sanity-data:", eventSanity);
+    console.log("Ticketmaster ID vi prøver å hente:", eventSanity?.apiId);
+
+
   useEffect(() => {
-    if (eventSanity?.apiId) {
+    if (eventSanity?.apiid) {
       getDataFromTicketmaster();
     }
   }, [eventSanity]);
@@ -38,7 +42,7 @@ export default function SanityEventDetails() {
 
   return (
     <>
-      <h2>{eventSanity?.name}</h2>
+      <h2>{eventSanity?.title}</h2>
       {ticketmasterData ? (
         <>
           <p>{ticketmasterData.name}</p>
