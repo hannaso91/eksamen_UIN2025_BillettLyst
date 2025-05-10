@@ -5,8 +5,6 @@ import EventCard from "./EventCard"
 import Some from "./Some"
 import "../styles/eventPage.scss"
 
-
-
 export default function EventPage() {
 
     const { id } = useParams()
@@ -31,6 +29,7 @@ export default function EventPage() {
 
     console.log("kommer fra festivalpass:", festivalpass)
 
+    // Useeffekten her kjøres hver gang siden rendres eller at id forandrer seg. Om id forandrer seg gjør den en ny fetch og henter ny data på begge fetchene ovenfor
     useEffect(() => {
         getFestivalPass()
         getEvent()
@@ -53,8 +52,8 @@ export default function EventPage() {
                 <li>{festivalpass?.[0]?.classifications?.[0]?.subGenre?.name}</li>
             </ul>
             <h3 className="soMe">Følg oss på sosiale medier!</h3>
-            <Some event={event}/>
-            <article> {/*Legges inn i Some.jsx når det fungerer med riktig href osv*/}
+            <article> 
+                <Some event={event}/>
             </article>
             <hr></hr>
             <h3>Festivalpass:</h3>
