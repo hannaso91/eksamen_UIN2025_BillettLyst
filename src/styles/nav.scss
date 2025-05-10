@@ -1,102 +1,76 @@
-header{
-    background-color: #ffffff;
-    width: 400px;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    font-family: 'Roboto', sans-serif;
+nav{
+    max-width: 400px;
 
-    nav{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 100%;
-        border-bottom: 1px solid #000;
-        padding-bottom: 20px;
-
-        ul{
-            list-style: none;
-            display: flex;
-            justify-content: space-between;
-
-            li{
-                background-color: #25C0D5;
-                border-radius: 3px;
-                padding-left: 10px;
-                padding-right: 10px;
-            }
-
-                a{
-                color: #1d4274;
-                font-weight: bold;
-                font-size: 14px;
-
-                    a:hover{
-                        color: #ffffff;
-                    }
-                }
-        } 
+    img{
+        width: 130px;
+        height: auto;
     }
 
-    .logo{
-        display: flex;
-        justify-content: left;
+    ul{
         padding: 0;
-        img{
-            align-items: center;
-            height: auto;
-            width: 86px;
-            height: 60px;
-        }
-
-    }
-
-    .headerTop{
-        display: flex;
-        justify-content: space-between;
-        align-items: baseline;
-        padding-left: 30px;
-        padding-right: 30px;
-
-        a{
-            color: #1d4274;
-            font-weight: bold;
-            font-size: 14px;
-        }
-    }
-}
-/* Brukt kode for media query på linje 70 fra: https://www.w3schools.com/css/css3_mediaqueries.asp */
-@media screen and (min-width: 480px){
-    header{
-        min-width: 100%;
-
-        .logo{
-
-            img{
-                width: 160px;
-                height: auto;
-            }
-        }
-
-        .headerTop{
-
-            margin-bottom: 20px;
-            padding-right: 0;
+        justify-content: center;
+        
+        li{
+            flex-direction: column;
+            list-style: none;
+            background-color: #1D4274;
+            
+            padding: 5px 5px;
+            margin: 10px;
+            border-radius: 3px;
 
             a{
-                font-size: 24px;
-            }
-        }
-
-        nav {
-            ul{
-                li{
-                    a{
-                        font-size: 24px;
-                        font-weight: 500;
-                    }
-                }
+                color: #ffffff;
+                font-size: 15px;
             }
         }
     }
+    a:hover{
+        color: #1d4274;
+        background-color: #ffffff;
+    }
+
+    .button{
+        background-color: #1D4274;
+        color: #ffffff;
+        padding: 5px 10px;
+    }
+}
+
+
+
+
+/* Brukt kode for media query på linje 34 fra: https://www.w3schools.com/css/css3_mediaqueries.asp */
+@media screen and (min-width: 480px){
+    nav{
+        min-width: 1200px;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #1d4274;
+
+        ul{
+            align-content: center;
+
+            li{
+                margin: 25px;
+
+                a{
+                    font-size: 20px;
+                    font-weight: 500;
+                }
+            }
+        }
+
+        .button{
+            background-color: #1d4274;
+            color: #ffffff;
+            font-weight: 400;
+            font-size: 16px;
+            margin-top: 40px;
+            height: 30px;
+            border-radius: 3px;
+            align-content: center;
+        }
+    }
+
 }
