@@ -105,12 +105,12 @@ export default function CategoryPage ({storageLiked}) {
         <section>
             <h3>Attraksjoner</h3>
             {attractions.map(attraction =>
-            <div key={attraction.id}>
-                <AttractionsCategoryPage attraction={attraction} storageLiked={storageLiked}/>
-                <span>
-                    <HeartIcon id={attraction.id} />
-                </span>
-            </div>
+                <div key={attraction.id}>
+                    <AttractionsCategoryPage attraction={attraction} storageLiked={storageLiked}/>
+                    <span>
+                        <HeartIcon id={attraction.id} />
+                    </span>
+                </div>
             )}
         </section>
         <section className="">
@@ -128,12 +128,12 @@ export default function CategoryPage ({storageLiked}) {
         <section>
             <h3>Spillesteder/eventsteder</h3>
             {venues.map(venue => 
-            <div key={venue.id}>
-                <VenuesCategoryPage venue={venue} storageLiked={storageLiked} />
-                <span>
-                    <HeartIcon id={venue.id} />
-                </span>
-            </div>
+                <div key={venue.id}>
+                    <VenuesCategoryPage venue={venue} storageLiked={storageLiked} />
+                    <span>
+                        <HeartIcon id={venue.id} />
+                    </span>
+                </div>
             )}
             
         </section>
