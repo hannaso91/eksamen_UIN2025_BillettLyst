@@ -5,7 +5,7 @@ export default function ArtistCard({ festivalpass }) {
     //Lager en tom array variabel til å pushe artistene inn i, slik at vi ikke får duplikater
     const filterWithPush = [];
 
-    festivalpass.map(pass => {
+    festivalpass.map(pass => { //trenger ikke key i denne og neste map ettersom vi ikke rendrer ut JSX elementer, det som skjer i map er kun javascript
         const attractions = pass?._embedded?.attractions; //Lager en variabel som går inn til neste array, slik at vi enkelt kan mappe oss frem til det vi ønsker å få ut
 
         attractions?.map(artist => {
@@ -21,7 +21,7 @@ export default function ArtistCard({ festivalpass }) {
 
     console.log("push filter", filterWithPush)
 
-    if (filterWithPush.length === 0) return <p>Ingen artister funnet i festivalpass</p>; //la til en sikring her, fant ut at siden kræsjet flere ganger om det tok litt tid å hente fra apiet. Ved å lage en sikring her slappp vi at siden kræsjet
+    if (filterWithPush.length === 0) return <p>Ingen artister funnet i festivalpass</p>; //la til en sikring her, fant ut at nettsiden kræsjet flere ganger om det tok litt tid å hente fra apiet. Ved å lage en sikring her slappp vi at siden kræsjet
 
     //På linje 27 har det blitt brukt kode fra W3Schools for å få en heltrukken linje. Hentet fra: https://www.w3schools.com/tags/tag_hr.asp Dato: 05.05.25
     return (
