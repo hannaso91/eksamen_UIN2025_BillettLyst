@@ -10,7 +10,7 @@ export default function Nav({signedIn, handleLogout}) {
                 <Link to="/"><img src={Logo} alt="Vår logo"/></Link>
             </div>
             {/*Tatt fra forelesning, men her håndteres hva som vises i nav basert på om bruker er logget inn eller ikke. Er bruker logget inn vises logg ut og min side*/}
-            {/*Hvis bruker ikke er logget inn vises logg inn*/}
+            {/*Hvis bruker ikke er logget inn vises logg inn, derfor sendes prop fra layout og til nav, sjekke om brukeren er logget inn eller ut og vise innhold deretter*/}
             {signedIn ? (
                 <>
                     <button onClick={handleLogout}>Logg ut</button>
