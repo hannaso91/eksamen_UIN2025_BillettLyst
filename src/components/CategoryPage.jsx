@@ -111,7 +111,7 @@ export default function CategoryPage ({storageLiked}) {
                     </span>
             </div>
             )}
-            </div>
+        </div>
         </section>
         <section>
             <h3>Arrangementer</h3>
