@@ -3,29 +3,30 @@ import EventCard from "./EventCard";
 import { Link } from "react-router-dom";
 import "../styles/home.scss"
 
-export default function Home({festivals}) {
+export default function Home({festivals}) { //henter inn prop som holder på data om festivaler fra app.jsx
 
-    const [selectedCity, setSelectedCity] = useState("Oslo");
-    const [cityevents, setCityEvents] = useState([]);
-    const cities =  ["Oslo", "Stockholm", "Berlin", "Paris", "London"] 
+    const [selectedCity, setSelectedCity] = useState("Oslo"); // Denne staten brukes for å lagre valgt by, hvilken av knappene brukeren har klikket på, setter default Oslo slik at siden alltid har innhold
+    const [cityevents, setCityEvents] = useState([]); // Her lagres fetchen, basert på hvilken by som er valgt. det blir lagret som en array siden vi har skrevet en tom array inni staten
+    const cities =  ["Oslo", "Stockholm", "Berlin", "Paris", "London"] //Denne variabelen holder på de ulike byene brukeren kan klikke på. Det gjør det enkelt å legge til flere byer senere. Skriver vi Bergen inni der så kommer den knappen med en gang
   
-    const fetchEvents = (city) => {
-        setSelectedCity(city);
-
+    const fetchEvents = (city) => { //
         fetch(`https://app.ticketmaster.com/discovery/v2/events.json?city=${city}&size=10&apikey=AFEfcxa4XlCTGJA56Jk356h0NkfziiWD`)
         .then(response => response.json())
         .then(data => {
             setCityEvents(data._embedded?.events)})
         .catch(error => {
-            console.error("Steike da! Det skjedde noe galt, er du sjokkert? NEI! Ikke jeg heller", error);});
+            console.error("Noe gikk galt i fetch av by i home", error);});
     };
 
+    //logget det som kommer fra fetchen for å vite hva vi skulle peke på når dette skulle skrives ut i return med jsx
     console.log("cityevents", cityevents)
 
+    // kjører når siden lastes, med oslo som default for å kunne vise noe på siden
     useEffect(() => {
         fetchEvents("Oslo")
-    }, [])
+    }, []) // ingen avhengigheter her, det fungerer fint uten ettersom onclick tar seg av endringene, med andre ord så er det handleclick som styrer når fetchevents kjører
 
+    //Denne håndterer klikk på de ulike knappene, og henter nye events når noe er klikket. Sender parameter for å hente inn det korrekte i fetchen. samme sendes i fetchen lenger oppe
     const handleClick = (city) => {
         setSelectedCity(city);
         fetchEvents(city);
