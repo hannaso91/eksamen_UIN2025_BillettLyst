@@ -3,7 +3,7 @@ import EventCard from "./EventCard";
 import { useEffect, useState } from "react";
 
 export default function Welcome({ me, friend }) {
-  const [ticketmasterAPI, setTicketmasterAPI] = useState();
+  const [ticketmasterAPI, setTicketmasterAPI] = useState([]);
 
   // henter her id-er fra brukerens kjøp fra tidligere og brukerens ønskeliste. La også inn en sjekk for at om det ikke eksisterer så returner en som array, slik at vi unngår at siden kræsjer
   // me og friend kommer som props fra app.jsx, blir sendt fra toppen fordi det brukes flere plasser.
@@ -20,6 +20,7 @@ export default function Welcome({ me, friend }) {
   console.log("purchaseId:", purchaseId);
   console.log("wishlistId:", wishlistId);
   console.log("idString:", idString);
+  
 
 
   // henter her event data for de ulike arrangementene basert på den stringen som ble omgjort lenger oppe slik at ticketmaster api forstår det som sendes inn i fetchen.
@@ -48,13 +49,13 @@ export default function Welcome({ me, friend }) {
 
   //på de to linjene under lagrer vi ønskeliste ider for bruker og venn, dette for å kunne sammenlikne i filter under
   const myWishList = wishlistId;
-  const friendWishList = friend?.wishlist.map(wish => wish._ref) || [];
+  const friendWishList = friend?.wishlist.map(wish => wish.apiid?.trim()) || [];
 
   // dette filteret finner ut hvilke ønsker begge har i sin ønskeliste
   const commonWishes = myWishList.filter(ref => friendWishList.includes(ref));
 
   // filteret under finner de eventene som matcher felles ønsker.
-  const commonWishesEvents = ticketmasterAPI.filter(event => commonWishes.includes(event.id));
+  const commonWishesEvents = ticketmasterAPI.filter(event => commonWishes.includes(event.id.trim()));
 
   return (
     <>
