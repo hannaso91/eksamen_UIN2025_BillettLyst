@@ -64,7 +64,7 @@ export default function CategoryPage ({storageLiked}) {
 
     useEffect(() => {
         getEventsInEventsAPI()
-    }, [slug, categoryCity, country, keyword, date]) //har satt inn noen avhengigheter for at useeffect kjører og henter ny data fra apiet. Den skal også kjøres hver gang det er endringer i noen av disse statene/variablene/params
+    }, [slug, categoryCity, country, keyword, date]) //har satt inn noen avhengigheter for at useeffect kjører og henter ny data fra. Den skal også kjøres hver gang det er endringer i noen av disse statene/variablene/params
 
 
     return(
