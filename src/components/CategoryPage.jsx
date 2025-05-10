@@ -44,7 +44,7 @@ export default function CategoryPage ({storageLiked}) {
 
     const code = countryCode[country] // Det som ligger i staten blir gjort til en countrycode som vi kan bruke i fetch url
 
-    const keywordcheck = keyword ? keyword : `${categoryCity} ${apiCategory}`; //hvis keyword eksisterer så skal det søkes på den uavhengig av noe annet, dette gjør at bruker kan søke på hva som helst og få opp resultatet knyttet til søket
+    const keywordcheck = keyword ? keyword : `${categoryCity} ${apiCategory}`; //hvis keyword eksisterer(bruker har skrevet noe i søkefeltet) så skal det søkes på den uavhengig av noe annet, dette gjør at bruker kan søke på hva som helst og få opp resultatet knyttet til søket
     //Denne måten å gjøre det på fungerte akkurat som ønsket og ble testet for å se om fungerte. Litt prøve og feile fremgangsmåte
 
 
@@ -64,7 +64,7 @@ export default function CategoryPage ({storageLiked}) {
 
     useEffect(() => {
         getEventsInEventsAPI()
-    }, [slug, categoryCity, country, keyword, date]) //har satt inn noen avhengigheter for at useeffect kjører. Den skal også kjøres hver gang det er endringer i noen av disse statene/variablene/params
+    }, [slug, categoryCity, country, keyword, date]) //har satt inn noen avhengigheter for at useeffect kjører og henter ny data fra apiet. Den skal også kjøres hver gang det er endringer i noen av disse statene/variablene/params
 
 
     return(

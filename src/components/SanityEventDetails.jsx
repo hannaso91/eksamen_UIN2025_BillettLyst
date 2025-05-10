@@ -83,10 +83,10 @@ export default function SanityEventDetails() {
                 <section>
                     <h3>Hvem har dette i ønskelista</h3>
                         {wishlistOwners.map(name =>
-                        <article key={name.name}>
-                            <img src={name.image?.asset?.url} />
-                            <p>{name.name}</p>
-                        </article>
+                            <article key={name.name}>
+                                <img src={name.image?.asset?.url} />
+                                <p>{name.name}</p>
+                            </article>
                         )}
                 </section>
             </>
