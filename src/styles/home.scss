@@ -58,8 +58,8 @@ h1{
     font-size: 15px;
     padding: 10px 20px;
     margin: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease; // Forslag fra githubCopilot.
+    cursor: pointer; // Forslag fra githubCopilot. Fra linje 61-62.
+    transition: background-color 0.3s ease; 
 }
 
 .lesmerbtn:hover {
@@ -77,8 +77,8 @@ h1{
     font-size: 15px;
     padding: 10px 20px;
     margin: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease; // Forslag fra githubCopilot.
+    cursor: pointer;// Forslag fra githubCopilot. Fra linje 80 til 82.
+    transition: background-color 0.3s ease; 
     text-decoration: none;
 }
 
