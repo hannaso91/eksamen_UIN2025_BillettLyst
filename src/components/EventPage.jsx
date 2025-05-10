@@ -62,7 +62,7 @@ export default function EventPage() {
                 <div key={pass.id}> {/*Div her er kun for css og key slik at vi ikke får feil på key prop*/}
                     <EventCard pass={pass}/>
                     <button className="favorittbtn">Legg til i ønskeliste</button>
-                    <a href={pass.url} target="_blank"><button className="kjopbtn">Kjøp</button></a> {/*Bruker A tag ettersom det ikke er internt som Link skal brukes til, dette er en ekstern lenke*/}
+                    <a href={pass.url} target="_blank" className="kjop">Kjøp</a> {/*Bruker A tag ettersom det ikke er internt som Link skal brukes til, dette er en ekstern lenke*/}
                 </div>
             )}
             </div>        

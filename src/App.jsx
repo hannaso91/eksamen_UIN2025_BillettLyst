@@ -18,7 +18,6 @@ function App() {
   const [me, setMe] = useState(null);
   const [friend, setFriend] = useState(null);
   const [storageLiked, setStorageLiked] = useState(localStorage.getItem("liked"));
-  const [arrangement, setArrangement] = useState([]);
 
   const filterFestival = "K8vZ917oWOV,K8vZ917bJC7,K8vZ917_YJf,K8vZ917K7fV";
 
@@ -68,15 +67,6 @@ function App() {
     }
   }, [signedIn, user]);
 
-  const getArrangementInSanity = async() => {
-    const data = await fetchArrangement()
-    setArrangement(data)
-  }
-
-  useEffect(() => {
-    getArrangementInSanity()
-  }, [])
-
   return (
     <>
       <Layout signedIn={signedIn} setSignedIn={setSignedIn}>
@@ -86,7 +76,7 @@ function App() {
           <Route path="/category/:slug" element={<CategoryPage storageLiked={storageLiked} />} />
           <Route path="/dashboard" element={
             signedIn
-              ? <Welcome setSignedIn={setSignedIn} me={me} friend={friend} arrangement={festivals}/>
+              ? <Welcome setSignedIn={setSignedIn} me={me} friend={friend}/>
               : <Dashboard setSignedIn={setSignedIn} user={user} />
           } />
           <Route path="/sanity-event/:apiId" element={<SanityEventDetails />} />

@@ -22,7 +22,7 @@ export default function Nav({signedIn, handleLogout}) {
            </div>
             <ul>
                 <li><Link to="/">Hjem</Link></li>
-                <li><NavLink to="/category/musikk/">Musikk</NavLink></li>
+                <li><NavLink to="/category/musikk/">Musikk</NavLink></li> {/*Vi valgte navlink på kategoriene, dette fordi navlink indikerer hvilken side som er aktiv ved å kunne gi det en annen stil*/}
                 <li><NavLink to="/category/teater/">Teater</NavLink></li>
                 <li><NavLink to="/category/sport/">Sport</NavLink></li>
             </ul>
