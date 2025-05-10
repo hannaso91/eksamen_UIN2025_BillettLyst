@@ -59,7 +59,6 @@ export default function Home({festivals}) { //henter inn prop som holder på dat
                     <EventCard key={pass.id} pass={pass}/>
                 ))}
             </ul>
-            
         </section>
         </>
     )
