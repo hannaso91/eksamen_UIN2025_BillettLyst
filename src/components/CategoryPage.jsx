@@ -108,8 +108,8 @@ export default function CategoryPage ({storageLiked}) {
             <div key={attraction.id}>
                 <AttractionsCategoryPage attraction={attraction} storageLiked={storageLiked}/>
                 <span>
-                        <HeartIcon id={attraction.id} />
-                    </span>
+                    <HeartIcon id={attraction.id} />
+                </span>
             </div>
             )}
         </section>
