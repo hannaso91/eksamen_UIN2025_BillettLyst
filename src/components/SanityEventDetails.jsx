@@ -15,7 +15,7 @@ export default function SanityEventDetails() {
 
     const fetchFromAPI = async (apiId) => {
         const data = await fetchByAPIinSanity(apiId);
-        setEventSanity(data);
+        setEventSanity({...data, apiid: data.apiid.trim()});
     };
 
     const getDataFromTicketmaster = async () => {
@@ -33,7 +33,7 @@ export default function SanityEventDetails() {
     }, [apiId]);
 
     console.log("Sanity-data:", eventSanity);
-        console.log("Ticketmaster ID vi prøver å hente:", eventSanity?.apiId);
+    console.log("Ticketmaster ID vi prøver å hente:", eventSanity?.apiid);
 
 
     useEffect(() => {
@@ -44,46 +44,53 @@ export default function SanityEventDetails() {
 
     console.log("fetch fra ticketmaster:", ticketmasterData);
 
-    const wishlistOwners = [];
+    const wishlistOwners = []
 
-    if (me?.wishlist?.some(w => w.apiid === apiId)) {
-    wishlistOwners.push(me.name);
+
+
+    if (me?.wishlist?.find(w => w.apiid?.trim() === apiId?.trim())) {
+        wishlistOwners.push({ name: me.name, image: me.image });
     }
 
-    if (friend?.wishlist?.some(w => w.apiid === apiId)) {
-    wishlistOwners.push(friend.name);
+    if (friend?.wishlist?.find(w => w.apiid?.trim() === apiId?.trim())) {
+        wishlistOwners.push({ name: friend.name, image: friend.image });
+
     }
 
+    console.log("wishlistOwners", wishlistOwners);
 
-  return (
-    <>
-      <h2>{eventSanity?.title}</h2>
+
+
+    return (
         <>
-            
-            <img src={ticketmasterData?.images?.[0].url} alt={`bilde fra eventet ${ticketmasterData?.name}`}/>
-            <section>
-                <h3>Sted og dato</h3>
-                <p>Dato: {ticketmasterData?.dates?.start?.localDate}</p>
-                <p>Sted: {ticketmasterData?.dates?.timezone}</p>
-            </section> 
-            <section>
-                <h3>Sjanger</h3>
-                <p>{ticketmasterData?.classifications?.[0]?.genre?.name}</p>
-                <p>{ticketmasterData?.classifications?.[0]?.segment?.name}</p>
-                <p>{ticketmasterData?.classifications?.[0]?.subGenre?.name}</p>
-            </section>
-            <a href={ticketmasterData?.url} target="_blank">
-                Kjøp billetter her
-            </a>
-            <section>
-                <h3>Hvem har dette i ønskelista</h3>
-                <ul>
-                    {wishlistOwners.map(name =>
-                        <li key={name}>{name}</li>
-                    )}
-                </ul>
-            </section>
+        <h2>{eventSanity?.title}</h2>
+            <>
+                
+                <img src={ticketmasterData?.images?.[0].url} alt={`bilde fra eventet ${ticketmasterData?.name}`}/>
+                <section>
+                    <h3>Sted og dato</h3>
+                    <p>Dato: {ticketmasterData?.dates?.start?.localDate}</p>
+                    <p>Sted: {ticketmasterData?.dates?.timezone}</p>
+                </section> 
+                <section>
+                    <h3>Sjanger</h3>
+                    <p>{ticketmasterData?.classifications?.[0]?.genre?.name}</p>
+                    <p>{ticketmasterData?.classifications?.[0]?.segment?.name}</p>
+                    <p>{ticketmasterData?.classifications?.[0]?.subGenre?.name}</p>
+                </section>
+                <a href={ticketmasterData?.url} target="_blank">
+                    Kjøp billetter her
+                </a>
+                <section>
+                    <h3>Hvem har dette i ønskelista</h3>
+                        {wishlistOwners.map(name =>
+                        <article key={name.name}>
+                            <img src={name.image?.asset?.url} />
+                            <p>{name.name}</p>
+                        </article>
+                        )}
+                </section>
+            </>
         </>
-    </>
-  );
+    );
 }
