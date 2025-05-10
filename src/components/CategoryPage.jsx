@@ -102,8 +102,7 @@ export default function CategoryPage ({storageLiked}) {
         </section>
         <section>
         <h3 className="atractionheading">Attraksjoner</h3>
-        </section>
-        <section className="attractionSection">
+        <div className="attractionSection">
             {attractions.map(attraction =>
             <div key={attraction.id}>
                 <AttractionsCategoryPage attraction={attraction} storageLiked={storageLiked}/>
@@ -112,9 +111,11 @@ export default function CategoryPage ({storageLiked}) {
                     </span>
             </div>
             )}
+            </div>
         </section>
         <section>
             <h3>Arrangementer</h3>
+            <div className="arrangementflex">
             {eventsAPI.map(pass =>
                 <div key={pass.id}>
                     <EventCard pass={pass} />
@@ -123,7 +124,7 @@ export default function CategoryPage ({storageLiked}) {
                     </span>
                 </div>
             )}
-
+            </div>
         </section>
         <section>
             <h3>Spillesteder/eventsteder</h3>
