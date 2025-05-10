@@ -1,3 +1,4 @@
+//Hoved overskrift for kategori-siden 
 .categoryheading{
     text-transform: capitalize;
     font-size: 50px;
@@ -5,12 +6,14 @@
     text-decoration: underline #25C0D5;
 }
 
+//Under overskrifter for kategori-siden
 h3{
     padding: 0;
     margin:0px;
     text-decoration: underline #25C0D5;
 }
 
+// Skjemaene for filtrering og søk.
 .filterSearchForm{
     display: flex;
     flex-wrap:wrap;
@@ -50,6 +53,7 @@ h3{
           margin: 10px;     
 }
 
+//Attraksjonsseksjon på kategori-siden
 .attractionSection{
     display: flex;
     flex-wrap: wrap;

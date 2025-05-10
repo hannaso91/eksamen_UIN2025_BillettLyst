@@ -1,3 +1,5 @@
+//Attraksjonskort på CategoryPage.
+
 .attractionCard{
     display: flex;
     flex-direction: column;
@@ -6,6 +8,7 @@
     width: 300px;
     height: 300px;
     padding: 20px;
+    margin-bottom: 30px;
     background-color: #D9D9D9;
     border-radius: 10px; //Tatt i bruk forslag fra githubCopilot. (linje 10-11)
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -17,7 +20,7 @@
             object-fit: cover; /* Har brukt kode fra W3Schools for å få bildene i like stor str i hvert av artikkelkortene. 
             Hentet fra: https://www.w3schools.com/css/css3_object-fit.asp Dato:05.05.2025. */
     }
-    h2{
+   h2{
         text-decoration: underline #25C0D5;
     }
 }
