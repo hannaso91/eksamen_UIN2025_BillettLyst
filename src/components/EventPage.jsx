@@ -41,7 +41,7 @@ export default function EventPage() {
     if (!event) return <p>Laster inn festival...</p>;
 
 
-    /*Brukt kode fra W3Schools på linje 57 for å få en heltrukken linje. Hentet fra: https://www.w3schools.com/tags/tag_hr.asp Dato: 05.05.25*/
+    /*Brukt kode fra W3Schools på linje 56 for å få en heltrukken linje. Hentet fra: https://www.w3schools.com/tags/tag_hr.asp Dato: 05.05.25*/
     return (
         <>
         <section>

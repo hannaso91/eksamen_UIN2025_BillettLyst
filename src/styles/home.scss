@@ -18,6 +18,8 @@ h1{
     display: flex;
     align-items: center;
     flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Tatt i bruk forslag fra githubCopilot. (linje 21-22)
         
         img{
                 width: 300px;
@@ -58,8 +60,8 @@ h1{
     font-size: 15px;
     padding: 10px 20px;
     margin: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    cursor: pointer; // Forslag fra githubCopilot. Fra linje 61-62.
+    transition: background-color 0.3s ease; 
 }
 
 .lesmerbtn:hover {
@@ -77,8 +79,8 @@ h1{
     font-size: 15px;
     padding: 10px 20px;
     margin: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    cursor: pointer;// Forslag fra githubCopilot. Fra linje 80 til 82.
+    transition: background-color 0.3s ease; 
     text-decoration: none;
 }
 

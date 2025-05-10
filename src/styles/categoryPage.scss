@@ -1,0 +1,82 @@
+//Hoved overskrift for kategori-siden 
+.categoryheading{
+    text-transform: capitalize;
+    font-size: 50px;
+    text-align: center;
+    text-decoration: underline #25C0D5;
+}
+
+//Under overskrifter for kategori-siden
+h3{
+    padding: 0;
+    margin:0px;
+    text-decoration: underline #25C0D5;
+}
+
+// Skjemaene for filtrering og søk.
+.filterSearchForm{
+    display: flex;
+    flex-wrap:wrap;
+    flex-direction: column;
+    text-align: left;
+    margin-left: 10px;
+    padding: 5px;
+    width: 50px;
+    gap: 15px;
+}
+
+.searchFormstyling{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-left: 10px;
+    padding: 0;
+    justify-content: left;
+            button{
+                margin-top: 20px;
+                padding:5px;
+                color: #ffffff;
+                background-color: #1D4274;
+                cursor: pointer;
+            }
+            button:hover{
+                background-color: #25C0D5;
+                color: #1D4274;
+                cursor: pointer;
+                transition: background-color 0.3s ease; // Forslag fra githubCopilot. (linje 40)
+                text-decoration: none;
+            }
+}
+
+.searchHeading{
+          font-size: 15px;
+          margin: 10px;     
+}
+
+//Attraksjonsseksjon på kategori-siden
+.attractionSection{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 4rem;
+    justify-content: center;
+}
+
+.atractionheading{
+    font-size: 30px;
+    margin: 0;
+    padding: 40px 0px 40px 0px;;
+}
+
+.heartIconbtn{
+    background-color: transparent;
+    border:none;
+    font-size: 20px;
+}
+
+.arrangementflex{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}

@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as faHeartSolid } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from 'react';
+import "../styles/categoryPage.scss"
 
 export default function HeartIcon({id}) {
     const [liked, setLiked] = useState (false) //Setter til default false så hjertet ikke er klikket og lyser rødt fra start
@@ -36,8 +37,8 @@ export default function HeartIcon({id}) {
     }
     
     return(
-        <button onClick={handleClick }> {/*Her bruker vi funksjonen definert over, slik at når disse ikonene trykkes så skjer det som er definert i handleclick.*/}
-            <FontAwesomeIcon icon={faHeartSolid} color={liked ? "red" : "gray"} /> {/*Fant ut hvordan vi får inn ikoner i react gjennom denne siden https://docs.fontawesome.com/web/use-with/react/add-icons*/}
+        <button className="heartIconbtn" onClick={handleClick }>
+            <FontAwesomeIcon icon={faHeartSolid} color={liked ? "red" : "gray"} />
         </button>
     )
 }

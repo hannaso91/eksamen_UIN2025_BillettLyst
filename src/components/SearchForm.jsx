@@ -1,4 +1,5 @@
-export default function SearchForm({setKeyword}) { //propen som blir sendt inn her skal sette søkeordet inn i staten i categorypage
+import "../styles/categoryPage.scss"
+export default function SearchForm({setKeyword}) {
 
     // Dette er funksjonen for å sende inn søkeordet.
     const handleSubmit = (e) => {
@@ -11,8 +12,8 @@ export default function SearchForm({setKeyword}) { //propen som blir sendt inn h
 
     return(
         <>
-        <h3>Søk med nøkkelord</h3>
-        <form onSubmit={handleSubmit}> {/*Bruker onSubmit, det fungerer også ved å trykke enter*/}
+        <h3 className="searchHeading">Søk med nøkkelord</h3>
+        <form className="searchFormstyling" onSubmit={handleSubmit}>
             <label htmlFor="inputKeyword">
                 <input type="text" id="inputKeyword" placeholder="findings..."></input>
             </label>
