@@ -25,10 +25,10 @@ export default function Dashboard({ user, setSignedIn }) {
   };
 
   return (
-    <>
+    <section>
       <h2>Logg inn</h2>
       <form>
-        <label>
+        <label htmlFor="username">
           Brukernavn
           <input
             type="text"
@@ -40,6 +40,6 @@ export default function Dashboard({ user, setSignedIn }) {
         <button onClick={handleClick}>Logg inn</button>
       </form>
       {error && <p style={{ color: "red" }}>{error}</p>}
-    </>
+    </section>
   );
 }

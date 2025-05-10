@@ -29,4 +29,3 @@ export default function Nav({signedIn, handleLogout}) {
 }
 
 
-//Gjøre denne dynamisk og hente ut kategorier basert på navnene i API. Muligens lage en egen array vi kan legge inn dersom det ikke eksisterer i arrayren fra før
