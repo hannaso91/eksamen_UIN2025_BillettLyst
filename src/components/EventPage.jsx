@@ -49,11 +49,8 @@ export default function EventPage() {
             <h2>{event?.name}</h2>
             <h3>Sjanger:</h3>
             <ul>
-            <ul>
                 <li>{festivalpass?.[0]?.classifications?.[0]?.genre?.name}</li>
                 <li>{festivalpass?.[0]?.classifications?.[0]?.subGenre?.name}</li>
-            </ul>
-
             </ul>
             <h3 className="soMe">Følg oss på sosiale medier!</h3>
             <Some event={event}/>
@@ -63,15 +60,14 @@ export default function EventPage() {
             <h3>Festivalpass:</h3>
             <div className="flexEventCard">
             {festivalpass.map(pass =>
-            <>
-                <EventCard key={pass.id} pass={pass}/>
-                <button className="favorittbtn">Legg til i ønskeliste</button>
-              <a href={pass.url} target="blank"><button className="kjopbtn">Kjøp</button></a>
-            </>
+                <div key={pass.id}>
+                    <EventCard pass={pass}/>
+                    <button className="favorittbtn">Legg til i ønskeliste</button>
+                    <a href={pass.url} target="_blank"><button className="kjopbtn">Kjøp</button></a> {/*Bruker A tag ettersom det ikke er internt som Link skal brukes til, dette er en ekstern lenke*/}
+                </div>
             )}
             </div>        
         </section>
-
         <section>
             <ArtistCard festivalpass={festivalpass}/>
         </section>
