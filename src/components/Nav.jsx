@@ -5,19 +5,21 @@ import "../styles/nav.scss"
 export default function Nav({signedIn, handleLogout}) {
     return (
         <nav>
-            <span className="headerTop">
-            <div className="logo">
+            <div className="headerTop"> {/*brukes i css*/}
+            <div className="logo"> 
                 <Link to="/"><img src={Logo} alt="Vår logo"/></Link>
             </div>
+            {/*Tatt fra forelesning, men her håndteres hva som vises i nav basert på om bruker er logget inn eller ikke. Er bruker logget inn vises logg ut og min side*/}
+            {/*Hvis bruker ikke er logget inn vises logg inn*/}
             {signedIn ? (
                 <>
                     <button onClick={handleLogout}>Logg ut</button>
                     <Link to="/dashboard">Min side</Link>
                 </>
            ) : (
-            <Link to="/dashboard">Logg inn</Link>
+            <Link to="/dashboard">Logg inn</Link> 
            )}
-           </span>
+           </div>
             <ul>
                 <li><Link to="/">Hjem</Link></li>
                 <li><NavLink to="/category/musikk/">Musikk</NavLink></li>

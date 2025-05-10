@@ -5,7 +5,7 @@ import "../styles/nav.scss"
 export default function Layout({children, signedIn, setSignedIn}) { //denne brukes på app rundt hele routingen. Da blir dette med på hver eneste side gjennom hele. Den tar imot props for å logge ut og innloggingsstatus
     //children props er i react fra før, og brukes for å rendre ut alt inni main i dette tilfellet.
 
-    //Denne håndterer logg ut når bruker er logget inn. Den setter login til false og signedin blir false
+    //Denne håndterer logg ut når bruker er logget inn. Den setter login til false og signedin blir false, ser i ettertid at denne kanskje burde vært i Nav.jsx og ikke her
     const handleLogout = () => {
         sessionStorage.setItem("login", false)
         setSignedIn(false);
@@ -15,7 +15,7 @@ export default function Layout({children, signedIn, setSignedIn}) { //denne bruk
         <>
         <header>
             {/*her sender vi props slik at nav vet om bruker er logget inn eller ikke, viser i Nav.jsx tiltenkt funksjon og begrunnelse for hvorfor vi sender dette som prop dit*/}
-           <Nav signedIn={signedIn} setSignedIn={setSignedIn} handleLogout={handleLogout}/> 
+           <Nav signedIn={signedIn} handleLogout={handleLogout}/> 
         </header>
         <main>
             {children}
