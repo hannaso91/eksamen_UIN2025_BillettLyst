@@ -10,7 +10,7 @@ export default function SearchForm({setKeyword}) {
     return(
         <>
         <h3>Søk med nøkkelord</h3>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}> {/*Bruker onSubmit, det fungerer også ved å trykke enter*/}
             <label htmlFor="inputKeyword">
                 <input type="text" id="inputKeyword" placeholder="findings..."></input>
             </label>

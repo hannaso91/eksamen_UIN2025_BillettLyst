@@ -6,7 +6,6 @@ export default function AttractionsCategoryPage({attraction}) {
         <article>
             <h2>{attraction.name}</h2>
             <img src={attraction.images?.[0]?.url} alt={attraction.name}/>
-            
         </article>
     )
 }
