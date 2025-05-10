@@ -14,18 +14,18 @@ export default function Welcome({ me, friend }) {
   const allEventIds = [...new Set([...purchaseId, ...wishlistId])]; //aldri vært borti new set, men vi fikk duplikater og måtte finne en løsning for det, fant da denne siden https://stackoverflow.com/questions/37217953/removing-duplicate-array-values-and-then-storing-them-react og testet flere av de metodene som er listet her.
   // new set fungerte slik vi ønsket. 
 
-  const idString = allEventIds.join(",");// her måtte vi gjøre det om slik at ticketmaster sitt api skulle godta det. Id listen blir da en string med komma mellom, slik at APIet klarer å lese det. Join var vi innom i innfprog
+  const idToString = allEventIds.join(",");// her måtte vi gjøre det om slik at ticketmaster sitt api skulle godta det. Id listen blir da en string med komma mellom, slik at APIet klarer å lese det. Join var vi innom i innfprog
 
   // vi konsoll logget underveis for å ha kontroll
   console.log("purchaseId:", purchaseId);
   console.log("wishlistId:", wishlistId);
-  console.log("idString:", idString);
+  console.log("idString:", idToString);
   
 
 
   // henter her event data for de ulike arrangementene basert på den stringen som ble omgjort lenger oppe slik at ticketmaster api forstår det som sendes inn i fetchen.
   const fetchFromTicketmasterAPI = () => {  
-    fetch(`https://app.ticketmaster.com/discovery/v2/events.json?country=NO&apikey=AFEfcxa4XlCTGJA56Jk356h0NkfziiWD&id=${idString}&locale=*`)
+    fetch(`https://app.ticketmaster.com/discovery/v2/events.json?country=NO&apikey=AFEfcxa4XlCTGJA56Jk356h0NkfziiWD&id=${idToString}&locale=*`)
       .then(response => response.json())
       .then(data => {
         console.log("Ticketmaster respons:", data);
