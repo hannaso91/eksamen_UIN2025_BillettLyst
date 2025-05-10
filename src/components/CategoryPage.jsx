@@ -101,11 +101,13 @@ export default function CategoryPage ({storageLiked}) {
             <SearchForm setKeyword={setKeyword}/>
         </section>
         <section>
-            <h3 className="atractionheading">Attraksjoner</h3>
+        <h3 className="atractionheading">Attraksjoner</h3>
+        </section>
+        <section className="attractionSection">
             {attractions.map(attraction =>
             <div key={attraction.id}>
                 <AttractionsCategoryPage attraction={attraction} storageLiked={storageLiked}/>
-                <span>
+                    <span>
                         <HeartIcon id={attraction.id} />
                     </span>
             </div>

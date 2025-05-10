@@ -47,8 +47,21 @@ h3{
           margin: 10px;     
 }
 
+.attractionSection{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 4rem;
+}
+
 .atractionheading{
     font-size: 30px;
     margin: 0;
-    padding: 40px 0px 0px 0px;;
+    padding: 40px 0px 40px 0px;;
+}
+
+.heartIconbtn{
+    background-color: transparent;
+    border:none;
+    font-size: 20px;
 }
