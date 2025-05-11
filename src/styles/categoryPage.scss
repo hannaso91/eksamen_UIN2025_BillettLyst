@@ -31,16 +31,22 @@ h3{
                     font-weight: bold;
                     border: 1px solid #1D4274;
                     border-radius: 5px;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                    cursor: pointer;
                 }
         }
 }
 
+// "Velg By" og "Velg Land" knapper i søkeskjemaet.
 .selectbtn{
     color:#1D4274;
     padding:4px;
     border-radius: 5px;
     font-weight: bold;
     border-color: #1D4274;
+    text-transform: capitalize;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
 }
 
 .searchFormstyling{
@@ -56,6 +62,7 @@ h3{
                 color: #ffffff;
                 background-color: #1D4274;
                 cursor: pointer;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             }
             button:hover{
                 background-color: #25C0D5;
@@ -119,18 +126,23 @@ h3{
                 
                     input{
                        color:#1D4274;
-                       padding:4px;
+                       padding:10px;
                        font-weight: bold;
                        border: 1px solid #1D4274;
                        border-radius: 5px;
+                       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                       cursor: pointer;
                     }
             }
     .selectbtn{
         color:#1D4274;
-        padding:4px;
+        padding:10px;
         border-radius: 5px;
         font-weight: bold;
         border-color: #1D4274;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-transform:capitalize;
+        cursor: pointer;
     }
 }
 }
