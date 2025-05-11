@@ -126,6 +126,7 @@ export default function CategoryPage ({storageLiked}) {
         </section>
         <section>
             <h3>Spillesteder/eventsteder</h3>
+            <div className="spillestedflex">
             {venues.map(attraction => //Bruker attraction og sender inn her siden det er det som blir tatt imot i komponentet, ettersom det komponentet blir gjenbrukt må også samme prop sendes
                 <div key={attraction.id}>
                     <AttractionsCategoryPage attraction={attraction} storageLiked={storageLiked}/>
@@ -134,7 +135,7 @@ export default function CategoryPage ({storageLiked}) {
                     </span>
                 </div>
             )}
-            
+            </div>
         </section>
         </>
     )

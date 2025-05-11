@@ -53,6 +53,10 @@ h3{
           margin: 10px;     
 }
 
+.filtersearchbtn{
+    width: 100px;
+}
+
 //Attraksjonsseksjon på kategori-siden
 .attractionSection{
     display: flex;
@@ -75,6 +79,13 @@ h3{
 }
 
 .arrangementflex{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.spillestedflex{
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
