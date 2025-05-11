@@ -78,7 +78,7 @@ export default function CategoryPage ({storageLiked}) {
                     <input type="date" id="date" value={date ? date.slice(0, 10) : ""} onChange={(e) => setDate(`${e.target.value}T00:00:00Z`)}></input> {/*Laget en onChange som håndterer endringer i de ulike inputene og lagrer de endringene i en state som vi kan bruke for å hente ut det vi ønsker*/}
                 </label>
                 <label htmlFor="country"></label>
-                <select id="country" name="country" value={country} onChange={(e) => setCountry(e.target.value)}>
+                <select className="selectbtn" id="country" name="country" value={country} onChange={(e) => setCountry(e.target.value)}>
                     <option value="Norge">Velg land</option> {/*Det blir satt til value Norge som default slik at det blir samme som usestate, da er det innhold når siden lastes*/}
                     <option value="Norge">Norge</option>
                     <option value="Sverige">Sverige</option>
@@ -87,7 +87,7 @@ export default function CategoryPage ({storageLiked}) {
                     <option value="Tyskland">Tyskland</option>
                 </select>
                 <label htmlFor="city"></label>
-                <select id="city" name="city" value={categoryCity} onChange={(e) => setCity(e.target.value)}>
+                <select className="selectbtn" id="city" name="city" value={categoryCity} onChange={(e) => setCity(e.target.value)}>
                     <option value="Oslo">Velg by</option> {/*Det blir satt til value Oslo som default slik at det blir samme som usestate, da er det innhold når siden lastes*/}
                     <option value="Oslo">Oslo</option>
                     <option value="Stockholm">Stockholm</option>

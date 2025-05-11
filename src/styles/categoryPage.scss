@@ -23,6 +23,24 @@ h3{
     padding: 5px;
     width: 50px;
     gap: 15px;
+
+        label{
+                input{
+                    color:#1D4274;
+                    padding:4px;
+                    font-weight: bold;
+                    border: 1px solid #1D4274;
+                    border-radius: 5px;
+                }
+        }
+}
+
+.selectbtn{
+    color:#1D4274;
+    padding:4px;
+    border-radius: 5px;
+    font-weight: bold;
+    border-color: #1D4274;
 }
 
 .searchFormstyling{
@@ -90,4 +108,29 @@ h3{
     flex-wrap: wrap;
     gap: 2rem;
     justify-content: center;
+}
+
+@media screen and (min-width: 430px) {
+    .filterSearchForm{
+       display: inline;
+         
+        label{
+                margin: 30px;
+                
+                    input{
+                       color:#1D4274;
+                       padding:4px;
+                       font-weight: bold;
+                       border: 1px solid #1D4274;
+                       border-radius: 5px;
+                    }
+            }
+    .selectbtn{
+        color:#1D4274;
+        padding:4px;
+        border-radius: 5px;
+        font-weight: bold;
+        border-color: #1D4274;
+    }
+}
 }
