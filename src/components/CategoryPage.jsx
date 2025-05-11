@@ -116,7 +116,9 @@ export default function CategoryPage ({storageLiked}) {
             <div className="arrangementflex">
             {eventsAPI.map(pass =>
                 <div key={pass.id}>
+                    {console.log("pass",pass)}
                     <EventCard pass={pass} />
+                    <a href={pass.url} target="_blank">Kjøp billetter</a>
                     <span>
                         <HeartIcon id={pass.id} />
                     </span>
