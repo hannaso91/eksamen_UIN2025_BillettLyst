@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import EventCard from "./EventCard";
 import { useEffect, useState } from "react";
+import "../styles/mypage.scss"
 
 export default function Welcome({ me, friend }) {
   const [ticketmasterAPI, setTicketmasterAPI] = useState([]);
