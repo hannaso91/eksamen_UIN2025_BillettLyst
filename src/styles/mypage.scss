@@ -1,6 +1,8 @@
 main{
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
+    text-align: left;
 
     img{
         width: 300px;
