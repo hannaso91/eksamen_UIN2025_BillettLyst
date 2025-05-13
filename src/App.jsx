@@ -61,11 +61,13 @@ function App() {
     if (signedIn && user.length > 0) {
       const loggedInName = localStorage.getItem("loggedInName")?.toLowerCase();
       const meUser = user.find(u => u.name.toLowerCase() === loggedInName);
-      const friendUser = user.find(u => u._id !== meUser?._id);
+      const friendUser = user.filter(u => u._id !== meUser?._id);
       setMe(meUser);
       setFriend(friendUser);
     }
   }, [signedIn, user]);
+
+  console.log(friend)
 
   return (
     <>

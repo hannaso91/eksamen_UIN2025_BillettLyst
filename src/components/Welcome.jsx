@@ -49,7 +49,8 @@ export default function Welcome({ me, friend }) {
 
   //på de to linjene under lagrer vi ønskeliste ider for bruker og venn, dette for å kunne sammenlikne i filter under
   const myWishList = wishlistId;
-  const friendWishList = friend?.wishlist.map(wish => wish.apiid?.trim()) || [];
+  const friendWishList = friend?.wishlist?.map(w => w.apiid?.trim()) || [];
+;
 
   // dette filteret finner ut hvilke ønsker begge har i sin ønskeliste
   const commonWishes = myWishList.filter(ref => friendWishList.includes(ref));
