@@ -62,12 +62,12 @@ export default function Welcome({ me, friend }) {
     <>
       <h1>Dashboard</h1>
       <h2>Velkommen {me?.name}</h2>
-      <img src={me?.image?.asset?.url} alt={me?.name} />
+      <img src={me?.image?.asset?.url} alt={me?.name} className="imgMe" />
       <p>Alder: {me?.age}</p>
       <p>Kjønn: {me?.gender}</p>
 
       <h2>Venner</h2>
-      <img src={friend?.image?.asset?.url} alt={friend?.name} />
+      <img src={friend?.image?.asset?.url} alt={friend?.name} className="imgFriend" />
       <p>{friend?.name}</p>
       {commonWishesEvents.map(event => (
         <p key={event.id}>
