@@ -21,8 +21,8 @@ export default function Dashboard({ user, setSignedIn }) { //tar imot noen props
 
     if (exists) {
       // hvis brukeren finnes, lagrer vi innloggingen i localstorage.
-      localStorage.setItem("login", "true");
-      localStorage.setItem("loggedInName", exists.name); 
+      sessionStorage.setItem("login", "true");
+      sessionStorage.setItem("loggedInName", exists.name); 
       setSignedIn(true); //Denne oppdaterer staten som kommer fra app.jsx, slik at brukeren blir sett på som logget inn
     } else {
       setError("Brukernavnet finnes ikke i databasen."); //her setter vi erroren. Så hvis brukeren ikke finnes i sanity, så kommer denne feilmeldingen. Vi hadde først ikke denne, noe som kræsjet siden hver gang vi skrev feil

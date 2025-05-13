@@ -75,7 +75,8 @@ export default function CategoryPage ({storageLiked}) {
             <h3>Filtrert søk</h3>
             <form className="filterSearchForm">
                 <label htmlFor="date">
-                    <input type="date" id="date" value={date ? date.slice(0, 10) : ""} onChange={(e) => setDate(`${e.target.value}T00:00:00Z`)}></input> {/*Laget en onChange som håndterer endringer i de ulike inputene og lagrer de endringene i en state som vi kan bruke for å hente ut det vi ønsker*/}
+                    <input type="date" id="date" value={date ? date.slice(0, 10) : ""} onChange={(e) => setDate(`${e.target.value}T00:00:00Z`)}></input> {/*Laget en onChange som håndterer endringer i de ulike inputene og lagrer de endringene i en state som vi kan bruke for å hente ut det vi ønsker
+                    endrer også på hvordan dato blir lagret, slik at det matcher det som apiet godtar*/}
                 </label>
                 <label htmlFor="country"></label>
                 <select id="country" name="country" value={country} onChange={(e) => setCountry(e.target.value)}>

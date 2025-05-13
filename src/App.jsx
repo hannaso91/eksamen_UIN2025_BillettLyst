@@ -9,14 +9,13 @@ import SanityEventDetails from './components/SanityEventDetails';
 import { useEffect, useState } from 'react';
 import Welcome from './components/Welcome';
 import { fetchMember } from './sanity/member';
-import { fetchArrangement } from './sanity/arrangement';
 
 function App() {
   const [festivals, setFestivals] = useState([]);
   const [user, setUser] = useState([]);
   const [signedIn, setSignedIn] = useState(false);
   const [me, setMe] = useState(null);
-  const [friend, setFriend] = useState(null);
+  const [friends, setFriends] = useState([]);
   const [storageLiked, setStorageLiked] = useState(localStorage.getItem("liked"));
 
   const filterFestival = "K8vZ917oWOV,K8vZ917bJC7,K8vZ917_YJf,K8vZ917K7fV";
@@ -32,7 +31,7 @@ function App() {
 
   // Sjekk om bruker allerede er logget inn (fra sessionStorage)
   useEffect(() => {
-    const login = localStorage.getItem("login") === "true";
+    const login = sessionStorage.getItem("login") === "true";
     setSignedIn(login);
   }, []);
 
@@ -58,16 +57,17 @@ function App() {
 
   // Når bruker er logget inn og vi har fått brukerlisten, kjører sett me og friend. Denne biten er hentet fra chatgpt, se dokumentasjon. Det med å få logg inn til å fungere er det eneste vi har brukt chatgpt til
   useEffect(() => {
-    if (signedIn && user.length > 0) {
-      const loggedInName = localStorage.getItem("loggedInName")?.toLowerCase();
-      const meUser = user.find(u => u.name.toLowerCase() === loggedInName);
-      const friendUser = user.filter(u => u._id !== meUser?._id);
-      setMe(meUser);
-      setFriend(friendUser);
-    }
-  }, [signedIn, user]);
+  if (signedIn && user.length > 0) {
+    const loggedInName = sessionStorage.getItem("loggedInName")?.toLowerCase();
+    const meUser = user.find(u => u.name.toLowerCase() === loggedInName);
+    const friendUsers = user.filter(u => u._id !== meUser?._id); //bruker filter her siden det er flere, de bli da lagret i en array usestate
 
-  console.log(friend)
+    setMe(meUser);
+    setFriends(friendUsers);
+  }
+}, [signedIn, user])
+
+  console.log("venner",friends)
 
   return (
     <>
@@ -78,7 +78,7 @@ function App() {
           <Route path="/category/:slug" element={<CategoryPage storageLiked={storageLiked} />} />
           <Route path="/dashboard" element={
             signedIn
-              ? <Welcome setSignedIn={setSignedIn} me={me} friend={friend}/>
+              ? <Welcome setSignedIn={setSignedIn} me={me} friends={friends}/>
               : <Dashboard setSignedIn={setSignedIn} user={user} />
           } />
           <Route path="/sanity-event/:apiId" element={<SanityEventDetails />} />

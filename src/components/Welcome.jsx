@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import EventCard from "./EventCard";
 import { useEffect, useState } from "react";
 
-export default function Welcome({ me, friend }) {
+export default function Welcome({ me, friends }) {
   const [ticketmasterAPI, setTicketmasterAPI] = useState([]);
 
   // henter her id-er fra brukerens kjøp fra tidligere og brukerens ønskeliste. La også inn en sjekk for at om det ikke eksisterer så returner en som array, slik at vi unngår at siden kræsjer
@@ -47,16 +47,7 @@ export default function Welcome({ me, friend }) {
   const purchases = ticketmasterAPI.filter(event => purchaseId.includes(event.id));
   const wishlist = ticketmasterAPI.filter(event => wishlistId.includes(event.id));
 
-  //på de to linjene under lagrer vi ønskeliste ider for bruker og venn, dette for å kunne sammenlikne i filter under
-  const myWishList = wishlistId;
-  const friendWishList = friend?.wishlist?.map(w => w.apiid?.trim()) || [];
-;
-
-  // dette filteret finner ut hvilke ønsker begge har i sin ønskeliste
-  const commonWishes = myWishList.filter(ref => friendWishList.includes(ref));
-
-  // filteret under finner de eventene som matcher felles ønsker.
-  const commonWishesEvents = ticketmasterAPI.filter(event => commonWishes.includes(event.id.trim()));
+  
 
   return (
     <>
@@ -67,18 +58,39 @@ export default function Welcome({ me, friend }) {
       <p>Kjønn: {me?.gender}</p>
 
       <h2>Venner</h2>
-      <img src={friend?.image?.asset?.url} alt={friend?.name} />
-      <p>{friend?.name}</p>
-      {commonWishesEvents.map(event => (
-        <p key={event.id}>
-          Du og {friend?.name} ønsker begge å dra på {event.name}. Hva med å dra sammen?
-        </p>
-      ))}
+      {friends.map(f => {
+        //på de to linjene under lagrer vi ønskeliste ider for bruker og venn, dette for å kunne sammenlikne i filter under
+        const friendWishList = f?.wishlist?.map(w => w.apiid?.trim()) || [];
+        // dette filteret finner ut hvilke ønsker begge har i sin ønskeliste, både den som er logget inn og de som ikke er
+        const commonWishes = wishlistId.filter(ref => friendWishList.includes(ref));
+        // filteret under finner de eventene som matcher felles ønsker
+        const commonWishesEvents = ticketmasterAPI.filter(event => commonWishes.includes(event.id.trim()));
+
+        return (
+          <div key={f._id}>
+            <img src={f?.image?.asset?.url} alt={f?.name} />
+            <p>{f?.name}</p>
+
+            {commonWishesEvents.length > 0 ? (
+              commonWishesEvents.map(event => (
+                <p key={event.id}>
+                  Du og {f?.name} ønsker begge å dra på {event.name}. Hva med å dra sammen?
+                </p>
+              ))
+            ) : (
+              <p>Ingen felles ønsker med {f?.name}.</p>
+            )}
+          </div>
+        );
+      })}
+
+      
+      
 
       <h2>Mine kjøp</h2>
       {purchases.map(pass => (
         <div key={pass.id}>
-          <Link to={`/sanity-event/${pass.id}`} state={{me, friend}}> {/*https://dev.to/thatfemicode/passing-data-states-through-react-router-8dh*/}
+          <Link to={`/sanity-event/${pass.id}`} state={{me, friends}}> {/*https://dev.to/thatfemicode/passing-data-states-through-react-router-8dh*/}
             <EventCard pass={pass} />
           </Link>
         </div>
@@ -87,7 +99,7 @@ export default function Welcome({ me, friend }) {
       <h2>Ønskeliste</h2>
       {wishlist.map(pass => (
         <div key={pass.id}>
-          <Link to={`/sanity-event/${pass.id}`} state={{me, friend}}>
+          <Link to={`/sanity-event/${pass.id}`} state={{me, friends}}>
             <EventCard pass={pass} />
           </Link>
         </div>
