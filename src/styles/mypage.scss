@@ -18,18 +18,33 @@ main{
             font-size: 15px;
             margin: 0px;
         }
-
     }
+    .friends{
 
+        margin-top: 30px;
 
-
-    .imgFriend{
-        width: 150px;
-        height: auto;
+        h2{
+            font-size: 16px;
+        }
+        img{
+            width: 150px;
+            height: auto;
+        }
+        p{
+            margin-top: 0px;
+        }
     }
-
+    .text{
+        margin-top: 0;
+        width: 320px;
+    }
+    .buy{
+        border-top: 3px solid #25C0D5;
+    }
 
 }
+
+
 
 /* Brukt kode hentet fra W3schools for å få media queries til å fungere. Hentet fra : https://www.w3schools.com/css/css3_mediaqueries.asp Dato: 05.05.25. */
 @media screen and (min-width: 430px) {
