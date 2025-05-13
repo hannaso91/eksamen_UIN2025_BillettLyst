@@ -3,24 +3,35 @@ main{
     flex-wrap: wrap;
     flex-direction: column;
     text-align: left;
+    border-top: 3px solid #25C0D5;
 
-    h2{
-        font-size: 20px;
+    .myprofile{
+        h2{
+            font-size: 20px;
+        }
+    
+        .imgMe{
+            width: 250px;
+            height: auto;
+        }
+        p{
+            font-size: 15px;
+            margin: 0px;
+        }
+
     }
 
-    .imgMe{
-        width: 250px;
-        height: auto;
-    }
+
 
     .imgFriend{
         width: 150px;
         height: auto;
     }
 
-    p{
-        font-size: 15px;
-        font-weight: 400;
-        margin-top: 20px;
-    }
+
+}
+
+/* Brukt kode hentet fra W3schools for å få media queries til å fungere. Hentet fra : https://www.w3schools.com/css/css3_mediaqueries.asp Dato: 05.05.25. */
+@media screen and (min-width: 430px) {
+
 }

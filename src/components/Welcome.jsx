@@ -61,14 +61,19 @@ export default function Welcome({ me, friend }) {
   return (
     <>
       <h1>Dashboard</h1>
+      
+      <section className="myprofile">
       <h2>Velkommen {me?.name}</h2>
       <img src={me?.image?.asset?.url} alt={me?.name} className="imgMe" />
       <p>Alder: {me?.age}</p>
       <p>Kjønn: {me?.gender}</p>
-
+      </section>
+      <section>
       <h2>Venner</h2>
       <img src={friend?.image?.asset?.url} alt={friend?.name} className="imgFriend" />
       <p>{friend?.name}</p>
+      </section>
+
       {commonWishesEvents.map(event => (
         <p key={event.id}>
           Du og {friend?.name} ønsker begge å dra på {event.name}. Hva med å dra sammen?
