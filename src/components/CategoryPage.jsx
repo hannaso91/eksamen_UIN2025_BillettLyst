@@ -8,10 +8,10 @@
 
     export default function CategoryPage({ storageLiked }) {
     const { slug } = useParams();
-    const todayISO = new Date().toISOString().split(".")[0] + "Z";
-    const [date, setDate] = useState(todayISO);
+    const todayISO = new Date().toISOString().split(".")[0] + "Z"; //Etter tips fra Ann-Charlott så brukte vi dette. toISOString og .split. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString Dette gjør så at date blir sendt inn likt som API skriver det
+    const [date, setDate] = useState(todayISO); //Her setter vi staten til det som er over.
     const [country, setCountry] = useState("Norge");
-    const [categoryCity, setCity] = useState("Oslo");
+    const [categoryCity, setCity] = useState("");
     const [eventsAPI, setEventsAPI] = useState([]);
     const [attractions, setAttractions] = useState([]);
     const [venues, setVenues] = useState([]);
@@ -55,7 +55,7 @@
 
     useEffect(() => {
         handleSearch();
-    }, [slug, country, categoryCity, keyword, date]);
+    }, [apiCategory]);
 
 
     return (
@@ -84,7 +84,7 @@
 
             <label htmlFor="city"></label>
             <select id="city" value={categoryCity} onChange={(e) => setCity(e.target.value)}>
-                <option value="Oslo">Velg by</option>
+                <option value="">Velg by</option>
                 <option value="Oslo">Oslo</option>
                 <option value="Stockholm">Stockholm</option>
                 <option value="København">København</option>
@@ -93,11 +93,8 @@
             </select>
             <button type="button" onClick={handleSearch}>Søk</button>
             </form>
-
             <SearchForm setKeyword={setKeyword} />
-            
         </section>
-
         <section>
             <h3 className="atractionheading">Attraksjoner</h3>
             <div className="attractionSection">
@@ -109,7 +106,6 @@
             ))}
             </div>
         </section>
-
         <section>
             <h3>Arrangementer</h3>
             <div className="arrangementflex">
@@ -122,7 +118,6 @@
             ))}
             </div>
         </section>
-
         <section>
             <h3>Spillesteder/eventsteder</h3>
             {venues.map(attraction => (
