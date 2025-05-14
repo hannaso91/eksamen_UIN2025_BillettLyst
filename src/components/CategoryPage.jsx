@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import {  useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import EventCard from "./EventCard"
 import HeartIcon from "./HeartIcon"
@@ -49,7 +49,7 @@ export default function CategoryPage ({storageLiked}) {
     //Denne måten å gjøre det på fungerte akkurat som ønsket og ble testet for å se om fungerte. Litt prøve og feile fremgangsmåte
 
 
-    const getEventsInEventsAPI = async () => { 
+    const handleSearch = async () => { 
         fetch(`https://app.ticketmaster.com/discovery/v2/suggest?apikey=8jut1LP6C3Z6ZSSJU3PCMoler5qA4oZW&keyword=${keywordcheck}&locale=*&countryCode=${code}`)
             .then(response => response.json())
             .then(data => {
@@ -64,8 +64,9 @@ export default function CategoryPage ({storageLiked}) {
     }
 
     useEffect(() => {
-        getEventsInEventsAPI()
-    }, [slug, categoryCity, country, keyword, date]) //har satt inn noen avhengigheter for at useeffect kjører og henter ny data fra. Den skal også kjøres hver gang det er endringer i noen av disse statene/variablene/params
+        handleSearch();
+    }, [apiCategory]);
+
 
 
     return(
@@ -96,6 +97,7 @@ export default function CategoryPage ({storageLiked}) {
                     <option value="Paris">Paris</option> 
                     <option value="Berlin">Berlin</option>
                 </select>
+                <button type="button" onClick={handleSearch}>Søk</button>
             </form>
             <SearchForm setKeyword={setKeyword}/>
         </section>
