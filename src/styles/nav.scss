@@ -1,9 +1,21 @@
 nav{
     max-width: 400px;
-
     img{
         width: 130px;
         height: auto;
+    }
+
+    button{
+        background-color: #1D4274;
+        color: #ffffff;
+        padding: 3px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+
+    a{
+        text-decoration: none;
+        color: #1D4274;
     }
 
     ul{
@@ -46,7 +58,6 @@ nav{
         min-width: 1200px;
         display: flex;
         justify-content: space-between;
-        border-bottom: 1px solid #1d4274;
 
         ul{
             align-content: center;
@@ -67,6 +78,7 @@ nav{
             font-weight: 400;
             font-size: 16px;
             margin-top: 40px;
+            margin-bottom: 10px;
             height: 30px;
             border-radius: 3px;
             align-content: center;

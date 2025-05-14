@@ -1,0 +1,71 @@
+main{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    text-align: left;
+    border-top: 3px solid #25C0D5;
+
+    .myprofile{
+        width: 320px;
+        h2{
+            font-size: 20px;
+        }
+    
+        .imgMe{
+            width: 250px;
+            height: auto;
+        }
+        p{
+            font-size: 15px;
+            margin: 0px;
+        }
+    }
+    .friends{
+        width: 320px;
+        margin-top: 30px;
+
+        h2{
+            font-size: 16px;
+        }
+        img{
+            width: 150px;
+            height: auto;
+        }
+        p{
+            margin-top: 0px;
+        }
+    }
+    .text{
+        margin-top: 0;
+        width: 320px;
+    }
+    .buy{
+        border-top: 3px solid #25C0D5;
+    }
+
+}
+
+/* Brukt kode hentet fra W3schools for å få media queries til å fungere. Hentet fra : https://www.w3schools.com/css/css3_mediaqueries.asp Dato: 05.05.25. */
+@media screen and (min-width: 480px) {
+    main{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+
+        .myprofile{
+            h2{
+                font-size: 30px;
+            }
+        
+            .imgMe{
+                width: 300px;
+                height: auto;
+            }
+            p{
+                font-size: 15px;
+                margin: 0px;
+            }
+        }
+    }
+
+}
