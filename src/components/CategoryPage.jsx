@@ -104,6 +104,10 @@
                 <HeartIcon id={attraction.id} />
                 </div>
             ))}
+            {attractions.length === 0 && attractions !== undefined && (
+                <p>Ingen attraksjoner funnet.</p>
+            )}
+
             </div>
         </section>
         <section>
@@ -116,6 +120,10 @@
                 <HeartIcon id={pass.id} />
                 </div>
             ))}
+            {eventsAPI.length === 0 && eventsAPI !== undefined && (
+                <p>Ingen arrangementer funnet.</p>
+            )}
+
             </div>
         </section>
         <section>
@@ -126,6 +134,10 @@
                 <HeartIcon id={attraction.id} />
             </div>
             ))}
+            {venues.length === 0 && venues !== undefined && (
+                <p>Ingen spillsteder funnet.</p>
+            )}
+
         </section>
         </>
     );
