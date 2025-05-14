@@ -1,6 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import Nav from "./Nav";
 import "../styles/nav.scss"
+import "../styles/footer.scss"
 
 export default function Layout({children, signedIn, setSignedIn}) { //denne brukes på app rundt hele routingen. Da blir dette med på hver eneste side gjennom hele. Den tar imot props for å logge ut og innloggingsstatus
     //children props er i react fra før, og brukes for å rendre ut alt inni main i dette tilfellet.
@@ -21,7 +22,7 @@ export default function Layout({children, signedIn, setSignedIn}) { //denne bruk
             {children}
         </main>
         <footer>
-
+            <p>Data levert av <a href="https://developer.ticketmaster.com/" target="_blank">Ticketmaster</a></p>
         </footer>
         </>
     )
