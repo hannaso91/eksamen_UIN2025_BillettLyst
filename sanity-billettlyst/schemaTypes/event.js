@@ -12,7 +12,7 @@ export const events = {
         name: "apiid",
         title: "API-id fra Ticketmaster",
         type: "string",
-        description: "Kopier inn event.id fra Ticketmaster, f.eks. 'Z698xZb_Z16v0f8V-g'"
+        description: "Kopier inn event.id fra Ticketmaster, f.eks. 'Z698xZb_Z16v0f8V-g'" //https://www.sanity.io/docs/studio/string-type
       }
     ]
   };

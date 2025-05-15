@@ -18,7 +18,7 @@ function App() {
   const [friends, setFriends] = useState([]);
   const [storageLiked, setStorageLiked] = useState(localStorage.getItem("liked"));
 
-  const filterFestival = "K8vZ917oWOV,K8vZ917bJC7,K8vZ917_YJf,K8vZ917K7fV";
+  const filterFestival = "K8vZ917oWOV,K8vZ917bJC7,K8vZ917_YJf,K8vZ917K7fV"; // Dette er faktiske ider fra sanity hentet fra explorer for å få ut akkurat de festivalene vi vil
 
   // Hent brukere fra Sanity uansett om logget inn eller ikke
   useEffect(() => {
@@ -35,13 +35,13 @@ function App() {
     setSignedIn(login);
   }, []);
 
-  // Hent festivals fra Ticketmaster
+  // Hent festivals fra Ticketmaster basert på de ideene i variabelen på linje 21
   const getEventsById = async () => {
     fetch(`https://app.ticketmaster.com/discovery/v2/attractions.json?id=${filterFestival}&countryCode=NO&apikey=AFEfcxa4XlCTGJA56Jk356h0NkfziiWD`)
       .then(response => response.json())
       .then(data => {
         console.log(data);
-        if (data._embedded && data._embedded.attractions) {
+        if (data._embedded && data._embedded.attractions) { //La inn en if test for å sikre at det har innhold slik at vi slepper feilmeldinger på selve nettsiden
           setFestivals(data._embedded.attractions);
         } else {
           console.log("Ingen treff på IDene");
@@ -50,6 +50,7 @@ function App() {
       .catch(error => console.error("Feil ved henting:", error));
   };
 
+  //Kjører kun når siden mountes
   useEffect(() => {
     getEventsById()
   }, [])
@@ -65,7 +66,7 @@ function App() {
     setMe(meUser);
     setFriends(friendUsers);
   }
-}, [signedIn, user])
+}, [signedIn, user]) //Useeffekt kjører på nytt hver gang noe av dette endrer seg
 
   console.log("venner",friends)
 
@@ -77,7 +78,7 @@ function App() {
           <Route path="/event/:id" element={<EventPage festivals={festivals} />} />
           <Route path="/category/:slug" element={<CategoryPage storageLiked={storageLiked} />} />
           <Route path="/dashboard" element={
-            signedIn
+            signedIn //Hvis bruker er logget inn skal welcome vises, hvis ikke skal dashboard vises. De har ulikt innhold. I nav.jsx er det også betingelser knyttet til dette og hva som vises basert på innloggingsstatus
               ? <Welcome setSignedIn={setSignedIn} me={me} friends={friends}/>
               : <Dashboard setSignedIn={setSignedIn} user={user} />
           } />
