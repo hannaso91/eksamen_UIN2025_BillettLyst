@@ -57,7 +57,7 @@
             return (
               <div className="friendsCard" key={f._id}>
                 <img src={f?.image?.asset?.url} alt={f?.name} className="imgFriend" />
-                <p>{f?.name}</p>
+                <h4>{f?.name}</h4>
                 <div className="text">
                   {commonWishesEvents.length > 0 ? (
                     commonWishesEvents.map(event => (
