@@ -65,7 +65,7 @@
 
 
     return (
-        <> {/*Ettersom det var en stund siden vi hadde vært igjennom dette, så måtte dette friskes opp litt. Der vi har brukt kilder vil det ligge kilde bak */}
+        <> {/*Ettersom det var en stund siden vi hadde vært igjennom dette, så måtte dette friskes opp litt. Der vi har brukt kilder vil det ligge kilde ved den biten */}
         <section className="filterSearch">
             <h2 className="categoryheading">{slug}</h2>
             <h3>Filtrert søk</h3>
@@ -80,9 +80,9 @@
                     //onChange sier bare at om noe endrer seg så skal det nye lagres i staten
                     />
                 </label>
-                <label htmlFor="country"></label>
-                <select id="country" value={country} onChange={(e) => setCountry(e.target.value)}>
-                    <option value="Norge">Velg land</option>
+                <label htmlFor="country"></label> {/*https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/option*/}
+                <select id="country" value={country} onChange={(e) => setCountry(e.target.value)}> {/*Setter den valgte verdien inn i useState, useState endres hver gang input endres med onChange*/}
+                    <option value="Norge">Velg land</option> {/*Default Norge for å få innhold når siden mountes*/}
                     <option value="Norge">Norge</option>
                     <option value="Sverige">Sverige</option>
                     <option value="Danmark">Danmark</option>
@@ -101,7 +101,7 @@
                 </select>
                 <button type="button" onClick={handleSearch}>Søk</button>
             </form>
-            <SearchForm setKeyword={setKeyword} />
+            <SearchForm setKeyword={setKeyword} /> {/*Henter inn komponent og sender en prop for å kunne endre søkeordet*/}
         </section>
         <section>
             <h3 className="atractionheading">Attraksjoner</h3>
@@ -112,7 +112,7 @@
                 <HeartIcon id={attraction.id} />
                 </div>
             ))}
-            {attractions.length === 0 && attractions !== undefined && (
+            {attractions.length === 0 && attractions !== undefined && ( //Dette er inspirert av cheat sheet fra innføring i programmering
                 <p>Ingen attraksjoner funnet.</p>
             )}
 
