@@ -66,11 +66,13 @@
             }
 }
 
+//"Filtrert søk" overskrift.
 .searchfilterheading{
     margin-left: 10px;
     font-size: 20px;
 }
 
+//Søkeknapp til filtrerings skjemaet.
 .filterbtn{
     background-color: #1D4274;
     color:#ffff;
@@ -90,12 +92,15 @@
     transition: background-color 0.3s ease;
     cursor: pointer;
 }
+
+// "Søk med nøkkelord" overskrift.
 .searchHeading{
           font-size: 15px;
           margin: 10px;
           text-decoration: underline solid #25C0D5;     
 }
 
+//Inputfeltet for søkefeltet.
 #inputKeyword{
     color:#1D4274;
     padding:10px;
@@ -106,10 +111,10 @@
     cursor: pointer;
 }
 
+//Søkeknappen til inputfeltet.
 .filtersearchbtn{
     width: 100px;
     border-radius: 5px;
-
 }
 
 //Attraksjonsseksjon på kategori-siden
@@ -121,6 +126,7 @@
     justify-content: center;
 }
 
+//"Attraksjoner" overskrift.
 .atractionheading{
     font-size: 25px;
     margin-left: 10px;
@@ -128,6 +134,7 @@
     text-decoration: underline solid #25C0D5; 
 }
 
+// "Kjøp billetter" knapp & "Hjerte" knapp flex.
 .buttonflex{
     display: flex;
     flex-direction: column;
@@ -135,6 +142,7 @@
     gap: 0.5rem;
 }
 
+// "Kjøp billetter" knapp.
 .billetterbtn{
     background-color: #1D4274;
     color: #ffff;
@@ -155,12 +163,14 @@
     text-decoration: none;
 }
 
+// "Hjerte" knapp.
 .heartIconbtn{
     background-color: transparent;
     border:none;
     font-size: 20px;
 }
 
+// Flexer arrangementene og spillestedene.
 .arrangementflex{
     display: flex;
     flex-wrap: wrap;
