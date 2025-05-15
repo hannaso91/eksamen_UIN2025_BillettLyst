@@ -123,9 +123,9 @@
             <h3 className="arrangementheading">Arrangementer</h3>
             <div className="arrangementflex">
             {eventsAPI.map(pass => (
-                <div key={pass.id}>
+                <div className="buttonflex" key={pass.id}>
                 <EventCard pass={pass} />
-                <a href={pass.url} target="_blank">Kjøp billetter</a>
+                <a className="billetterbtn" href={pass.url} target="_blank">Kjøp billetter</a>
                 <HeartIcon id={pass.id} />
                 </div>
             ))}

@@ -92,6 +92,33 @@
     text-decoration: underline solid #25C0D5; 
 }
 
+.buttonflex{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.billetterbtn{
+    background-color: #1D4274;
+    color: #ffff;
+    border: none;
+    width: 90px;
+    border-radius: 5px;
+    font-size: 15px;
+    padding: 10px 20px;
+    margin-left: 8rem;
+    transition: background-color 0.3s ease;
+}
+
+.billetterbtn:hover{
+    background-color: #25C0D5;
+    color: #1D4274;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
 .heartIconbtn{
     background-color: transparent;
     border:none;
