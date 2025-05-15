@@ -47,7 +47,7 @@
         </section>
         <h2>Venner</h2>
         <section className="friends">
-          
+
           {friends.map(f => { //Har valgt å legge map og filter inne i denne mappen, dette forenkler koden. Hadde vi gjort kodene under utenfor map hadde vi hatt en commonWishes verdi for alle og det hadde ikke fungert. Det fant vi ut ettersom koden først ble plassert utenfor map
           // For hver venn så skal ønskeliste hentes for akkurat den vennen
             const friendWishList = f?.wishlist?.map(w => w.apiid?.trim()) || []; //trimmer apiid for å sikre at det er rent uten mellomrom før eller etter 
@@ -84,8 +84,8 @@
             
           ))}
         </section>
-        <h2>Ønskeliste</h2>
         <section className="eventkort">
+        <h2>Ønskeliste</h2>
           {wishlist.map(pass => (
             <div key={pass.id}>
               <Link to={`/sanity-event/${pass.id}`} state={{ me, friends }}>
