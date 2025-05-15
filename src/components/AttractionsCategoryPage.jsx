@@ -1,7 +1,6 @@
-import HeartIcon from "./HeartIcon";
 import "../styles/attractionsCategoryPage.scss"
 
-export default function AttractionsCategoryPage({attraction}) {
+export default function AttractionsCategoryPage({attraction}) { //Lagde en egen til categorypage for listing av attraksjoner og spillsteder. Arrangementer bruker eventcard
     return(
         <article className="attractionCard">
             <h2>{attraction.name}</h2>
