@@ -25,6 +25,7 @@ function App() {
   useEffect(() => {
     const fetchUsers = async () => {
       const data = await fetchMember();
+      console.log("hentede brukere", data)
       setUser(data);
     };
     fetchUsers();
