@@ -1,20 +1,17 @@
-main{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    text-align: left;
-    border-top: 3px solid #25C0D5;
-    width: 100vw;
 
     .myprofile{
         width: 320px;
+        color: #1D4274;
         h2{
-            font-size: 20px;
+            font-size: 18px;
+            width: 100%;
+            text-decoration: none;
         }
     
         .imgMe{
-            width: 250px;
-            height: auto;
+            width: 200px;
+            height: 250;
+            object-fit: cover;
         }
         p{
             font-size: 15px;
@@ -22,15 +19,18 @@ main{
         }
     }
     .friends{
-        width: 320px;
-        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
 
         h2{
             font-size: 16px;
+            width: 100%;
         }
         img{
             width: 150px;
-            height: auto;
+            height: 150px;
+            object-fit: cover;
         }
         p{
             margin-top: 0px;
@@ -42,31 +42,42 @@ main{
     }
     .buy{
         border-top: 3px solid #25C0D5;
+        h2{
+            width: 100%;
+        }
     }
 
-}
+    .imgFriend{
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+    }
+
 
 /* Brukt kode hentet fra W3schools for å få media queries til å fungere. Hentet fra : https://www.w3schools.com/css/css3_mediaqueries.asp Dato: 05.05.25. */
-@media screen and (min-width: 480px) {
-    main{
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-
+@media screen and (min-width: 430px) {
         .myprofile{
+            text-align: left;
             h2{
-                font-size: 30px;
+                font-size: 16px;
+
             }
-        
-            .imgMe{
-                width: 300px;
-                height: auto;
-            }
+
             p{
                 font-size: 15px;
                 margin: 0px;
             }
         }
-    }
+
+        .friends{  
+            flex-direction: row;
+            
+        }
+        .buy{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+    
 
 }

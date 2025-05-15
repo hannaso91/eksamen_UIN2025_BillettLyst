@@ -55,9 +55,9 @@
             const commonWishesEvents = ticketmasterAPI.filter(event => commonWishes.includes(event.id)); // her finner vi de faktiske eventene for de felles ønskene
 
             return (
-              <div key={f._id}>
+              <div className="articleClassPass" key={f._id}>
                 <img src={f?.image?.asset?.url} alt={f?.name} className="imgFriend" />
-                <p>{f?.name}</p>
+                <p className="Overskrift">{f?.name}</p>
                 <div className="text">
                   {commonWishesEvents.length > 0 ? (
                     commonWishesEvents.map(event => (
