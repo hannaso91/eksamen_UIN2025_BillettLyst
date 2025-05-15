@@ -53,12 +53,21 @@ section{
 
 /* Kjøp og ønskeliste knapper */
 .kjop{
-    background-color: #d9d9d9;
-    color: #1D4274;
-    border: 3px solid #25C0D5;
-    padding: 10px;
-    border-radius: 10px;
-    margin: 1rem;
+    display: flex;
+    width: 30px;
+    justify-content: center;
+    background-color: #1D4274;
+    color: #ffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    text-transform: uppercase;
+    padding: 6px 25px;
+    margin: 5px 0px 0px 155px;
+    transition: background-color 0.3s ease; 
+    text-decoration: none;
+    cursor: pointer; /*Har brukt kode fra W3Schools for å få en peker når man hovrer over knapp. Hentet
+    fra: https://www.w3schools.com/cssref/pr_class_cursor.php . Dato: 05.05.25 */
     
 }
 .kjop:hover{

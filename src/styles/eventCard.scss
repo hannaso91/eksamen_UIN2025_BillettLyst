@@ -56,14 +56,15 @@
 
 //Knapper i artikkelkortene.
 .favorittbtn{
-    background-color: #D9D9D9;
-    color: #1D4274;
-    margin-left: 10px;
-    max-width: 70%;
-    max-height: 100%;
-    border: solid;
-    border-color: #25C0D5;
-    text-align: center;
+    background-color: #1D4274;
+    color: #ffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    padding: 10px 20px;
+    margin: 10px;
+    transition: background-color 0.3s ease; 
+    text-decoration: none;
     cursor: pointer; /*Har brukt kode fra W3Schools for å få en peker når man hovrer over knapp. Hentet
     fra: https://www.w3schools.com/cssref/pr_class_cursor.php . Dato: 05.05.25 */
 }
@@ -72,7 +73,7 @@
     background-color: #25C0D5;
     color: #1D4274;
 }
-
+/*
 .kjopbtn{
     display: flex;
     margin-left: 10px;
@@ -85,13 +86,15 @@
     border: none;
     text-align: center;
     cursor: pointer; /*Har brukt kode fra W3Schools for å få en peker når man hovrer over knapp. Hentet
-    fra: https://www.w3schools.com/cssref/pr_class_cursor.php . Dato: 05.05.25 */
+    fra: https://www.w3schools.com/cssref/pr_class_cursor.php . Dato: 05.05.25
 }
+
 
 .kjopbtn:hover{
     background-color: #25C0D5;
     color: #1D4274;
 }
+    */
 
 ul{
     display: flex;
