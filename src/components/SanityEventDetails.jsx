@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import { fetchByAPIinSanity } from "../sanity/arrangement";
+import "../styles/myPurchases.scss";
 
 export default function SanityEventDetails() {
     const { apiId } = useParams(); //Henter apiid fra url. 
@@ -71,12 +72,12 @@ export default function SanityEventDetails() {
         <h2>{eventSanity?.title}</h2>
             <>
                 <img src={ticketmasterData?.images?.[0].url} alt={`bilde fra eventet ${ticketmasterData?.name}`}/>
-                <section>
+                <section className="mittkjop">
                     <h3>Sted og dato</h3>
                     <p>Dato: {ticketmasterData?.dates?.start?.localDate}</p>
                     <p>Sted: {ticketmasterData?.dates?.timezone}</p>
                 </section> 
-                <section>
+                <section className="sjanger">
                     <h3>Sjanger</h3>
                     <p>{ticketmasterData?.classifications?.[0]?.genre?.name}</p>
                     <p>{ticketmasterData?.classifications?.[0]?.segment?.name}</p>
@@ -85,7 +86,7 @@ export default function SanityEventDetails() {
                 <a href={ticketmasterData?.url} target="_blank">
                     Kjøp billetter her
                 </a>
-                <section>
+                <section className="wishlist">
                     <h3>Hvem har dette i ønskelista</h3>
                         {wishlistOwners.map(name =>
                             <article key={name.name}>
