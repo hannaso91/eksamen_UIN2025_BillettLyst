@@ -112,7 +112,7 @@ export default function CategoryPage ({storageLiked}) {
         </div>
         </section>
         <section>
-            <h3>Arrangementer</h3>
+            <h3 className="arrangementheading">Arrangementer</h3>
             <div className="arrangementflex">
             {eventsAPI.map(pass =>
                 <div key={pass.id}>
@@ -125,7 +125,7 @@ export default function CategoryPage ({storageLiked}) {
             </div>
         </section>
         <section>
-            <h3>Spillesteder/eventsteder</h3>
+            <h3 className="arrangementheading">Spillesteder/eventsteder</h3>
             <div className="spillestedflex">
             {venues.map(attraction => //Bruker attraction og sender inn her siden det er det som blir tatt imot i komponentet, ettersom det komponentet blir gjenbrukt må også samme prop sendes
                 <div key={attraction.id}>

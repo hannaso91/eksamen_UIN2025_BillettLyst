@@ -6,12 +6,6 @@
     text-decoration: underline #25C0D5;
 }
 
-//Under overskrifter for kategori-siden
-h3{
-    padding: 0;
-    margin:0px;
-}
-
 // Skjemaene for filtrering og søk.
 .filterSearchForm{
     display: flex;
@@ -74,7 +68,8 @@ h3{
 
 .searchHeading{
           font-size: 15px;
-          margin: 10px;     
+          margin: 10px;
+          text-decoration: underline solid #25C0D5;     
 }
 
 .filtersearchbtn{
@@ -91,9 +86,10 @@ h3{
 }
 
 .atractionheading{
-    font-size: 30px;
+    font-size: 25px;
     margin: 0;
-    padding: 40px 0px 40px 0px;;
+    padding: 40px 0px 40px 0px;
+    text-decoration: underline solid #25C0D5; 
 }
 
 .heartIconbtn{
@@ -114,6 +110,11 @@ h3{
     flex-wrap: wrap;
     gap: 2rem;
     justify-content: center;
+}
+
+//Arrangementheading på kategori-siden
+.arrangementheading{
+    text-decoration: underline solid #25C0D5;
 }
 
 @media screen and (min-width: 430px) {
