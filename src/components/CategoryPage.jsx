@@ -69,7 +69,7 @@
         <> {/*Ettersom det var en stund siden vi hadde vært igjennom dette, så måtte dette friskes opp litt. Der vi har brukt kilder vil det ligge kilde ved den biten */}
         <section className="filterSearch">
             <h2 className="categoryheading">{slug}</h2>
-            <h3>Filtrert søk</h3>
+            <h3 className="searchfilterheading">Filtrert søk</h3>
             <form className="filterSearchForm">
                 <label htmlFor="date"> {/*Her knyttes label og inputfeltet sammen, gir bedre tilgjengelighet*/}
                     <input
@@ -100,7 +100,7 @@
                     <option value="Paris">Paris</option>
                     <option value="Berlin">Berlin</option>
                 </select>
-                <button type="button" onClick={handleSearch}>Søk</button>
+                <button className="filterbtn" type="button" onClick={handleSearch}>Søk</button>
             </form>
             <SearchForm setKeyword={setKeyword} /> {/*Henter inn komponent og sender en prop for å kunne endre søkeordet*/}
         </section>

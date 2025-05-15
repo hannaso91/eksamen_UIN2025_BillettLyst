@@ -1,7 +1,7 @@
 //Hoved overskrift for kategori-siden 
 .categoryheading{
     text-transform: capitalize;
-    font-size: 50px;
+    font-size: 35px;
     text-align: center;
     text-decoration: underline #25C0D5;
 }
@@ -66,14 +66,55 @@
             }
 }
 
+//"Filtrert søk" overskrift.
+.searchfilterheading{
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+//Søkeknapp til filtrerings skjemaet.
+.filterbtn{
+    background-color: #1D4274;
+    color:#ffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    padding: 5px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.filterbtn:hover{
+    background-color: #25C0D5;
+    color:#1D4274;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+// "Søk med nøkkelord" overskrift.
 .searchHeading{
           font-size: 15px;
           margin: 10px;
           text-decoration: underline solid #25C0D5;     
 }
 
+//Inputfeltet for søkefeltet.
+#inputKeyword{
+    color:#1D4274;
+    padding:10px;
+    font-weight: bold;
+    border: 1px solid #1D4274;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+//Søkeknappen til inputfeltet.
 .filtersearchbtn{
     width: 100px;
+    border-radius: 5px;
 }
 
 //Attraksjonsseksjon på kategori-siden
@@ -85,19 +126,51 @@
     justify-content: center;
 }
 
+//"Attraksjoner" overskrift.
 .atractionheading{
     font-size: 25px;
-    margin: 0;
+    margin-left: 10px;
     padding: 40px 0px 40px 0px;
     text-decoration: underline solid #25C0D5; 
 }
 
+// "Kjøp billetter" knapp & "Hjerte" knapp flex.
+.buttonflex{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+// "Kjøp billetter" knapp.
+.billetterbtn{
+    background-color: #1D4274;
+    color: #ffff;
+    border: none;
+    width: 90px;
+    border-radius: 5px;
+    font-size: 15px;
+    padding: 10px 20px;
+    margin-left: 8rem;
+    transition: background-color 0.3s ease;
+}
+
+.billetterbtn:hover{
+    background-color: #25C0D5;
+    color: #1D4274;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+// "Hjerte" knapp.
 .heartIconbtn{
     background-color: transparent;
     border:none;
     font-size: 20px;
 }
 
+// Flexer arrangementene og spillestedene.
 .arrangementflex{
     display: flex;
     flex-wrap: wrap;
@@ -115,11 +188,17 @@
 //Arrangementheading på kategori-siden
 .arrangementheading{
     text-decoration: underline solid #25C0D5;
+    margin-left: 10px;
 }
 
 @media screen and (min-width: 430px) {
+
+    .searchfilterheading{
+        text-align: center;
+    }
     .filterSearchForm{
        display: inline;
+       margin-left: 15rem;
          
         label{
                 margin: 30px;
@@ -144,5 +223,56 @@
         text-transform:capitalize;
         cursor: pointer;
     }
+
+    .filterbtn{
+        background-color: #1D4274;
+        color:#ffff;
+        border: none;
+        margin-left: 5rem;
+        border-radius: 5px;
+        font-size: 20px;
+        padding: 6px 30px;
+        transition: background-color 0.3s ease;
+        text-decoration: none;
+        cursor: pointer;
+    }
+}
+
+.searchHeading{
+    text-align: center;
+    margin: 50px 0px 10px 0px;
+}
+.searchFormstyling{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 28rem;
+    padding: 0;
+    gap: 3rem;
+            button{
+                margin: 0;
+                padding:5px;
+                color: #ffffff;
+                background-color: #1D4274;
+                cursor: pointer;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+            button:hover{
+                background-color: #25C0D5;
+                color: #1D4274;
+                cursor: pointer;
+                transition: background-color 0.3s ease; // Forslag fra githubCopilot. (linje 40)
+                text-decoration: none;
+            }
+}
+
+#inputKeyword{
+    color:#1D4274;
+    padding:10px;
+    font-weight: bold;
+    border: 1px solid #1D4274;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
 }
 }
