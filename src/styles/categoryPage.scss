@@ -6,13 +6,6 @@
     text-decoration: underline #25C0D5;
 }
 
-//Under overskrifter for kategori-siden
-h3{
-    padding: 0;
-    margin:0px;
-    text-decoration: underline #25C0D5;
-}
-
 // Skjemaene for filtrering og søk.
 .filterSearchForm{
     display: flex;
@@ -23,6 +16,30 @@ h3{
     padding: 5px;
     width: 50px;
     gap: 15px;
+
+        label{
+                input{
+                    color:#1D4274;
+                    padding:4px;
+                    font-weight: bold;
+                    border: 1px solid #1D4274;
+                    border-radius: 5px;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                    cursor: pointer;
+                }
+        }
+}
+
+// "Velg By" og "Velg Land" knapper i søkeskjemaet.
+.selectbtn{
+    color:#1D4274;
+    padding:4px;
+    border-radius: 5px;
+    font-weight: bold;
+    border-color: #1D4274;
+    text-transform: capitalize;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
 }
 
 .searchFormstyling{
@@ -38,6 +55,7 @@ h3{
                 color: #ffffff;
                 background-color: #1D4274;
                 cursor: pointer;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             }
             button:hover{
                 background-color: #25C0D5;
@@ -50,7 +68,12 @@ h3{
 
 .searchHeading{
           font-size: 15px;
-          margin: 10px;     
+          margin: 10px;
+          text-decoration: underline solid #25C0D5;     
+}
+
+.filtersearchbtn{
+    width: 100px;
 }
 
 //Attraksjonsseksjon på kategori-siden
@@ -63,9 +86,10 @@ h3{
 }
 
 .atractionheading{
-    font-size: 30px;
+    font-size: 25px;
     margin: 0;
-    padding: 40px 0px 40px 0px;;
+    padding: 40px 0px 40px 0px;
+    text-decoration: underline solid #25C0D5; 
 }
 
 .heartIconbtn{
@@ -79,4 +103,46 @@ h3{
     flex-wrap: wrap;
     gap: 2rem;
     justify-content: center;
+}
+
+.spillestedflex{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+//Arrangementheading på kategori-siden
+.arrangementheading{
+    text-decoration: underline solid #25C0D5;
+}
+
+@media screen and (min-width: 430px) {
+    .filterSearchForm{
+       display: inline;
+         
+        label{
+                margin: 30px;
+                
+                    input{
+                       color:#1D4274;
+                       padding:10px;
+                       font-weight: bold;
+                       border: 1px solid #1D4274;
+                       border-radius: 5px;
+                       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                       cursor: pointer;
+                    }
+            }
+    .selectbtn{
+        color:#1D4274;
+        padding:10px;
+        border-radius: 5px;
+        font-weight: bold;
+        border-color: #1D4274;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-transform:capitalize;
+        cursor: pointer;
+    }
+}
 }

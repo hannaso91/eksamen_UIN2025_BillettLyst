@@ -2,15 +2,18 @@
 section{
 
     h2{
+        font-size: 30px;
         text-align: left;
         color: #1D4274;
+        text-decoration: underline solid #25C0D5;
+        text-transform: uppercase;
     }
         
         h3{
             text-align: left;
             color: #1D4274;
-            margin: 50px 0px 50px 10px;
-            font-size: 30px;
+            margin: 0px 0px 20px 0px;
+            font-size: 25px;
         }
             ul{
                 text-align: left;
@@ -26,13 +29,63 @@ section{
         }
 }
 
+/* Festivalpass overskrift*/
+.festivalpassheading{
+    text-decoration: underline solid #25C0D5;
+}
+
+/*Sjanger-underoverskrift*/
+.Sjangerheading{
+    font-size: 20px;
+    color: #1D4274;
+    margin: 0;
+    padding: 0;
+    margin-left: 10px;
+}
+
+/*Sjangertype*/
+.sjangertype{
+    color: #1D4274;
+    margin: 5px;
+    margin-left: 0;
+}
+
+
+/* Kjøp og ønskeliste knapper */
+.kjop{
+    display: flex;
+    width: 30px;
+    justify-content: center;
+    background-color: #1D4274;
+    color: #ffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    text-transform: uppercase;
+    padding: 6px 25px;
+    margin: 5px 0px 0px 155px;
+    transition: background-color 0.3s ease; 
+    text-decoration: none;
+    cursor: pointer; /*Har brukt kode fra W3Schools for å få en peker når man hovrer over knapp. Hentet
+    fra: https://www.w3schools.com/cssref/pr_class_cursor.php . Dato: 05.05.25 */
+    
+}
+.kjop:hover{
+    background-color: #25C0D5;
+    color: #1D4274;
+
+}
+
+/*Følg oss-underoverskrift*/
 .soMe{
     width:50%;
-    padding: 8px 8px 40px 0px;
+    margin-top: 5px;
+    margin-bottom: 0;
     font-style: italic;
     font-size: 12px;
 }
 
+/* Heltrukken linje*/
 hr{
     width: 100%;
     height: 3px;
@@ -41,6 +94,7 @@ hr{
     display: flex;
     margin-bottom: 1rem;
     margin-left:0;
+    margin-top: 2rem;
 }
 
 /* Brukt kode hentet fra W3schools for å få media queries til å fungere. Hentet fra : https://www.w3schools.com/css/css3_mediaqueries.asp Dato: 05.05.25. */

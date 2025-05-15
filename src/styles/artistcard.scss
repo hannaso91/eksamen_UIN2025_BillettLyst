@@ -12,7 +12,7 @@
 .artistHeading{
     text-align: left;
     color: #1D4274;
-    font-size: 30px;
+    font-size: 25px;
     text-decoration: underline #25C0D5;
 }
 
@@ -21,10 +21,12 @@
     background-color: #D9D9D9;
     width: 300px;
     height: 300px;
-    margin: 2rem;
+    margin: 0rem 0rem 1.5rem 4rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Tatt i bruk forslag fra githubCopilot. (linje 28-29)
 
             img{
                 width: 280px;
@@ -32,6 +34,7 @@
                 margin: 0.6rem;
                 object-fit: cover; /* Har brukt kode fra W3Schools for å få bildene i like stor str i hvert av artikkelkortene. 
                 Hentet fra: https://www.w3schools.com/css/css3_object-fit.asp Dato:05.05.2025. */
+                border-radius: 5px;
             }
 
             h3{

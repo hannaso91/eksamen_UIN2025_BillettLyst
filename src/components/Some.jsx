@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram, faSpotify } from '@fortawesome/free-brands-svg-icons';
+import "../styles/some.scss"
 
 export default function Some({event}) {
 
@@ -9,9 +10,9 @@ export default function Some({event}) {
     const spotify = event.externalLinks?.spotify?.[0]?.url;
 
     // her lager vi en forkortet if test på hver av de, de sjekker om de urlene eksisterer, dersom de gjør det rendres ikonet med en link til sosiale medier, hvis ikke returnerer den null, altså ingenting
-    const facebookExists = facebook ? <a href={facebook}  target="_blank"><FontAwesomeIcon icon={faFacebook}/></a> : null
-    const instagramExists = instagram ? <a href={instagram} target="_blank"><FontAwesomeIcon icon={faInstagram} /></a> : null
-    const spotifyExists = spotify ? <a href={spotify} target="_blank"><FontAwesomeIcon icon={faSpotify} /></a> : null
+    const facebookExists = facebook ? <a className="SmIcon" href={facebook}  target="_blank"><FontAwesomeIcon icon={faFacebook}/></a> : null
+    const instagramExists = instagram ? <a className="SmIcon" href={instagram} target="_blank"><FontAwesomeIcon icon={faInstagram} /></a> : null
+    const spotifyExists = spotify ? <a className="SmIcon" href={spotify} target="_blank"><FontAwesomeIcon icon={faSpotify} /></a> : null
     
     // ved å gjøre dette så slipper vi å få undefined, vi får ut kun de som faktisk eksisterer
     return(

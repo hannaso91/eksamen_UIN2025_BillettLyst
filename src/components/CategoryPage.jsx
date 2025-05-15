@@ -81,9 +81,9 @@
                     //onChange sier bare at om noe endrer seg så skal det nye lagres i staten
                     />
                 </label>
-                <label htmlFor="country"></label> {/*https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/option*/}
-                <select id="country" value={country} onChange={(e) => setCountry(e.target.value)}> {/*Setter den valgte verdien inn i useState, useState endres hver gang input endres med onChange*/}
-                    <option value="Norge">Velg land</option> {/*Default Norge for å få innhold når siden mountes*/}
+                <label htmlFor="country"></label>
+                <select className="selectbtn" id="country" name="country" value={country} onChange={(e) => setCountry(e.target.value)}>
+                    <option value="Norge">Velg land</option> {/*Det blir satt til value Norge som default slik at det blir samme som usestate, da er det innhold når siden lastes*/}
                     <option value="Norge">Norge</option>
                     <option value="Sverige">Sverige</option>
                     <option value="Danmark">Danmark</option>
@@ -92,7 +92,7 @@
                 </select>
 
                 <label htmlFor="city"></label>
-                <select id="city" value={categoryCity} onChange={(e) => setCity(e.target.value)}>
+                <select className="selectbtn" id="city" name="city" value={categoryCity} onChange={(e) => setCity(e.target.value)}>
                     <option value="">Velg by</option>
                     <option value="Oslo">Oslo</option>
                     <option value="Stockholm">Stockholm</option>
@@ -120,7 +120,7 @@
             </div>
         </section>
         <section>
-            <h3>Arrangementer</h3>
+            <h3 className="arrangementheading">Arrangementer</h3>
             <div className="arrangementflex">
             {eventsAPI.map(pass => (
                 <div key={pass.id}>
@@ -136,18 +136,20 @@
             </div>
         </section>
         <section>
-            <h3>Spillesteder/eventsteder</h3>
-            {venues.map(attraction => (
-            <div key={attraction.id}>
-                <AttractionsCategoryPage attraction={attraction} storageLiked={storageLiked} />
-                <HeartIcon id={attraction.id} />
-            </div>
-            ))}
-            {venues.length === 0 && venues !== undefined && (
-                <p>Ingen spillsteder funnet.</p>
-            )}
+  <h3 className="arrangementheading">Spillesteder/eventsteder</h3>
+  <div className="spillestedflex">
+    {venues.map(attraction => (
+      <div key={attraction.id}>
+        <AttractionsCategoryPage attraction={attraction} storageLiked={storageLiked} />
+        <HeartIcon id={attraction.id} />
+      </div>
+    ))}
+  </div>
 
-        </section>
+  {venues.length === 0 && venues !== undefined && (
+    <p>Ingen spillsteder funnet.</p>
+  )}
+</section> //
         </>
     );
     }

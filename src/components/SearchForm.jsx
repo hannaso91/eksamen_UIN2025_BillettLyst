@@ -15,9 +15,9 @@ export default function SearchForm({setKeyword}) {
         <h3 className="searchHeading">Søk med nøkkelord</h3>
         <form className="searchFormstyling" onSubmit={handleSubmit}>
             <label htmlFor="inputKeyword">
-                <input type="text" id="inputKeyword" placeholder="findings..."></input>
+                <input type="text" id="inputKeyword" placeholder="Findings..."></input>
             </label>
-            <button type="submit">Søk</button>
+            <button className="filtersearchbtn" type="submit">Søk</button>
         </form> 
         </>
     )
