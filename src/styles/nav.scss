@@ -66,7 +66,7 @@ nav{
 /* Brukt kode for media query på linje 34 fra: https://www.w3schools.com/css/css3_mediaqueries.asp */
 @media screen and (min-width: 430px){
     nav{
-        min-width: 1200px;
+        max-width: 100%;
         display: flex;
         justify-content: space-between;
 
