@@ -136,20 +136,20 @@
             </div>
         </section>
         <section>
-  <h3 className="arrangementheading">Spillesteder/eventsteder</h3>
-  <div className="spillestedflex">
-    {venues.map(attraction => (
-      <div key={attraction.id}>
-        <AttractionsCategoryPage attraction={attraction} storageLiked={storageLiked} />
-        <HeartIcon id={attraction.id} />
-      </div>
-    ))}
-  </div>
+    <h3 className="arrangementheading">Spillesteder/eventsteder</h3>
+  < div className="spillestedflex">
+        {venues.map(attraction => (
+        <div key={attraction.id}>
+            <AttractionsCategoryPage attraction={attraction} storageLiked={storageLiked} />
+            <HeartIcon id={attraction.id} />
+        </div>
+        ))}
+    </div>
 
-  {venues.length === 0 && venues !== undefined && (
-    <p>Ingen spillsteder funnet.</p>
-  )}
-</section> //
+    {venues.length === 0 && venues !== undefined && (
+        <p>Ingen spillsteder funnet.</p>
+    )}
+    </section> 
         </>
     );
     }
