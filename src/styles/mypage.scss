@@ -5,15 +5,17 @@ main{
     .myprofile{
         width: 320px;
         border-radius: 10px;
-        background-color: #D9D9D9;
+        border: 2px solid #25C0D5;
         padding: 10px;
         h2{
-            font-size: 20px;
+            font-size: 16px;
+            text-decoration: none;
         }
     
         .imgMe{
-            width: 250px;
-            height: auto;
+            width: 200px;
+            height: 200;
+            object-fit: cover;
         }
         p{
             font-size: 15px;
@@ -28,21 +30,25 @@ main{
         gap: 40px;
         width: 320px;
         margin-top: 30px;
-        border-radius: 10px;
-        background-color: #D9D9D9;
-        padding: 10px;
+
 
         h2{
             font-size: 16px;
             width: 100%;
         }
         img{
-            width: 150px;
-            height: auto;
+            width: 130px;
+            height: 160px;
+            object-fit: cover;
         }
         p{
             margin-top: 0px;
         }
+    }
+    .bakgrunn{
+        background-color: #D9D9D9;
+        border-radius: 10px;
+        padding: 10px;
     }
     .text{
         margin-top: 0;
@@ -77,7 +83,7 @@ main{
 
         .myprofile{
             h2{
-                font-size: 30px;
+                font-size: 20px;
             }
         
             .imgMe{
