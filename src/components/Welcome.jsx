@@ -45,9 +45,9 @@
           <p>Alder: {me?.age}</p>
           <p>Kjønn: {me?.gender}</p>
         </section>
-
+        <h2>Venner</h2>
         <section className="friends">
-          <h2>Venner</h2>
+          
           {friends.map(f => { //Har valgt å legge map og filter inne i denne mappen, dette forenkler koden. Hadde vi gjort kodene under utenfor map hadde vi hatt en commonWishes verdi for alle og det hadde ikke fungert. Det fant vi ut ettersom koden først ble plassert utenfor map
           // For hver venn så skal ønskeliste hentes for akkurat den vennen
             const friendWishList = f?.wishlist?.map(w => w.apiid?.trim()) || []; //trimmer apiid for å sikre at det er rent uten mellomrom før eller etter 
@@ -57,7 +57,7 @@
             return (
               <div key={f._id}>
                 <img src={f?.image?.asset?.url} alt={f?.name} className="imgFriend" />
-                <p>{f?.name}</p>
+                <p><b>{f?.name}</b></p>
                 <div className="text">
                   {commonWishesEvents.length > 0 ? (
                     commonWishesEvents.map(event => (
@@ -73,19 +73,19 @@
             );
           })}
         </section>
-
-        <section className="buy">
-          <h2>Mine kjøp</h2>
+        <section className="eventkort">
+        <h2>Mine kjøp</h2>
           {purchases.map(pass => (
             <div key={pass.id}>
               <Link to={`/sanity-event/${pass.id}`} state={{ me, friends }}>
                 <EventCard pass={pass} />
               </Link>
             </div>
+            
           ))}
         </section>
-        <section className="buy">
-          <h2>Ønskeliste</h2>
+        <h2>Ønskeliste</h2>
+        <section className="eventkort">
           {wishlist.map(pass => (
             <div key={pass.id}>
               <Link to={`/sanity-event/${pass.id}`} state={{ me, friends }}>

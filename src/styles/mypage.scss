@@ -1,12 +1,12 @@
 main{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
     text-align: left;
     border-top: 3px solid #25C0D5;
 
     .myprofile{
         width: 320px;
+        border-radius: 10px;
+        background-color: #D9D9D9;
+        padding: 10px;
         h2{
             font-size: 20px;
         }
@@ -20,12 +20,21 @@ main{
             margin: 0px;
         }
     }
+
+
     .friends{
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
         width: 320px;
         margin-top: 30px;
+        border-radius: 10px;
+        background-color: #D9D9D9;
+        padding: 10px;
 
         h2{
             font-size: 16px;
+            width: 100%;
         }
         img{
             width: 150px;
@@ -37,12 +46,8 @@ main{
     }
     .text{
         margin-top: 0;
-        width: 320px;
+        width: 300px;
     }
-    .buy{
-        border-top: 3px solid #25C0D5;
-    }
-
 }
 
 /* Brukt kode hentet fra W3schools for å få media queries til å fungere. Hentet fra : https://www.w3schools.com/css/css3_mediaqueries.asp Dato: 05.05.25. */
@@ -51,6 +56,20 @@ main{
         display: flex;
         flex-wrap: wrap;
         flex-direction: column;
+
+
+        .friends{
+            display: flex;
+            flex-direction: row;
+            gap: 40px;
+        }
+
+        .eventkort{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+
+        }
 
         .myprofile{
             h2{
