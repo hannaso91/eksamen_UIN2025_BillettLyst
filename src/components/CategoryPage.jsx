@@ -45,13 +45,13 @@
         .then(data => setEventsAPI(data._embedded?.events || [])) //lagrer fetch i en useState her, er data._embedded.events tom i fetchen lages en tom array, dette sikrer at siden ikke får error og kræsjer
         .catch(error => console.error("Feil ved events-fetch", error)); //logger feil dersom fetch ikke fungerer, lettere for oss å se hvor feilen ligger om den oppstår
 
-        // Fetcher attractions
+        // Fetcher attractions, vi har også sett at dette ikke har datofiltrering og city, derfor fungerer ikke dette optimalt
         fetch(`https://app.ticketmaster.com/discovery/v2/attractions?apikey=AFEfcxa4XlCTGJA56Jk356h0NkfziiWD&keyword=${keywordcheck}&locale=*&countryCode=${code}&startDateTime=${date}&city=${categoryCity}`)
         .then(response => response.json())
         .then(data => setAttractions(data._embedded?.attractions || [])) 
         .catch(error => console.error("Feil ved attractions-fetch", error));
 
-        // Fetcher venues
+        // Fetcher venues, vi har også sett at dette ikke har datofiltrering og city, derfor fungerer ikke dette optimalt
         fetch(`https://app.ticketmaster.com/discovery/v2/venues?apikey=AFEfcxa4XlCTGJA56Jk356h0NkfziiWD&keyword=${keywordcheck}&locale=*&countryCode=${code}&startDateTime=${date}&city=${categoryCity}`)
         .then(response => response.json())
         .then(data => setVenues(data._embedded?.venues || []))
