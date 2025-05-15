@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../styles/loginInput.scss"
 
 export default function Dashboard({ user, setSignedIn }) { //tar imot noen props som skal benyttes for å endre innloggingsstatus. Måtte sendes som prop fra app.jsx siden det skal sjekkes flere steder
   // Denne staten lagrer input fra brukeren, altså brukernavnet som blir skrevet inn, det blir lagret i et objekt
@@ -30,7 +31,7 @@ export default function Dashboard({ user, setSignedIn }) { //tar imot noen props
   };
 
   return (
-    <section>{/*på linje 43 kaller vi handleChange funksjonen vi har skrevet over og håndterer det som blir skrevet i inputfeltet for logg inn, vi ser etter endringer*/}
+    <section className="login">{/*på linje 43 kaller vi handleChange funksjonen vi har skrevet over og håndterer det som blir skrevet i inputfeltet for logg inn, vi ser etter endringer*/}
       <h2>Logg inn</h2>
       <form>
         <label htmlFor="username">
