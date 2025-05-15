@@ -63,6 +63,7 @@
     }, [apiCategory]); //Når vi endret logikken over (handleSearch) tok vi også bort useeffekten i starten. Når vi da sjekket nettsiden og trykket på for eks musikk kom det ingenting. Vi skjønte fort at vi måtte ha denne useeffekten for å kunne generere innhold når siden mountes
     // Vi hadde først ingen avhengigheter for når den useEffekten skulle kjøre, og da endret det seg ikke når vi trykket fra musikk til sport, da skjønte vi at vi også måtte ha med aåiCategory her slik at når apiCategory variabelen forandret seg skulle siden lastes på nytt med nytt innhold
 
+    console.log("for å hente ut bilde", venues)
 
     return (
         <> {/*Ettersom det var en stund siden vi hadde vært igjennom dette, så måtte dette friskes opp litt. Der vi har brukt kilder vil det ligge kilde ved den biten */}

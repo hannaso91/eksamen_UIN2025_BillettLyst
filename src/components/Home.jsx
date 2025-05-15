@@ -3,13 +3,14 @@ import EventCard from "./EventCard";
 import { Link } from "react-router-dom";
 import "../styles/home.scss"
 
-export default function Home({festivals}) { //henter inn prop som holder på data om festivaler fra app.jsx
+export default function Home({festivals}) { //henter inn prop som holder på data om festivaler fra app.jsx, gjenbruker innholdet i fetchen for å hente så lite data som mulig for å gjøre nettsiden mer effektiv
 
     const [selectedCity, setSelectedCity] = useState("Oslo"); // Denne staten brukes for å lagre valgt by, hvilken av knappene brukeren har klikket på, setter default Oslo slik at siden alltid har innhold
-    const [cityevents, setCityEvents] = useState([]); // Her lagres fetchen, basert på hvilken by som er valgt. det blir lagret som en array siden vi har skrevet en tom array inni staten
-    const cities =  ["Oslo", "Stockholm", "Berlin", "Paris", "London"] //Denne variabelen holder på de ulike byene brukeren kan klikke på. Det gjør det enkelt å legge til flere byer senere. Skriver vi Bergen inni der så kommer den knappen med en gang
+    const [cityevents, setCityEvents] = useState([]); // Her lagres fetchen, basert på hvilken by som er valgt. det blir lagret som en array siden vi har skrevet en tom array inni staten. Da må innholdet senere mappes ut
+    const cities =  ["Oslo", "Stockholm", "Berlin", "Paris", "London"] //Denne variabelen holder på de ulike byene brukeren kan klikke på. Det gjør det enkelt å legge til flere byer senere. Skriver vi Bergen inni denne variabelen så kommer den knappen med en gang
+    // mindre ompa lompa land som Marius kaller det
   
-    const fetchEvents = (city) => { //
+    const fetchEvents = (city) => { // Funksjon som henter events fra API basert på by-navnet som sendes inn som parameter. Brukes både ved oppstart og når bruker klikker på en by-knapp, starten er Oslo.
         fetch(`https://app.ticketmaster.com/discovery/v2/events.json?city=${city}&size=10&apikey=AFEfcxa4XlCTGJA56Jk356h0NkfziiWD`)
         .then(response => response.json())
         .then(data => {
@@ -27,6 +28,7 @@ export default function Home({festivals}) { //henter inn prop som holder på dat
     }, []) // ingen avhengigheter her, det fungerer fint uten ettersom onclick tar seg av endringene, med andre ord så er det handleclick som styrer når fetchevents kjører
 
     //Denne håndterer klikk på de ulike knappene, og henter nye events når noe er klikket. Sender parameter for å hente inn det korrekte i fetchen. samme sendes i fetchen lenger oppe
+    // Klikkes for eks Oslo er det det som blir sendt inn
     const handleClick = (city) => {
         setSelectedCity(city);
         fetchEvents(city);

@@ -4,7 +4,11 @@ export default function AttractionsCategoryPage({attraction}) { //Lagde en egen 
     return(
         <article className="attractionCard">
             <h2>{attraction.name}</h2>
-            <img src={attraction.images?.[0]?.url} alt={attraction.name}/>
+            {attraction.images?.length > 0 ? ( //legger inn en sjekk for å slippe error som oppgaven sier vi ikke skal ha
+                <img src={attraction.images[0].url} alt={`Bilde av ${attraction.name}`} />
+            ) : (
+                <p>Ingen bilde tilgjengelig</p>
+            )}
         </article>
     )
 }
