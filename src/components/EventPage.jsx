@@ -56,7 +56,7 @@ export default function EventPage() {
                 <Some event={event}/>
             </article>
             <hr></hr>
-            <h3>Festivalpass:</h3>
+            <h3 className="festivalpassheading">Festivalpass:</h3>
             <div className="flexEventCard">
             {festivalpass.map(pass =>
                 <div key={pass.id}> {/*Div her er kun for css og key slik at vi ikke får feil på key prop*/}
