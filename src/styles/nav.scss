@@ -5,6 +5,8 @@ nav{
         height: auto;
     }
 
+    /*LoggUt-knapp*/
+
     button{
         background-color: #1D4274;
         border-radius: 5px;
@@ -12,12 +14,10 @@ nav{
         padding: 5px 10px;
         margin-right: 10px;
     }
+        
+    /*LoggUt-knapp SLUTT*/
 
-    a{
-        text-decoration: none;
-        color: #1D4274;
-    }
-
+    /*Nav-meny*/
     ul{
         padding: 0;
         justify-content: center;
@@ -27,6 +27,7 @@ nav{
             list-style: none;
             background-color: #1D4274;
             
+            
             padding: 5px 15px;
             margin: 10px;
             border-radius: 5px;
@@ -35,26 +36,32 @@ nav{
                 color: #ffffff;
                 font-size: 15px;
                 font-weight: 600;
+                a:hover{
+                    background-color: #25C0D5;
+                    color: #ffffff;
+                }
             }
         }
     }
-    a:hover{
-        color: #1d4274;
-        background-color: #ffffff;
+    .minside{
+        background-color: #1D4274;
+        border-radius: 5px;
+        color: #ffffff;
+        padding: 5px 10px;
+        margin-right: 10px;
     }
+
+    }
+
+    /*Nav-meny SLUTT*/
 
     .button{
         background-color: #1D4274;
         color: #ffffff;
         padding: 10px 15px;
     }
-}
-
-
-
-
 /* Brukt kode for media query på linje 34 fra: https://www.w3schools.com/css/css3_mediaqueries.asp */
-@media screen and (min-width: 480px){
+@media screen and (min-width: 430px){
     nav{
         min-width: 1200px;
         display: flex;
@@ -84,6 +91,10 @@ nav{
             border-radius: 3px;
             align-content: center;
         }
-    }
 
+    }
+    .minside:hover{
+        background-color: #25C0D5;
+        color: #1D4274;
+    }
 }

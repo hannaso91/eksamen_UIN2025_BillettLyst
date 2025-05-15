@@ -14,7 +14,7 @@ export default function Nav({signedIn, handleLogout}) {
             {signedIn ? (
                 <>
                     <button onClick={handleLogout}>Logg ut</button>
-                    <Link to="/dashboard">Min side</Link>
+                    <Link className="minside" to="/dashboard">Min side</Link>
                 </>
            ) : (
             <Link to="/dashboard">Logg inn</Link> 
