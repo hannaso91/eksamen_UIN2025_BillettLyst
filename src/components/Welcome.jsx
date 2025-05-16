@@ -3,7 +3,7 @@
   import { useEffect, useState } from "react";
   import "../styles/mypage.scss";
 
-  export default function Welcome({ me, friends = [] }) {
+  export default function Welcome({ me, friends }) {
     const [ticketmasterAPI, setTicketmasterAPI] = useState([]);
 
     const purchaseId = me?.previousPurchases?.map(p => p.apiid) || []; //på denne og linjen under henter vi inn alle ID-er som ligger lagret på sanity, det ligger lagret i apiid som vi selv har definert i schema
