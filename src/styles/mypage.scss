@@ -79,31 +79,36 @@
 
 /* Brukt kode hentet fra W3schools for å få media queries til å fungere. Hentet fra : https://www.w3schools.com/css/css3_mediaqueries.asp Dato: 05.05.25. */
 @media screen and (min-width: 430px) {
-        .myprofile{
+    .myprofile{
+        display: flex;
+        flex-direction: column;
+
+        h2{
+            font-size: 16px;
+            margin-left: 10px;
             text-align: left;
-            h2{
-                font-size: 16px;
-                margin-left: 10px;
 
-            }
+        }
+        
 
-            p{
-                font-size: 15px;
-                margin: 0px;
-            }
+        p{
+            font-size: 15px;
+            margin: 0px;
+            text-align: left;
         }
+    }
 
-        .friends{  
-            flex-direction: row;
-            
-        }
-        .buy{
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-        }
-        .Overskrift{
-            margin: 2rem;
-        }
+    .friends{  
+        flex-direction: row;
+        
+    }
+    .buy{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .Overskrift{
+        margin: 2rem;
+    }
 
 }

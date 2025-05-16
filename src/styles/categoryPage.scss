@@ -1,4 +1,12 @@
 //Hoved overskrift for kategori-siden 
+.filterSearch {
+
+    h3{
+      margin: 80px 0 5px 10px;  
+    }
+    
+}
+
 .categoryheading{
     text-transform: capitalize;
     font-size: 35px;
@@ -117,21 +125,23 @@
     border-radius: 5px;
 }
 
-//Attraksjonsseksjon på kategori-siden
-.attractionSection{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    gap: 4rem;
-    justify-content: center;
-}
-
 //"Attraksjoner" overskrift.
 .atractionheading{
     font-size: 25px;
     margin-left: 10px;
     padding: 40px 0px 40px 0px;
     text-decoration: underline solid #25C0D5; 
+}
+
+//Attraksjonsseksjon på kategori-siden
+.attractionSection{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 4rem;
+    justify-content: center;
+    align-items: center;
+    max-width: 100vw;
 }
 
 // "Kjøp billetter" knapp & "Hjerte" knapp flex.
@@ -176,6 +186,7 @@
     flex-wrap: wrap;
     gap: 2rem;
     justify-content: center;
+    max-width: 100vw;
 }
 
 .spillestedflex{
@@ -183,6 +194,7 @@
     flex-wrap: wrap;
     gap: 2rem;
     justify-content: center;
+    max-width: 100vw;
 }
 
 //Arrangementheading på kategori-siden
@@ -193,85 +205,91 @@
 
 @media screen and (min-width: 430px) {
 
-    .searchfilterheading{
-        text-align: center;
+        .searchfilterheading{
+            text-align: center;
+        }
+        .filterSearchForm{
+        display: inline;
+            
+            label{
+                    margin: 30px;
+                    
+                        input{
+                        color:#1D4274;
+                        padding:10px;
+                        font-weight: bold;
+                        border: 1px solid #1D4274;
+                        border-radius: 5px;
+                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                        cursor: pointer;
+                        }
+                }
+        .selectbtn{
+            color:#1D4274;
+            padding:10px;
+            border-radius: 5px;
+            font-weight: bold;
+            border-color: #1D4274;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-transform:capitalize;
+            cursor: pointer;
+        }
+
+        .filterbtn{
+            background-color: #1D4274;
+            color:#ffff;
+            border: none;
+            margin-left: 5rem;
+            border-radius: 5px;
+            font-size: 20px;
+            padding: 6px 30px;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            cursor: pointer;
+        }
     }
-    .filterSearchForm{
-       display: inline;
-         
-        label{
-                margin: 30px;
-                
-                    input{
-                       color:#1D4274;
-                       padding:10px;
-                       font-weight: bold;
-                       border: 1px solid #1D4274;
-                       border-radius: 5px;
-                       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-                       cursor: pointer;
-                    }
-            }
-    .selectbtn{
+
+    .searchHeading{
+        text-align: center;
+        margin: 50px 0px 10px 0px;
+    }
+
+    .searchFormstyling{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-left: 28rem;
+        padding: 0;
+        gap: 3rem;
+                button{
+                    margin: 0;
+                    padding:5px;
+                    color: #ffffff;
+                    background-color: #1D4274;
+                    cursor: pointer;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                }
+                button:hover{
+                    background-color: #25C0D5;
+                    color: #1D4274;
+                    cursor: pointer;
+                    transition: background-color 0.3s ease; // Forslag fra githubCopilot. (linje 40)
+                    text-decoration: none;
+                }
+    }
+
+    #inputKeyword{
         color:#1D4274;
         padding:10px;
-        border-radius: 5px;
         font-weight: bold;
-        border-color: #1D4274;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        text-transform:capitalize;
-        cursor: pointer;
-    }
-
-    .filterbtn{
-        background-color: #1D4274;
-        color:#ffff;
-        border: none;
-        margin-left: 5rem;
+        border: 1px solid #1D4274;
         border-radius: 5px;
-        font-size: 20px;
-        padding: 6px 30px;
-        transition: background-color 0.3s ease;
-        text-decoration: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         cursor: pointer;
     }
-}
 
-.searchHeading{
-    text-align: center;
-    margin: 50px 0px 10px 0px;
-}
-.searchFormstyling{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-left: 28rem;
-    padding: 0;
-    gap: 3rem;
-            button{
-                margin: 0;
-                padding:5px;
-                color: #ffffff;
-                background-color: #1D4274;
-                cursor: pointer;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            }
-            button:hover{
-                background-color: #25C0D5;
-                color: #1D4274;
-                cursor: pointer;
-                transition: background-color 0.3s ease; // Forslag fra githubCopilot. (linje 40)
-                text-decoration: none;
-            }
-}
+    .attractionSection{
+        flex-direction: row;
+    }
 
-#inputKeyword{
-    color:#1D4274;
-    padding:10px;
-    font-weight: bold;
-    border: 1px solid #1D4274;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-}
 }
