@@ -91,13 +91,13 @@ export default function SanityEventDetails() {
         <a
           href={ticketmasterData?.url}
           target="_blank"
-          rel="noopener noreferrer"
+          className="citybtn"
         >
           Kjøp billetter her
         </a>
 
         {/* Viser hvilke brukere som har dette eventet i ønskelisten */}
-        <section>
+        <section className="inwishlist">
           <h3>Hvem har dette i ønskelista</h3>
 
           {wishlistOwners.length > 0 ? (
