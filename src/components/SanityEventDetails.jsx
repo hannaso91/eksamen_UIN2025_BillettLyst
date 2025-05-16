@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import { fetchByAPIinSanity } from "../sanity/arrangement";
-
+import "../styles/wishlistevents.scss" 
+ 
 export default function SanityEventDetails() {
     const { apiId } = useParams(); //Henter apiid fra url. 
     const [eventSanity, setEventSanity] = useState(); // lagrer data vi fetcher inn fra Sanity
@@ -70,17 +71,19 @@ export default function SanityEventDetails() {
         <>
         <h2>{eventSanity?.title}</h2>
             <>
-                <img src={ticketmasterData?.images?.[0].url} alt={`bilde fra eventet ${ticketmasterData?.name}`}/>
+                <img src={ticketmasterData?.images?.[0].url} id="eventpic" alt={`bilde fra eventet ${ticketmasterData?.name}`}/>
                 <section>
                     <h3>Sted og dato</h3>
-                    <p>Dato: {ticketmasterData?.dates?.start?.localDate}</p>
-                    <p>Sted: {ticketmasterData?.dates?.timezone}</p>
+                    <p className="wishlistP">Dato: {ticketmasterData?.dates?.start?.localDate}</p>
+                    <p className="wishlistP">Sted: {ticketmasterData?.dates?.timezone}</p>
                 </section> 
                 <section>
                     <h3>Sjanger</h3>
-                    <p>{ticketmasterData?.classifications?.[0]?.genre?.name}</p>
-                    <p>{ticketmasterData?.classifications?.[0]?.segment?.name}</p>
-                    <p>{ticketmasterData?.classifications?.[0]?.subGenre?.name}</p>
+                    <div id="flexbox"> 
+                        <p>{ticketmasterData?.classifications?.[0]?.genre?.name}</p>
+                        <p>{ticketmasterData?.classifications?.[0]?.segment?.name}</p>
+                        <p>{ticketmasterData?.classifications?.[0]?.subGenre?.name}</p>
+                    </div>
                 </section>
                 <a href={ticketmasterData?.url} target="_blank">
                     Kjøp billetter her
