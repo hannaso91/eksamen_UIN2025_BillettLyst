@@ -9,7 +9,7 @@ import SanityEventDetails from './components/SanityEventDetails';
 import { useEffect, useState } from 'react';
 import Welcome from './components/Welcome';
 import { fetchMember } from './sanity/member';
-import "./styles/app.scss";
+
 
 function App() {
   const [festivals, setFestivals] = useState([]);

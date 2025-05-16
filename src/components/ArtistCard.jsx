@@ -32,7 +32,7 @@ export default function ArtistCard({ festivalpass }) {
             <h2 className="artistHeading">Artister</h2>
             <div className="flexartistcard">
             {filterWithPush.map(artist => ( //mapper ut alt som ligger i den tomme arrayen vi opprettet, som ikke lenger er tom. Her brukes key ettersom det skal skrives JSX
-                    <article id="artistcard" key={artist.id}>
+                    <article className="artistcard" key={artist.id}>
                         <img src={artist.images?.[0]?.url}/>
                         <h3>{artist?.name}</h3>
                     </article>
