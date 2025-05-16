@@ -69,6 +69,7 @@ export default function SanityEventDetails() {
         {/* Viser bilde fra Ticketmaster (hvis tilgjengelig) */}
         <img
           src={ticketmasterData?.images?.[0].url}
+          className="imgFriend"
           alt={`bilde fra eventet ${ticketmasterData?.name}`}
         />
 
