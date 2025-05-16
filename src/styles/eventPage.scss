@@ -1,5 +1,5 @@
 //Overskrift og sjanger på Eventpage med sosiale medier.
-section{
+.festivalPage{
 
     h2{
         font-size: 30px;
@@ -99,6 +99,8 @@ hr{
 
 /* Brukt kode hentet fra W3schools for å få media queries til å fungere. Hentet fra : https://www.w3schools.com/css/css3_mediaqueries.asp Dato: 05.05.25. */
 @media screen and (min-width: 430px) {
+
+    
     .flexEventCard{
         display: flex;
         flex-wrap: wrap;
