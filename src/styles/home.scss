@@ -1,4 +1,4 @@
-//Her skal du kun style første section og knappene til section 2. Innholdet blir fikset i eventcard
+
 
 //Øvre seksjon på HomePage
 
@@ -20,15 +20,14 @@ h1{
     align-items: center;
     flex-direction: column;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Tatt i bruk forslag fra githubCopilot. (linje 21-22)
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
         
         img{
                 width: 300px;
                 height: 190px;
                 margin: 0.6rem;
                 margin-top: 1rem;
-                object-fit: cover; /* Har brukt kode fra W3Schools for å få bildene i like stor str i hvert av artikkelkortene. 
-                Hentet fra: https://www.w3schools.com/css/css3_object-fit.asp Dato:05.05.2025. */
+                object-fit: cover; 
         }
             h3{
                 text-align: center;
@@ -69,7 +68,7 @@ h1{
     font-size: 15px;
     padding: 10px 20px;
     margin: 10px;
-    cursor: pointer; // Forslag fra githubCopilot. Fra linje 61-62.
+    cursor: pointer; // Forslag fra githubCopilot. Fra denne linjen og under.
     transition: background-color 0.3s ease; 
 }
 
@@ -91,7 +90,7 @@ h1{
     align-items: center;
     justify-content: center;
     gap: 10px;
-    cursor: pointer;// Forslag fra githubCopilot. Fra linje 80 til 82.
+    cursor: pointer;// Forslag fra githubCopilot. denne linjen og under
     transition: background-color 0.3s ease; 
     text-decoration: none;
 }
@@ -101,7 +100,6 @@ h1{
     color: #1D4274;
 }
 
-/* Brukt kode hentet fra W3schools for å få media queries til å fungere. Hentet fra : https://www.w3schools.com/css/css3_mediaqueries.asp Dato: 05.05.25. */
 @media screen and (min-width: 430px) {
     .festivals{
         display: flex;
