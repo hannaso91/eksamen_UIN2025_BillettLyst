@@ -76,19 +76,23 @@ export default function SanityEventDetails() {
 
         {/* Viser sted og dato for arrangementet */}
         <section>
+        <div className="artikkelkort">
           <h3>Sted og dato</h3>
           <p>Dato: {ticketmasterData?.dates?.start?.localDate}</p>
           <p>Sted: {ticketmasterData?.dates?.timezone}</p>
+          </div>
         </section>
 
         {/* Viser informasjon om sjanger */}
         <section>
+        <div className="artikkelkort">
           <h3>Sjanger</h3>
           <p>{ticketmasterData?.classifications?.[0]?.genre?.name}</p>
           <p>{ticketmasterData?.classifications?.[0]?.segment?.name}</p>
           <p>{ticketmasterData?.classifications?.[0]?.subGenre?.name}</p>
+          </div>
         </section>
-
+        
         {/* Lenke til Ticketmaster for å kjøpe billetter */}
         <a
           href={ticketmasterData?.url}

@@ -26,7 +26,14 @@
     object-fit: cover;
 }
 
+section{
+    display: flex;
 
+    .artikkelkort{
+        text-align: left;
+        flex-direction: row;
+    }
+}
 
 
 
