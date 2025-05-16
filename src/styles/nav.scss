@@ -65,10 +65,19 @@ nav{
     }
 /* Brukt kode for media query på linje 34 fra: https://www.w3schools.com/css/css3_mediaqueries.asp */
 @media screen and (min-width: 430px){
+    
+
+
+    
     nav{
+
+
+        min-width: 100vw;
+        overflow: hidden;
         max-width: 100%;
         display: flex;
         justify-content: space-between;
+        padding: 1rem;
 
         ul{
             align-content: center;
@@ -96,6 +105,7 @@ nav{
         }
 
     }
+
     .minside:hover{
         background-color: #25C0D5;
         color: #1D4274;

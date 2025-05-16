@@ -5,6 +5,7 @@ import { fetchByAPIinSanity } from "../sanity/arrangement";
 import { fetchMember } from "../sanity/member";
 import "../styles/wishlistevents.scss"
 
+
 export default function SanityEventDetails() {
   // Henter apiId fra URL (f.eks. /sanity-event/:apiId)
   const { apiId } = useParams();
