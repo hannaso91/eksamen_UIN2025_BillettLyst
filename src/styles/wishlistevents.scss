@@ -31,9 +31,13 @@
 
 
 @media screen and (min-width: 430px) {
-    img{
-        width: 500px;
-        height: auto;
+    inwishlist{
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        h3{
+            width: 100%;
+        }
     }
 
 }
