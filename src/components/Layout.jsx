@@ -1,4 +1,3 @@
-import { Link, NavLink } from "react-router-dom";
 import Nav from "./Nav";
 import "../styles/nav.scss"
 import "../styles/footer.scss"

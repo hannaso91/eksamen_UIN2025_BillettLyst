@@ -6,13 +6,13 @@ export default function SearchForm({ setKeyword }) {
         e.preventDefault();
         const keyword = e.target.elements.inputKeyword.value.trim().toLowerCase();
         console.log("Brukeren søkte på:", keyword);
-        setKeyword(keyword); // Sender søkeordet til forelder-komponent
+        setKeyword(keyword); // Sender søkeordet til CategoryPage der usestaten er opprettet, sendt inn den funksjonen som prop for å kunne endre på innholdet i staten
     }
 
     return (
         <>
             <h3 className="searchHeading">Søk med nøkkelord</h3>
-            <form className="searchFormstyling" onSubmit={handleSubmit}>
+            <form className="searchFormstyling" onSubmit={handleSubmit}> 
                 <label htmlFor="inputKeyword">
                     <input type="text" id="inputKeyword" placeholder="Findings..." />
                 </label>

@@ -38,22 +38,19 @@
     return (
       <>
         <h1>Dashboard</h1>
-
         <section className="myprofile">
           <h2>Velkommen {me?.name}</h2>
           <img src={me?.image?.asset?.url} alt={me?.name} className="imgMe" />
           <p>Alder: {me?.age}</p>
           <p>Kjønn: {me?.gender}</p>
         </section>
-
         <section className="friends">
           <h2>Venner</h2>
           {friends.map(f => { //Har valgt å legge map og filter inne i denne mappen, dette forenkler koden. Hadde vi gjort kodene under utenfor map hadde vi hatt en commonWishes verdi for alle og det hadde ikke fungert. Det fant vi ut ettersom koden først ble plassert utenfor map
           // For hver venn så skal ønskeliste hentes for akkurat den vennen
             const friendWishList = f?.wishlist?.map(w => w.apiid?.trim()) || []; //trimmer apiid for å sikre at det er rent uten mellomrom før eller etter 
             const commonWishes = wishlistId.filter(ref => friendWishList.includes(ref)); // Her filtrerer vi ut det som bruker som er logget inn har i sin ønskeliste med det som vennene har
-            const commonWishesEvents = ticketmasterAPI.filter(event => commonWishes.includes(event.id)); // her finner vi de faktiske eventene for de felles ønskene
-
+            const commonWishesEvents = ticketmasterAPI.filter(event => commonWishes.includes(event.id)); // her finner vi de faktiske eventene for de felles ønskene i ticketmaster api så vi kan bruke data derfra
             return (
               <div className="friendsCard" key={f._id}>
                 <img src={f?.image?.asset?.url} alt={f?.name} className="imgFriend" />
@@ -73,11 +70,10 @@
             );
           })}
         </section>
-
         <section className="buy">
           <h2>Mine kjøp</h2>
           {purchases.map(pass => (
-            <div key={pass.id}>
+            <div key={pass.id}> {/*CSS og key formål*/}
               <Link to={`/sanity-event/${pass.id}`} state={{ me, friends }}>
                 <EventCard pass={pass} />
               </Link>
