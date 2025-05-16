@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchByAPIinSanity } from "../sanity/arrangement";
 import { fetchMember } from "../sanity/member";
-import "../styles/wishlistevents.scss";
+import "../styles/wishlistevents.scss"
 
 export default function SanityEventDetails() {
   // Henter apiId fra URL (f.eks. /sanity-event/:apiId)
@@ -62,17 +62,18 @@ export default function SanityEventDetails() {
 
   return (
     <>
+    <div className="sanityeventdesign">
       <h2>{eventSanity?.title}</h2>
 
       <>
         {/* Viser bilde fra Ticketmaster (hvis tilgjengelig) */}
-        <img className="eventbilde"
+        <img
           src={ticketmasterData?.images?.[0].url}
           alt={`bilde fra eventet ${ticketmasterData?.name}`}
         />
 
         {/* Viser sted og dato for arrangementet */}
-        <section className="wishlist">
+        <section>
           <h3>Sted og dato</h3>
           <p>Dato: {ticketmasterData?.dates?.start?.localDate}</p>
           <p>Sted: {ticketmasterData?.dates?.timezone}</p>
@@ -110,7 +111,9 @@ export default function SanityEventDetails() {
             <p>Ingen har dette i ønskelista.</p>
           )}
         </section>
+
       </>
+    </div>
     </>
   );
 }
