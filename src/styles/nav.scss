@@ -6,8 +6,8 @@ nav{
         height: auto;
     }
 
-    /*LoggUt-knapp*/
 
+    /*LoggUt-knapp*/
     button{
         background-color: #1D4274;
         border-radius: 5px;
@@ -15,8 +15,8 @@ nav{
         padding: 5px 10px;
         margin-right: 10px;
     }
-        
     /*LoggUt-knapp SLUTT*/
+
 
     /*Nav-meny*/
     ul{
@@ -51,27 +51,14 @@ nav{
         padding: 5px 10px;
         margin-right: 10px;
     }
-
-    
-
-
-
     /*Nav-meny SLUTT*/
 
-    .button{
-        background-color: #1D4274;
-        color: #ffffff;
-        padding: 10px 15px;
-    }
+
+   
 /* Brukt kode for media query på linje 34 fra: https://www.w3schools.com/css/css3_mediaqueries.asp */
 @media screen and (min-width: 430px){
     
-
-
-    
     nav{
-
-
         min-width: 100vw;
         overflow: hidden;
         max-width: 100%;
@@ -92,17 +79,7 @@ nav{
             }
         }
 
-        .button{
-            background-color: #1d4274;
-            color: #ffffff;
-            font-weight: 400;
-            font-size: 14px;
-            margin-top: 40px;
-            margin-bottom: 10px;
-            height: 30px;
-            border-radius: 3px;
-            align-content: center;
-        }
+        
 
     }
 
