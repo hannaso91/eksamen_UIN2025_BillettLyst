@@ -22,7 +22,8 @@
     text-align: left;
     margin-left: 10px;
     padding: 5px;
-    width: 50px;
+    width: 100%;
+    max-width: 200px;
     gap: 15px;
 
         label{
@@ -209,10 +210,13 @@
             text-align: center;
         }
         .filterSearchForm{
-        display: inline;
+        flex-direction: row;
+        max-width: 100vw;
+        margin-top: 4rem;
+        justify-content: center;
             
             label{
-                    margin: 30px;
+                    margin-left: 3rem;
                     
                         input{
                         color:#1D4274;
@@ -222,7 +226,12 @@
                         border-radius: 5px;
                         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
                         cursor: pointer;
+                        min-width: 20px;
+                        min-height: 30px;
+                        max-width: 150px;
+                        min-height: 30px;
                         }
+                        
                 }
         .selectbtn{
             color:#1D4274;
@@ -258,7 +267,7 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        margin-left: 28rem;
+        justify-content: center;
         padding: 0;
         gap: 3rem;
                 button{

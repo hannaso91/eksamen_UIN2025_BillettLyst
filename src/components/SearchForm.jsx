@@ -17,7 +17,7 @@ export default function SearchForm({setKeyword}) {
             <label htmlFor="inputKeyword">
                 <input type="text" id="inputKeyword" placeholder="Findings..."></input>
             </label>
-            <button className="filtersearchbtn" type="submit">Søk</button>
+
         </form> 
         </>
     )

@@ -13,18 +13,18 @@ export default function Nav({signedIn, handleLogout}) {
             {/*Hvis bruker ikke er logget inn vises logg inn, derfor sendes prop fra layout og til nav, sjekke om brukeren er logget inn eller ut og vise innhold deretter*/}
             {signedIn ? (
                 <>
-                    <button onClick={handleLogout}>Logg ut</button>
-                    <Link className="minside" to="/dashboard">Min side</Link>
+                    <button onClick={handleLogout} className="btnhover">Logg ut</button>
+                    <Link className="minside"  to="/dashboard">Min side</Link>
                 </>
            ) : (
             <Link to="/dashboard">Logg inn</Link> 
            )}
            </div>
             <ul>
-                <li><Link to="/">Hjem</Link></li>
-                <li><NavLink to="/category/musikk/">Musikk</NavLink></li> {/*Vi valgte navlink på kategoriene, dette fordi navlink indikerer hvilken side som er aktiv ved å kunne gi det en annen stil*/}
-                <li><NavLink to="/category/teater/">Teater</NavLink></li>
-                <li><NavLink to="/category/sport/">Sport</NavLink></li>
+                <li className="btnhover"><Link to="/">Hjem</Link></li>
+                <li className="btnhover"><NavLink to="/category/musikk/">Musikk</NavLink></li> {/*Vi valgte navlink på kategoriene, dette fordi navlink indikerer hvilken side som er aktiv ved å kunne gi det en annen stil*/}
+                <li className="btnhover"><NavLink to="/category/teater/">Teater</NavLink></li>
+                <li className="btnhover"><NavLink to="/category/sport/">Sport</NavLink></li>
             </ul>
         </nav>
     );

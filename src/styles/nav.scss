@@ -22,6 +22,7 @@ nav{
     ul{
         padding: 0;
         justify-content: center;
+
         margin-bottom: 2rem;
         
         li{
@@ -38,10 +39,6 @@ nav{
                 color: #ffffff;
                 font-size: 15px;
                 font-weight: 600;
-                a:hover{
-                    background-color: #25C0D5;
-                    color: #ffffff;
-                }
             }
         }
     }
@@ -54,6 +51,8 @@ nav{
         padding: 5px 10px;
         margin-right: 10px;
     }
+
+    
 
 
 
@@ -101,4 +100,11 @@ nav{
         background-color: #25C0D5;
         color: #1D4274;
     }
+
+    .btnhover:hover{
+        background-color: #25C0D5;
+        color: #1D4274;
+    }
+
+
 }

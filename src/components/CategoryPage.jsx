@@ -72,14 +72,14 @@
             <h3 className="searchfilterheading">Filtrert søk</h3>
             <form className="filterSearchForm">
                 <label htmlFor="date"> {/*Her knyttes label og inputfeltet sammen, gir bedre tilgjengelighet*/}
-                    <input
-                    type="date" //ved å bruke denne får vi en datovelger på nettsiden
-                    id="date"
-                    value={date ? date.slice(0, 10) : ""} //Gjør om dato til yyyy - mm - dd, dette blir riktig i datovelgeren og er sånn typen date krever at det er. Dette sikrer at det blir riktig
-                    onChange={(e) => setDate(`${e.target.value}T00:00:00Z`)} //I denne linjen sørger vi for at datoen som er valgt (som skjer i e.target.value), dette blir da for eks 2025-05-08 siden den skrive ut måten er definert på linjen over. 
-                    //Det etter at dato er satt i useStaten så gjøres den om med å legge til noe etter slik at det blir riktig format for APIet. Så i dette tilfellet vil dato se slik ut: 2025-05-08T00:00:00Z, det det er det formatet som blir sendt i fetchen gjennom date
-                    //onChange sier bare at om noe endrer seg så skal det nye lagres i staten
-                    />
+                <input
+                type="date" //ved å bruke denne får vi en datovelger på nettsiden
+                id="date"
+                value={date ? date.slice(0, 10) : ""} //Gjør om dato til yyyy - mm - dd, dette blir riktig i datovelgeren og er sånn typen date krever at det er. Dette sikrer at det blir riktig
+                onChange={(e) => setDate(`${e.target.value}T00:00:00Z`)} //I denne linjen sørger vi for at datoen som er valgt (som skjer i e.target.value), dette blir da for eks 2025-05-08 siden den skrive ut måten er definert på linjen over. 
+                //Det etter at dato er satt i useStaten så gjøres den om med å legge til noe etter slik at det blir riktig format for APIet. Så i dette tilfellet vil dato se slik ut: 2025-05-08T00:00:00Z, det det er det formatet som blir sendt i fetchen gjennom date
+                //onChange sier bare at om noe endrer seg så skal det nye lagres i staten
+                />
                 </label>
                 <label htmlFor="country"></label>
                 <select className="selectbtn" id="country" name="country" value={country} onChange={(e) => setCountry(e.target.value)}>
