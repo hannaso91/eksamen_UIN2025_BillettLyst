@@ -12,6 +12,11 @@
     }
 }
 
+.imgEvent{
+    height: auto;
+    width: 300px;
+}
+
 .inwishlist{
     display: flex;
     flex-direction: column;
@@ -37,6 +42,12 @@
 
 
 @media screen and (min-width: 430px) {
+
+    .imgEvent{
+        width: 800px;
+    }
+
+
     inwishlist{
         flex-direction: row;
         flex-wrap: wrap;
@@ -45,5 +56,7 @@
             width: 100%;
         }
     }
+
+    
 
 }

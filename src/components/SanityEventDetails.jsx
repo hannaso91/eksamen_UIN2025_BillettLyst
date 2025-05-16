@@ -70,13 +70,13 @@ export default function SanityEventDetails() {
         {/* Viser bilde fra Ticketmaster (hvis tilgjengelig) */}
         <img
           src={ticketmasterData?.images?.[0].url}
-          className="imgFriend"
+          className="imgEvent"
           alt={`bilde fra eventet ${ticketmasterData?.name}`}
         />
 
         {/* Viser sted og dato for arrangementet */}
         <section>
-        <div className="artikkelkort">
+        <div>
           <h3>Sted og dato</h3>
           <p>Dato: {ticketmasterData?.dates?.start?.localDate}</p>
           <p>Sted: {ticketmasterData?.dates?.timezone}</p>
@@ -85,7 +85,7 @@ export default function SanityEventDetails() {
 
         {/* Viser informasjon om sjanger */}
         <section>
-        <div className="artikkelkort">
+        <div>
           <h3>Sjanger</h3>
           <p>{ticketmasterData?.classifications?.[0]?.genre?.name}</p>
           <p>{ticketmasterData?.classifications?.[0]?.segment?.name}</p>
