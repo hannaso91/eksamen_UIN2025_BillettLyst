@@ -103,7 +103,7 @@ export default function SanityEventDetails() {
 
           {wishlistOwners.length > 0 ? (
             wishlistOwners.map(person => (
-              <article key={person._id}>
+              <article key={person._id} className="friendsCard">
                 <img src={person.image?.asset?.url} className="imgFriend" alt={person.name} />
                 <p>{person.name}</p>
               </article>
